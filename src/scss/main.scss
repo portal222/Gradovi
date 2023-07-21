@@ -1,0 +1,132 @@
+.mainDiv {
+
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 18px;
+    align-content: center;
+    min-width: 1200px;
+
+
+
+    tr {
+
+        background-color: rgb(204, 203, 201);
+
+        &:nth-child(even) {
+            background-color: rgb(240, 240, 240);
+        }
+    }
+
+
+    td {
+        padding-left: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align: left;
+    }
+
+    h2 {
+        color: rgb(76, 96, 90);
+        font-weight: bold;
+    }
+
+    #search-form {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 20px;
+        color: rgb(87, 160, 136);
+    }
+
+}
+
+.navigation {
+    height: 50px;
+    width: 100%;
+    align-items: stretch;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: rgb(76, 96, 90);
+    color: cornflowerblue;
+
+    .linkovi {
+        color: aquamarine;
+        text-decoration: none;
+        padding-left: 20px;
+    }
+
+    .linkovi:hover {
+        color: rgb(87, 160, 136);
+    }
+
+}
+
+
+
+
+.loader {
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(211, 247, 235);
+
+}
+
+@media screen and (max-width: 500px) {
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: rgb(204, 203, 201);
+
+    }
+
+    .mainDiv {
+        font-size: 15px;
+
+        td {
+            padding-left: 10px;
+
+        }
+
+        .cities {
+            max-width: 110px;
+
+        }
+        .country {
+            max-width: 15px;
+            text-align: center;
+        }
+        #search-form {
+            font-size: 16px;
+        }
+    }
+
+}
+
+@media screen and (max-width: 330px) {
+
+    .navigation {
+        font-size: 14px;
+        padding-left: 15px;
+    }
+
+    .mainDiv {
+        font-size: 14px;
+
+        td {
+            padding-left: 5px;
+        }
+
+        .cities {
+            max-width: 80px;
+        }
+        .country {
+            max-width: 7px;
+            text-align: center;
+        }
+        #search-form {
+            font-size: 14px;
+        }
+    }
+
+}
