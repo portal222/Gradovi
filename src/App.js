@@ -43,4 +43,3 @@ function App() {
 }
 export default App;
 
-//search preuzet sa sajta https://www.guvi.in/blog/build-a-search-filter-component-in-react-2023/
