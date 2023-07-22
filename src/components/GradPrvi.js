@@ -21,7 +21,7 @@ function App() {
 
 
 const getWeather = async () => {
-    const url = "./city.list011.json";
+    const url = "./city.listMaliDeo.json";
 
     try {
         const response = await axios.get(url);
