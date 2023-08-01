@@ -1,17 +1,13 @@
 import React, { useRef, useContext } from "react";
-import { Paper, InputBase, Divider } from "@mui/material";
-import IconButton from '@mui/material/IconButton';
-import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
-import SearchIcon from '@mui/icons-material/Search';
+import { Paper,InputBase,IconButton } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 import { useNavigate } from "react-router-dom";
-import GlobalContext from '../context/global-context';
+import GlobalContext from "./GlobalContext";
 
 const SearchBox = (props) => {
-    if (props.home === true) {
-        return false;
-    }
 
     const globalCtx = useContext(GlobalContext);
+
     const navigate = useNavigate();
     const searchString = useRef();
 
@@ -33,37 +29,32 @@ const SearchBox = (props) => {
 
     return (
         <Paper
-            component='form'
-            sx={{
-                p: '2px 4px',
-                display: 'flex',
-                alignItems: 'center',
-                width: '16rem',
-            }}
+        component = 'form'
+        se={{
+            p: '2px 4px',
+            display: 'flex',
+            alignItems: 'center',
+            width: '10rem',
+            backgroundColor: 'red',
+        }}
         >
-            <IconButton sx={{ p: '10px' }} aria-label='menu'>
-                <LanguageOutlinedIcon />
-            </IconButton>
             <InputBase
-                sx={{ ml: 1, flex: 1 }}
-                autoFocus
-                placeholder={props.placeholder}
-                inputProps={{ 'aria-label': 'search' }}
-                inputRef={searchString}
-                onKeyDown={handleKeyDown}
+            sx={{ ml:1, flex: 1 }}
+            autoFocus
+            placeholder={props.placeholder}
+            inputProps={{ 'ariel-label': 'search' }}
+            inputRef={searchString}
+            onKeyDown={handleKeyDown}
             />
-<IconButton
-type='button'
-onClick={handleClickSearch}
-sx={{ p: '10px' }}
-aria-label='search'
->
-    <SearchIcon />
-</IconButton>
-{/* <Divider sx={{ height: 28, m: 0.5 }} orientation='vertical' /> */}
-
+            <IconButton 
+            type='button'
+            onClick={handleClickSearch}
+            sx={{ p: '10px'}}
+            aria-label='search'
+            >
+                <SearchIcon />
+            </IconButton>
         </Paper>
-    )
-
+    );
 };
 export default SearchBox;

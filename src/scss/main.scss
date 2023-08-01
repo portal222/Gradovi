@@ -1,132 +1,191 @@
-.mainDiv {
+$color-one: #cdcdcd;
+$color-two: #a7abb0;
+$color-three: rgb(164, 168, 206);
 
-
+body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 18px;
-    align-content: center;
-    min-width: 1200px;
+}
+
+.container {
+    background-color: #afb0af;
+    width: 500px;
+    margin: auto;
+    padding: 20px;
+}
+
+.navContainer {
+    background-color: #84867b;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    max-width: 650px;
+    min-width: 650px;
+    justify-content: space-around;
+
+
+}
+
+
+.tabelaZemlje {
+
+    border-collapse: collapse;
+    max-width: 650px;
+    min-width: 650px;
+    background-color: $color-one;
+
+    margin: auto;
 
 
 
-    tr {
+    .search {
+        max-width: 300px;
+        min-width: 300px;
+        height: 250px;
+        background-color: #828c82;
+        margin: auto;
+    }
+.imageTwo {
+    width: 200px;
+    padding-top: 25px;
+}
+    .flag {
+        text-align: center;
+        padding-top: 25px;
 
-        background-color: rgb(204, 203, 201);
+        .imageFl {
+            padding-top: 25px;
+            width: 350px;
+            margin: auto;
+        }
 
-        &:nth-child(even) {
-            background-color: rgb(240, 240, 240);
+    }
+
+    .name {
+        font-weight: bold;
+        font-size: 36px;
+
+        text-align: center;
+
+        .image {
+            width: 450px;
         }
     }
 
-
-    td {
-        padding-left: 20px;
-        padding-top: 5px;
-        padding-bottom: 5px;
+    .nameComm {
         text-align: left;
-    }
-
-    h2 {
-        color: rgb(76, 96, 90);
+        font-size: 32px;
         font-weight: bold;
     }
 
-    #search-form {
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    .capital {
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+
+
+
+
+
+
+
+    .population {
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .long {
         font-size: 20px;
-        color: rgb(87, 160, 136);
     }
 
+    td {
+        padding-left: 30px;
+        padding-bottom: 10px;
+    }
+
+    .region {
+        border-bottom: solid 10px #7a9c99;
+    }
 }
 
-.navigation {
-    height: 50px;
-    width: 100%;
-    align-items: stretch;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+
+.nameOff {
     font-size: 24px;
-    font-weight: bold;
-    background-color: rgb(76, 96, 90);
-    color: cornflowerblue;
-
-    .linkovi {
-        color: aquamarine;
-        text-decoration: none;
-        padding-left: 20px;
-    }
-
-    .linkovi:hover {
-        color: rgb(87, 160, 136);
-    }
-
-}
-
-
-
-
-.loader {
-    height: 800px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(211, 247, 235);
-
 }
 
 @media screen and (max-width: 500px) {
     body {
+        font-size: 14px;
         margin: 0;
         padding: 0;
-        background-color: rgb(204, 203, 201);
-
     }
 
-    .mainDiv {
-        font-size: 15px;
+    .navContainer {
+        max-width: 350px;
+        min-width: 350px;
+        margin: auto;
+    }
 
-        td {
-            padding-left: 10px;
+    .search {
+        max-width: 320px;
+        min-width: 320px;
+    }
 
-        }
+    .tabelaZemlje {
+        max-width: 350px;
+        min-width: 350px;
+        margin: auto;
 
-        .cities {
-            max-width: 110px;
-
-        }
-        .country {
-            max-width: 15px;
+        .naslov {
             text-align: center;
         }
-        #search-form {
-            font-size: 16px;
-        }
-    }
 
-}
-
-@media screen and (max-width: 330px) {
-
-    .navigation {
-        font-size: 14px;
-        padding-left: 15px;
-    }
-
-    .mainDiv {
-        font-size: 14px;
-
-        td {
-            padding-left: 5px;
-        }
-
-        .cities {
-            max-width: 80px;
-        }
-        .country {
-            max-width: 7px;
+        .name {
+            font-size: 22px;
             text-align: center;
+
+            .image {
+                width: 200px;
+            }
         }
-        #search-form {
+        .nameComm {
+            font-size: 18px;
+            padding-top: 10px;
+
+        }
+
+        .flag {
+            .imageFl {
+                width: 190px;
+
+            }
+        }
+
+
+        .imageTwo {
+            padding-top: 10px;
+            width: 110px;
+        }
+
+        .long {
             font-size: 14px;
         }
+
+        td {
+            padding: 5px;
+        }
+.capital {
+    font-size: 18px;
+}
+        .maps {
+            border-bottom: solid 5px #828c82;
+        }
+    }
+
+    .nameOff {
+        font-size: 16px;
     }
 
 }

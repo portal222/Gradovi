@@ -1,8 +1,14 @@
-import React from 'react';
-import App from './App';
-import reactDOM from 'react-dom/client';
+import React from "react";
 
-import './scss/main.scss';
+import ReactDOM from "react-dom/client";
+import "./scss/main.scss";
 
-const root = reactDOM.createRoot(document.querySelector('#app'));
-root.render(<App />);
+
+import App from "./App";
+
+
+var root = ReactDOM.createRoot(document.getElementById("app"));
+root.render(<App
+     number={10}
+     title="String from index file" 
+     text="Text from index file" />);
