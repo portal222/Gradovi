@@ -18,7 +18,7 @@ const Geografija = () => {
 
 
     const handleClickCountry = (zemlja) => {
-        const LinkTo = `/geographic/details${zemlja}`;
+        const LinkTo = `/geographic/details/${zemlja}`;
         navigate(LinkTo);
     };
 

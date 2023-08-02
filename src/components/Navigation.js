@@ -12,7 +12,7 @@ export default function Navigation() {
              
                       <p>
                             <Link to='/geographic'>
-                            Counties of the World
+                            Countries of the World
                         </Link>
                         </p>  
                 
@@ -28,7 +28,7 @@ export default function Navigation() {
                
                 <Route path="/geographic" element={<Geografija />} />
                 <Route path="/geografija/search" element={<SearchResutsGeog/>} />
-                <Route path="/geographic/details:zemlja" element={<GeographicDetails/>}/>
+                <Route path="/geographic/details/:zemlja" element={<GeographicDetails/>}/>
             </Routes>
 
         </HashRouter>
