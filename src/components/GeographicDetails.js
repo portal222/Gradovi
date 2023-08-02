@@ -10,17 +10,18 @@ const SearchResutsGeog = () => {
 
 
     const params = useParams();
-    const countryId = params.countryId;
+   
 
-    const globalCtx = useContext(GlobalContext);
-    const searchStringValue = globalCtx.searchStringValue;
+   
 
     useEffect(() => {
         getCountries();
     }, []);
 
     const getCountries = async () => {
-        const url = "https://restcountries.com/v3.1/all/${zemlja}";
+        const id = params.id;
+        console.log("paRAMs", id);
+        const url = `https://restcountries.com/v3.1/all/${id}`;
 
         try {
             const response = await axios.get(url);
@@ -63,7 +64,7 @@ const SearchResutsGeog = () => {
                             <td><img className="image" src={dataObj.coatOfArms.png}
 
                                 alt=" coat" /></td>
-                            <td className=""><img src={dataObj.flags.png} alt="flag" className="image" /></td>
+                            <td className="flag"><img src={dataObj.flags.png} alt="flag" className="image" /></td>
                         </tr>
                         <tr>
                             <td >Name</td>

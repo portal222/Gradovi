@@ -11,7 +11,7 @@ export default function Navigation() {
               
              
                       <p>
-                            <Link to='/geographic'>
+                            <Link to='/'>
                             Countries of the World
                         </Link>
                         </p>  
@@ -26,9 +26,9 @@ export default function Navigation() {
             </div>
             <Routes>
                
-                <Route path="/geographic" element={<Geografija />} />
+                <Route path="/" element={<Geografija />} />
                 <Route path="/geografija/search" element={<SearchResutsGeog/>} />
-                <Route path="/geographic/details/:zemlja" element={<GeographicDetails/>}/>
+                <Route path="/details/:id" element={<GeographicDetails/>}/>
             </Routes>
 
         </HashRouter>

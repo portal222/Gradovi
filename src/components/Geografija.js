@@ -17,10 +17,7 @@ const Geografija = () => {
     const navigate = useNavigate();
 
 
-    const handleClickCountry = (zemlja) => {
-        const LinkTo = `/geographic/details/${zemlja}`;
-        navigate(LinkTo);
-    };
+   
 
 
 
@@ -42,7 +39,10 @@ const Geografija = () => {
         setData(data);
     }
 
-
+ const handleClickCountry = (id) => {
+        const LinkTo = `/details/${id}`;
+        navigate(LinkTo);
+    };
 
 
 
