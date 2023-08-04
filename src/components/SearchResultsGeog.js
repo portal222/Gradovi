@@ -94,19 +94,19 @@ const SearchResutsGeog = () => {
                         </tr>
                         <tr>
                             <td >Region:</td>
-                            <td>{dataObj.region}</td>
+                            <td className="lang">{dataObj.region}</td>
                         </tr>
                         <tr>
                             <td >Subregion:</td>
-                            <td>{dataObj.subregion}</td>
+                            <td className="lang">{dataObj.subregion}</td>
                         </tr>
                      <tr>
                         <td>Demonyms:</td>
-                        <td>{dataObj.demonyms.eng.m}</td>
+                        <td className="lang">{dataObj.demonyms.eng.m}</td>
                      </tr>
                      <tr>
                         <td>Languages:</td>
-                        <td>{ dataObj.languages.jpn  ||dataObj.languages.que || dataObj.languages.grn || dataObj.languages.pau
+                        <td className="lang">{ dataObj.languages.jpn  ||dataObj.languages.que || dataObj.languages.grn || dataObj.languages.pau
                         || dataObj.languages.nep   || dataObj.languages.urd || dataObj.languages.heb || dataObj.languages.ber || dataObj.languages.hin
                         || dataObj.languages.ara || dataObj.languages.pus || dataObj.languages.tuk || dataObj.languages.est
                         || dataObj.languages.vie  || dataObj.languages.de || dataObj.languages.kaz || dataObj.languages.lav
