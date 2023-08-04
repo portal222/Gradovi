@@ -1,6 +1,7 @@
 import React, { useRef, useContext } from "react";
 import { Paper,InputBase,IconButton } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
+
+import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import { useNavigate } from "react-router-dom";
 import GlobalContext from "./GlobalContext";
 
@@ -52,7 +53,7 @@ const SearchBox = (props) => {
             sx={{ p: '10px'}}
             aria-label='search'
             >
-                <SearchIcon />
+                <TravelExploreIcon />
             </IconButton>
         </Paper>
     );
