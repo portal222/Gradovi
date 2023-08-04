@@ -24,7 +24,7 @@ export default function BackToTop() {
         <span>
           <div onClick={handleScrollOnTop} className='back-to-top'>
             <p className='arrowup'>
-              <TravelExploreIcon />
+              
               <ArrowUpwardIcon />
             </p>
           

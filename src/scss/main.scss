@@ -127,11 +127,14 @@ body {
     cursor: pointer;
     border-radius: 400px;
     .arrowup {
-        font-size: larger;
-        width: 60px;
-        height: 60px;
+        // align-items: center;
+      
+        width: 24px;
+        height: 24px;
         color: #7a9c99;
-        background-color: transparent;
+        background-color: rgba(165, 206, 195, 0.43);
+    
+        border-radius: 10px;
       }
   }
 
