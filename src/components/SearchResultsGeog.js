@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from 'axios';
 import SearchBox from "./SearchBox";
 import GlobalContext from "./GlobalContext";
+import BackToTop from "./BackToTop";
 
 const SearchResutsGeog = () => {
     const [error, setError] = useState(null);
@@ -141,6 +142,7 @@ const SearchResutsGeog = () => {
                     </tbody>
 
                 ))}
+                <p>{<BackToTop />}</p>
             </table>
        
     );

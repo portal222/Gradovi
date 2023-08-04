@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import SearchBox from "./SearchBox";
 import { useNavigate, useParams } from "react-router-dom";
+import BackToTop from "./BackToTop";
 
 
 
@@ -98,6 +99,7 @@ const Geografija = () => {
                 </tbody>
 
             ))}
+            <tfoot>{<BackToTop />}</tfoot>
         </table>
 
     )
