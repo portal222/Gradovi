@@ -65,7 +65,7 @@ const SearchResutsFlag = () => {
 
                           
                             <td  colSpan={2} className="flag"><img src={dataObj.flags.png} alt="flag" 
-                            className="imageFl" /></td>
+                            className="imageFlsearch" /></td>
                         </tr>
                         <tr>
                             <td colSpan={2} className="flagAlt">
@@ -78,10 +78,7 @@ const SearchResutsFlag = () => {
 
                         </tr>
                     
-                        <tr>
-                            <td >Capital:</td>
-                            <td className="capital">{dataObj.capital[0]}</td>
-                        </tr>
+                      
                     
                         <tr className="region">
                             <td >Subregion:</td>
