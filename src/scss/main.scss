@@ -13,6 +13,11 @@ body {
     margin: auto;
     padding: 20px;
 }
+.home {
+    width: 650px;
+    height: 1200px;
+    background-color: coral;
+}
 
 .navContainer {
     background-color: #84867b;
@@ -22,7 +27,23 @@ body {
     max-width: 650px;
     min-width: 650px;
     justify-content: space-around;
+    .linker {
+        color: $color-one;
+        text-decoration: none;
+        font-weight: bold;
+    }
+   .linker:hover {
+        color: #a8dbd7;
+    }
 
+
+}
+.place {
+    background-color: #84867b;
+
+    display: flex;
+    height: 45px;
+    justify-content: space-around;
 
 }
 
@@ -39,9 +60,10 @@ body {
 
 
     .search {
-        max-width: 300px;
-        min-width: 300px;
-        height: 250px;
+        max-width: 400px;
+        min-width: 400px;
+        height: 50px;
+       
         background-color: #828c82;
         margin: auto;
     }
@@ -61,6 +83,9 @@ body {
             margin: auto;
         }
 
+    }
+    .flagAlt {
+        font-size: 32px;
     }
 
     .name {
@@ -134,11 +159,11 @@ body {
       
         width: 24px;
         height: 24px;
-        color: #7a9c99;
+        color: #7a9c99ac;
         background-color: rgba(165, 206, 195, 0.43);
     
         border-radius: 12px;
-        border: solid 3px #7a9c99;
+        border: solid 3px #95beba7c;
       }
   }
 
@@ -153,6 +178,15 @@ body {
         max-width: 358px;
         min-width: 358px;
         margin: auto;
+    }
+
+    .place {
+        display: block;
+        height: 90px;
+        .search {
+            width: 150px ;
+            font-size: 14px;
+        }
     }
 
     .search {
@@ -196,6 +230,9 @@ body {
                 padding-top: 8px;
 
             }
+        }
+        .flagAlt {
+            font-size: 20px;
         }
 
 

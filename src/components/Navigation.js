@@ -1,8 +1,9 @@
 import React from "react";
 import { Link, Routes, Route, NavLink, HashRouter } from 'react-router-dom';
 import Geografija from "./Geografija";
+import Home from "./Home";
 import SearchResutsGeog from "./SearchResultsGeog";
-import GeographicDetails from "./GeographicDetails"
+import SearchResutsFlag from "./SearchResultsFlag";
 
 export default function Navigation() {
     return (
@@ -11,8 +12,8 @@ export default function Navigation() {
               
              
                       <p>
-                            <Link to='/'>
-                            Countries of the World
+                            <Link to='/' className="linker">
+                          COUNTRIES OF THE WORLD
                         </Link>
                         </p>  
                 
@@ -26,9 +27,11 @@ export default function Navigation() {
             </div>
             <Routes>
                
+                {/* <Route path="/" element={<Home />} /> */}
                 <Route path="/" element={<Geografija />} />
                 <Route path="/geografija/search" element={<SearchResutsGeog/>} />
-                <Route path="/details/:id" element={<GeographicDetails/>}/>
+                <Route path="/geografija/searchFlag" element={<SearchResutsFlag/>} />
+               
             </Routes>
 
         </HashRouter>

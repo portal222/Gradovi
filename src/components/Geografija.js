@@ -1,8 +1,9 @@
 
 import React, { useState, useEffect } from "react";
-import SearchBox from "./SearchBox";
+
 import { useNavigate, useParams } from "react-router-dom";
 import BackToTop from "./BackToTop";
+import SearchPlace from "./SearchPlace";
 
 
 
@@ -40,10 +41,7 @@ const Geografija = () => {
         setData(data);
     }
 
- const handleClickCountry = (id) => {
-        const LinkTo = `/details/${id}`;
-        navigate(LinkTo);
-    };
+
 
 
 
@@ -56,8 +54,9 @@ const Geografija = () => {
 
                 <tr>
                     <th colSpan={2}>
-                        <SearchBox placeholder={'Search Country'} linkTo={'/geografija/search'} className="search" />
+                        <SearchPlace  />
                     </th>
+                 
                 </tr>
 
             </thead>
@@ -69,9 +68,7 @@ const Geografija = () => {
 
 
                     <tr>
-                        <td colSpan={2} className="name"
-                        onClick={() => 
-                        handleClickCountry(dataObj.name.common)}>
+                        <td colSpan={2} className="name">
                             {dataObj.name.common}
                             </td>
                     </tr>
