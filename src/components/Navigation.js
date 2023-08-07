@@ -17,7 +17,6 @@ export default function Navigation() {
                         </Link>
                         </p>  
                 
-              
                     
                 
                
@@ -33,6 +32,9 @@ export default function Navigation() {
                 <Route path="/geografija/searchFlag" element={<SearchResutsFlag/>} />
                
             </Routes>
+              <div className="home">
+                <div className="img"></div>
+              </div>
 
         </HashRouter>
     )

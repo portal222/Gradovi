@@ -26,6 +26,7 @@ const SearchResutsGeog = () => {
                     country.name.official.toLowerCase().includes(searchStringValue.toLowerCase()) ||
                    country.name.common.toLowerCase().includes(searchStringValue.toLowerCase()) ||
                  country.translations.srp.official.toLowerCase().includes(searchStringValue.toLowerCase()) 
+             
                 
 
                 );
@@ -39,12 +40,22 @@ const SearchResutsGeog = () => {
 
     };
 
+    // if (error) {
+    //     return <p>Error: {error.message}</p>;
+    // }
+
     if (error) {
-        return <p>Error: {error.message}</p>;
+        return (
+            <div>
+                <div>{<SearchPlace />}</div>
+                <div>
+                    <p>nista nije pronadjeno</p>
+                </div>
+            </div>
+        )
     }
-
     return (
-
+<>
         <table className="tabelaZemlje">
             <thead >
 
@@ -70,11 +81,11 @@ const SearchResutsGeog = () => {
                         <td className="flag"><img src={dataObj.flags.png} alt="flag"
                             className="imageFl" /></td>
                     </tr>
-                    <tr>
+                    {/* <tr>
                         <td colSpan={2}>
                             <p>{dataObj.flags.alt}</p>
                         </td>
-                    </tr>
+                    </tr> */}
                     <tr>
                         <td >Name:</td>
                         <td className="nameComm">{dataObj.name.common}</td>
@@ -108,16 +119,24 @@ const SearchResutsGeog = () => {
                         <td>Languages:</td>
                         <td className="lang">{dataObj.languages.jpn || dataObj.languages.que || dataObj.languages.grn || dataObj.languages.pau
                             || dataObj.languages.nep || dataObj.languages.urd || dataObj.languages.heb || dataObj.languages.ber || dataObj.languages.hin
-                            || dataObj.languages.ara || dataObj.languages.pus || dataObj.languages.tuk || dataObj.languages.est
+                            || dataObj.languages.ara || dataObj.languages.pus || dataObj.languages.tuk || dataObj.languages.est || dataObj.languages.dan
                             || dataObj.languages.vie || dataObj.languages.de || dataObj.languages.kaz || dataObj.languages.lav || dataObj.languages.swa
                             || dataObj.languages.rus || dataObj.languages.ita || dataObj.languages.sqi || dataObj.languages.srp || dataObj.languages.zho
                             || dataObj.languages.nld || dataObj.languages.hrv || dataObj.languages.mkd || dataObj.languages.bos || dataObj.languages.pol
                             || dataObj.languages.por || dataObj.languages.slv || dataObj.languages.ron || dataObj.languages.lit || dataObj.languages.cat
                             || dataObj.languages.bul || dataObj.languages.ell || dataObj.languages.kal || dataObj.languages.ces || dataObj.languages.slk
-                            || dataObj.languages.mon || dataObj.languages.cnr || dataObj.languages.hun || dataObj.languages.kor
+                            || dataObj.languages.mon || dataObj.languages.cnr || dataObj.languages.hun || dataObj.languages.kor || dataObj.languages.mya
                             || dataObj.languages.nor || dataObj.languages.fin || dataObj.languages.swe || dataObj.languages.ind
                             || dataObj.languages.spa || dataObj.languages.deu || dataObj.languages.fra
                             || dataObj.languages.eng}</td>
+                    </tr>
+                    <tr>
+                        <td>Timezones:</td>
+                        <td className="lang">
+                          
+                  
+                    {dataObj.timezones[0]} 
+                        </td>
                     </tr>
                     <tr>
                         <td >Population:</td>
@@ -142,9 +161,9 @@ const SearchResutsGeog = () => {
                 </tbody>
 
             ))}
-            <p>{<BackToTop />}</p>
         </table>
-
+            <div>{<BackToTop />}</div>
+</>
     );
 };
 export default SearchResutsGeog;
