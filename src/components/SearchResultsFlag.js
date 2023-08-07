@@ -43,7 +43,7 @@ const SearchResutsFlag = () => {
     }
 
     return (
-        
+        <>
             <table className="tabelaZemlje">
                 <thead >
 
@@ -90,8 +90,9 @@ const SearchResutsFlag = () => {
                     </tbody>
 
                 ))}
-                <p>{<BackToTop />}</p>
             </table>
+                <div>{<BackToTop />}</div>
+                </>
        
     );
 };

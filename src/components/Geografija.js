@@ -96,7 +96,7 @@ const Geografija = () => {
                 </tbody>
 
             ))}
-            <tfoot>{<BackToTop />}</tfoot>
+            <p>{<BackToTop />}</p>
         </table>
 
     )
