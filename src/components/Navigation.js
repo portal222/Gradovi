@@ -33,7 +33,8 @@ export default function Navigation() {
                
             </Routes>
               <div className="home">
-            <img src="../img/politic-glob.png" alt="globus" />
+<div className="img"></div>
+            {/* <img src="../img/politic-glob.png" alt="globus" /> */}
               </div>
 
         </HashRouter>

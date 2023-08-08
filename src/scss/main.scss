@@ -13,11 +13,7 @@ body {
     margin: auto;
     padding: 20px;
 }
-.home {
-    width: 650px;
-    height: 1200px;
-    background-color: coral;
-}
+
 
 .navContainer {
     background-color: #84867b;
@@ -43,13 +39,18 @@ body {
     margin: auto;
     width: 650px;
     height:880px;
-    background-color: $color-one;
+    background-color: rgba(247, 245, 245, 0.998);
     padding-top: 200px;
+   
   
-    text-align: center;
-    img {
-    
-width: 400px;
+ 
+    .img {
+        margin: auto;
+        background-size: contain;
+    background-image: url("https://geographica.net.au/wp-content/uploads/2017/10/Inflatable-World-Globe-50cm.png");
+width: 500px;
+height: 500px;
+border-radius: 50%;
 
 
 
@@ -212,8 +213,8 @@ width: 400px;
         height:880px;
        
         padding-top: 180px;
-        img {
- 
+       .img {
+ height: 270px;
     width: 270px;
   
     
