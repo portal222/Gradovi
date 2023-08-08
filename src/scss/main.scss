@@ -43,18 +43,17 @@ body {
     margin: auto;
     width: 650px;
     height:880px;
-    background-color: #0f100f;
+    background-color: $color-one;
     padding-top: 200px;
-    .img {
-        margin: auto;
-height: 450px;
-width: 450px;
-border-radius: 50%;
-background-position-x: center;
-border: solid 5px rgb(21, 20, 20);
+  
+    text-align: center;
+    img {
+    
+width: 400px;
 
-        background-size: cover;
-        background-image: url("https://i.natgeofe.com/n/f5453fe7-0483-42f1-b3e7-160e1d2019f8/940.jpg?w=1084.125&h=813.75");
+
+
+      
     }
    
 }
@@ -211,15 +210,13 @@ border: solid 5px rgb(21, 20, 20);
         margin: auto;
         width: 358px;
         height:880px;
-        background-color: #0f100f;
+       
         padding-top: 180px;
-        .img {
-            margin: auto;
-    height: 270px;
+        img {
+ 
     width: 270px;
-    border-radius: 50%;
-    background-position-x: center;
-    border: solid 3px rgb(21, 20, 20);
+  
+    
  
         }
        

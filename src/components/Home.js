@@ -4,7 +4,7 @@ const Home = () => {
 
     return (
         <>
-        <Navigation />
+        
         <div className="home">
 
         </div>
