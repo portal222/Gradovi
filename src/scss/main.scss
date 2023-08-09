@@ -39,18 +39,18 @@ body {
     margin: auto;
     width: 650px;
     height:880px;
-    background-color: rgba(247, 245, 245, 0.998);
-    padding-top: 200px;
+    background-color:white;
+    padding-top: 100px;
    
   
  
     .img {
         margin: auto;
-        background-size: contain;
-    background-image: url("https://geographica.net.au/wp-content/uploads/2017/10/Inflatable-World-Globe-50cm.png");
-width: 500px;
-height: 500px;
-border-radius: 50%;
+        background-size: cover;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/b/b4/2002_six-color_world_political_map.png");
+width: 650px;
+height: 328px;
+// border-radius: 50%;
 
 
 
@@ -212,10 +212,10 @@ border-radius: 50%;
         width: 358px;
         height:880px;
        
-        padding-top: 180px;
+        padding-top: 80px;
        .img {
- height: 270px;
-    width: 270px;
+ height: 175px;
+    width: 358px;
   
     
  
