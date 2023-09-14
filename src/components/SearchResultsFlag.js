@@ -4,10 +4,14 @@ import SearchBox from "./SearchBox";
 import GlobalContext from "./GlobalContext";
 import SearchPlace from "./SearchPlace";
 import BackToTop from "./BackToTop";
+import Loader from "./Loader";
+
 
 const SearchResutsFlag = () => {
     const [error, setError] = useState(null);
     const [countries, setCountries] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
 
     const globalCtx = useContext(GlobalContext);
     const searchStringValue = globalCtx.searchStringValue;
@@ -24,22 +28,25 @@ const SearchResutsFlag = () => {
             const data = response.data;
             const filterData = data.filter((country) => {
                 return (
-                 country.flags.alt?.toLowerCase().includes(searchStringValue.toLowerCase())
+                    country.flags.alt?.toLowerCase().includes(searchStringValue.toLowerCase())
 
-                   
+
                 );
             });
-        console.log("Pretraga zastava", filterData);
+            console.log("Pretraga zastava", filterData);
+            setIsLoading(false);
 
             setCountries(filterData);
         } catch (err) {
             setError(err);
+            setIsLoading(false);
+
         }
 
     };
 
-    if (error) {
-        return <p>Error: {error.message}</p>;
+    if (isLoading) {
+        return <Loader />
     }
 
     return (
@@ -63,9 +70,9 @@ const SearchResutsFlag = () => {
 
                         <tr >
 
-                          
-                            <td  colSpan={2} className="flag"><img src={dataObj.flags.png} alt="flag" 
-                            className="imageFlsearch" /></td>
+
+                            <td colSpan={2} className="flag"><img src={dataObj.flags.png} alt="flag"
+                                className="imageFlsearch" /></td>
                         </tr>
                         <tr>
                             <td colSpan={2} className="flagAlt">
@@ -77,23 +84,23 @@ const SearchResutsFlag = () => {
                             <td className="nameComm">{dataObj.name.common}</td>
 
                         </tr>
-                    
-                      
-                    
+
+
+
                         <tr className="region">
                             <td >Subregion:</td>
                             <td >{dataObj.subregion}</td>
                         </tr>
-                
-              
-             
+
+
+
                     </tbody>
 
                 ))}
             </table>
-                <div>{<BackToTop />}</div>
-                </>
-       
+            <div>{<BackToTop />}</div>
+        </>
+
     );
 };
 export default SearchResutsFlag;

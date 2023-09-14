@@ -21,25 +21,26 @@ const SearchResultsCity = () => {
     }, [searchStringValue]);
 
     const getCountries = async (searchStringValue) => {
-        const url = "./cityShort.json";
+        const url = "https://pkgstore.datahub.io/core/world-cities/world-cities_json/data/5b3dd46ad10990bca47b04b4739a02ba/world-cities_json.json";
 
         try {
             const response = await axios.get(url);
             const data = response.data;
             const filterData = data.filter((country) => {
                 return (
-                 country.name.toLowerCase().includes(searchStringValue.toLowerCase())
+                    country.name.toLowerCase().includes(searchStringValue.toLowerCase())
 
                 )
-                
+
             });
-        console.log("Pretraga gradova", filterData);
-        setIsLoading(false);
+            console.log("spisak gradova", data);
+            console.log("Pretraga gradova", filterData);
+            setIsLoading(false);
 
             setCountries(filterData);
         } catch (err) {
             setError(err);
-        setIsLoading(false);
+            setIsLoading(false);
 
         }
 
@@ -66,10 +67,10 @@ const SearchResultsCity = () => {
 
 
 
-                    <tbody key={dataObj.id} >
+                    <tbody key={dataObj.geonameid} >
 
-                 
-                     
+
+
                         <tr>
                             <td >Name:</td>
                             <td className="nameComm">{dataObj.name}</td>
@@ -77,22 +78,22 @@ const SearchResultsCity = () => {
                         </tr>
                         <tr>
                             <td >Country:</td>
-                            <td className="nameOff">{dataObj.country + " " + dataObj.state}</td>
+                            <td className="nameOff">{dataObj.country}</td>
                         </tr>
                         <tr>
-                            <td>Position:</td>
+                            <td className="lonLat">Subcountry:</td>
                             <td className="lonLat">
-                                {dataObj.coord.lat + " " + dataObj.coord.lon}</td>
+                                {dataObj.subcountry}</td>
                         </tr>
 
-             
+
                     </tbody>
 
                 ))}
             </table>
-                <div>{<BackToTop />}</div>
-                </>
-       
+            <div>{<BackToTop />}</div>
+        </>
+
     );
 };
 export default SearchResultsCity;

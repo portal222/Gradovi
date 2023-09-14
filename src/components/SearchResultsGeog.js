@@ -3,10 +3,14 @@ import axios from 'axios';
 import SearchPlace from "./SearchPlace";
 import GlobalContext from "./GlobalContext";
 import BackToTop from "./BackToTop";
+import Loader from "./Loader";
+
 
 const SearchResutsGeog = () => {
     const [error, setError] = useState(null);
     const [countries, setCountries] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
 
     const globalCtx = useContext(GlobalContext);
     const searchStringValue = globalCtx.searchStringValue;
@@ -32,27 +36,20 @@ const SearchResutsGeog = () => {
                 );
             });
             console.log("Pretraga", filterData);
+            setIsLoading(false);
 
             setCountries(filterData);
         } catch (err) {
             setError(err);
+            setIsLoading(false);
         }
 
     };
 
-    // if (error) {
-    //     return <p>Error: {error.message}</p>;
-    // }
+  
 
-    if (error) {
-        return (
-            <div>
-                <div>{<SearchPlace />}</div>
-                <div>
-                    <p>nista nije pronadjeno</p>
-                </div>
-            </div>
-        )
+    if (isLoading) {
+        return <Loader />
     }
     return (
         <>
