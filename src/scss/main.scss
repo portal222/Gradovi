@@ -13,7 +13,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(211, 247, 235);
+    background-color: $color-one;
 }
 
 .container {
@@ -231,6 +231,7 @@ height: 328px;
     .loader {
         max-width: 358px;
         min-width: 358px;
+        height: 700px;
     }
 
     .navContainer {
