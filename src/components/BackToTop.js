@@ -24,10 +24,10 @@ export default function BackToTop() {
       {visible && (
         <span>
           <div onClick={handleScrollOnTop} className='back-to-top'>
-            <p className='arrowup'>
+            <div className='arrowup'>
               
               <KeyboardArrowUpIcon />
-            </p>
+            </div>
           
           </div>
         </span>

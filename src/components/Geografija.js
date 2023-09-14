@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import BackToTop from "./BackToTop";
 import SearchPlace from "./SearchPlace";
+import axios from "axios";
 
 
 
@@ -30,18 +31,32 @@ const Geografija = () => {
         getCountry();
     }, [])
 
-
-    const getCountry = async () => {
-        const url = "https://restcountries.com/v3.1/all";
+//ovo dole radi ali zbog grada pretoria menjamo 
+    // const getCountry = async () => {
+    //     const url = "https://restcountries.com/v3.1/all";
         
-        const response = await fetch(url);
-        const data = await response.json();
-        console.log("ZEMlje", data);
+    //     const response = await fetch(url);
+    //     const data = await response.json();
+    //     console.log("ZEMlje", data);
 
 
+    //     setData(data);
+    // }
+const getCountry = async () => {
+const url = "https://restcountries.com/v3.1/all";
+
+try {
+        const response = await axios.get(url);
+        const data = response.data;
+console.log("podaci zemalja", data);
+console.log("drzave")
+console.log("gradovi", data.region)
         setData(data);
-    }
 
+    } catch (err) {
+        setError(err);
+    }
+}
 
 
 
@@ -49,7 +64,7 @@ const Geografija = () => {
     return (
 
 
-
+<>
         <table className="tabelaZemlje">
             <thead >
 
@@ -97,8 +112,9 @@ const Geografija = () => {
                 </tbody>
 
             ))}
-            <p>{<BackToTop />}</p>
         </table>
+            <div>{<BackToTop />}</div>
+            </>
 
     )
 

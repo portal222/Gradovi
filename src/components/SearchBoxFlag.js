@@ -30,7 +30,7 @@ const SearchBoxFlag = (props) => {
     };
 
     return (
-        <Paper
+        <Paper className="paper"
         component = 'form'
         se={{
             p: '2px 4px',
@@ -40,11 +40,11 @@ const SearchBoxFlag = (props) => {
             backgroundColor: 'red',
         }}
         >
-            <InputBase
-            sx={{ ml:1, flex: 1 }}
+            <InputBase className="base"
+            // sx={{ ml:1, flex: 1 }}
             autoFocus
             placeholder={props.placeholder}
-            inputProps={{ 'ariel-label': 'search' }}
+            // inputProps={{ 'ariel-label': 'search' }}
             inputRef={searchString}
             onKeyDown={handleKeyDown}
             />

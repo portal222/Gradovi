@@ -6,6 +6,15 @@ body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 18px;
 }
+.loader {
+    margin: auto;
+    width: 650px;
+    height: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(211, 247, 235);
+}
 
 .container {
     background-color: #afb0af;
@@ -64,6 +73,10 @@ height: 328px;
     display: flex;
     height: 45px;
     justify-content: space-around;
+    .search {
+        width: 50px;
+        background-color: brown;
+    }
 
 }
 
@@ -171,6 +184,10 @@ height: 328px;
 .nameOff {
     font-size: 24px;
 }
+.lonLat {
+    font-size: 18px;
+    border-bottom: solid 3px grey;
+}
 
 .back-to-top {
     position: fixed;
@@ -193,11 +210,27 @@ height: 328px;
       }
   }
 
+  .paper {
+  
+    min-width: 185px;
+    max-width: 185px;
+    .base {
+        max-width: 140px;
+        padding-left: 10px;
+       
+    }
+  
+  }
+
 @media screen and (max-width: 500px) {
     body {
         font-size: 16px;
         margin: 0;
         padding: 0;
+    }
+    .loader {
+        max-width: 358px;
+        min-width: 358px;
     }
 
     .navContainer {
@@ -225,9 +258,13 @@ height: 328px;
 
     .place {
         display: block;
-        height: 90px;
+        height: 140px;
+       
+      
+    padding-left: 50px;
         .search {
-            width: 150px ;
+       
+            width: 230px ;
             font-size: 14px;
         }
     }
@@ -313,6 +350,16 @@ height: 328px;
             font-size: 18px;
         }
     }
+    .paper {
+  
+        min-width: 250px;
+        max-width: 250px;
+        .base {
+            max-width: 200px;
+           
+        }
+      
+      }
 
 
 

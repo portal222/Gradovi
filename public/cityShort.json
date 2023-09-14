@@ -1,0 +1,1122 @@
+[
+ {
+        "id": 578071,
+        "name": "Belgorodskaya Oblast’",
+        "state": "",
+        "country": "RU",
+        "coord": {
+            "lon": 37.5,
+            "lat": 50.75
+        }
+    },
+    {
+        "id": 578072,
+        "name": "Belgorod",
+        "state": "",
+        "country": "RU",
+        "coord": {
+            "lon": 36.580002,
+            "lat": 50.610001
+        }
+    },
+ {
+        "id": 578076,
+        "name": "Belgatoy",
+        "state": "",
+        "country": "RU",
+        "coord": {
+            "lon": 45.830818,
+            "lat": 43.18996
+        }
+    },
+{
+        "id": 578072,
+        "name": "Belgorod",
+        "state": "",
+        "country": "RU",
+        "coord": {
+            "lon": 36.580002,
+            "lat": 50.610001
+        }
+    },
+    {
+        "id": 578076,
+        "name": "Belgatoy",
+        "state": "",
+        "country": "RU",
+        "coord": {
+            "lon": 45.830818,
+            "lat": 43.18996
+        }
+    },
+    {
+        "id": 578091,
+        "name": "Belëv",
+        "state": "",
+        "country": "RU",
+        "coord": {
+            "lon": 36.131939,
+            "lat": 53.811939
+        }
+    },
+{
+        "id": 792680,
+        "name": "Belgrade",
+        "state": "",
+        "country": "RS",
+        "coord": {
+            "lon": 20.46513,
+            "lat": 44.804008
+        }
+    },
+    {
+        "id": 792718,
+        "name": "Belo Blato",
+        "state": "",
+        "country": "RS",
+        "coord": {
+            "lon": 20.375,
+            "lat": 45.272781
+        }
+    },
+    {
+        "id": 792721,
+        "name": "Beljevac",
+        "state": "",
+        "country": "RS",
+        "coord": {
+            "lon": 20.664169,
+            "lat": 44.359169
+        }
+    },
+    {
+        "id": 792764,
+        "name": "Belegiš",
+        "state": "",
+        "country": "RS",
+        "coord": {
+            "lon": 20.33556,
+            "lat": 45.021671
+        }
+    },
+{
+        "id": 824987,
+        "name": "Gorod Belgorod",
+        "state": "",
+        "country": "RU",
+        "coord": {
+            "lon": 36.583328,
+            "lat": 50.583328
+        }
+    },
+    {
+        "id": 824988,
+        "name": "Gorod Shebekino",
+        "state": "",
+        "country": "RU",
+        "coord": {
+            "lon": 36.916672,
+            "lat": 50.416672
+        }
+    },
+    {
+        "id": 825035,
+        "name": "Korkmaskala",
+        "state": "",
+        "country": "RU",
+        "coord": {
+            "lon": 47.294361,
+            "lat": 43.023788
+        }
+    },
+{
+        "id": 2026908,
+        "name": "Belgorodskoye",
+        "state": "",
+        "country": "RU",
+        "coord": {
+            "lon": 133.816666,
+            "lat": 48.599998
+        }
+    },
+    {
+        "id": 2026955,
+        "name": "Bazhir",
+        "state": "",
+        "country": "RU",
+        "coord": {
+            "lon": 102.546669,
+            "lat": 53.58889
+        }
+    },
+ {
+        "id": 2521174,
+        "name": "Belicena",
+        "state": "",
+        "country": "ES",
+        "coord": {
+            "lon": -3.69089,
+            "lat": 37.172291
+        }
+    },
+    {
+        "id": 2521175,
+        "name": "Bèlgida",
+        "state": "",
+        "country": "ES",
+        "coord": {
+            "lon": -0.46667,
+            "lat": 38.849998
+        }
+    },
+    {
+        "id": 2521176,
+        "name": "Belgara Baja",
+        "state": "",
+        "country": "ES",
+        "coord": {
+            "lon": -18.0,
+            "lat": 27.75
+        }
+    },
+ {
+        "id": 2802359,
+        "name": "Belgrade",
+        "state": "",
+        "country": "BE",
+        "coord": {
+            "lon": 4.82935,
+            "lat": 50.471378
+        }
+    },
+    {
+        "id": 2802361,
+        "name": "Kingdom of Belgium",
+        "state": "",
+        "country": "BE",
+        "coord": {
+            "lon": 4.0,
+            "lat": 50.833328
+        }
+    },
+ {
+        "id": 4957956,
+        "name": "Belfast",
+        "state": "ME",
+        "country": "US",
+        "coord": {
+            "lon": -69.006416,
+            "lat": 44.425911
+        }
+    },
+    {
+        "id": 4957962,
+        "name": "Belgrade",
+        "state": "ME",
+        "country": "US",
+        "coord": {
+            "lon": -69.83255,
+            "lat": 44.447289
+        }
+    },
+    {
+        "id": 4958037,
+        "name": "Benton",
+        "state": "ME",
+        "country": "US",
+        "coord": {
+            "lon": -69.55088,
+            "lat": 44.586182
+        }
+    },
+    {
+        "id": 4958084,
+        "name": "Bethel",
+        "state": "ME",
+        "country": "US",
+        "coord": {
+            "lon": -70.790619,
+            "lat": 44.404228
+        }
+    },
+    {
+        "id": 4958141,
+        "name": "Biddeford",
+        "state": "ME",
+        "country": "US",
+        "coord": {
+            "lon": -70.453377,
+            "lat": 43.49258
+        }
+    },
+ {
+        "id": 5063781,
+        "name": "Belgrade",
+        "state": "NE",
+        "country": "US",
+        "coord": {
+            "lon": -98.06839,
+            "lat": 41.473068
+        }
+    },
+    {
+        "id": 5063805,
+        "name": "Bellevue",
+        "state": "NE",
+        "country": "US",
+        "coord": {
+            "lon": -95.890839,
+            "lat": 41.136669
+        }
+    },
+ {
+        "id": 5639364,
+        "name": "Belgrade",
+        "state": "MT",
+        "country": "US",
+        "coord": {
+            "lon": -111.176903,
+            "lat": 45.776039
+        }
+    },
+    {
+        "id": 5639380,
+        "name": "Belgrade Village Mobile",
+        "state": "MT",
+        "country": "US",
+        "coord": {
+            "lon": -111.170227,
+            "lat": 45.774101
+        }
+    },
+{
+        "id": 7932535,
+        "name": "Pueblo General Belgrano",
+        "state": "",
+        "country": "AR",
+        "coord": {
+            "lon": -58.51416,
+            "lat": -33.010281
+        }
+    },
+ {
+        "id": 259782,
+        "name": "Kyparissía",
+        "state": "",
+        "country": "GR",
+        "coord": {
+            "lon": 21.673611,
+            "lat": 37.25111
+        }
+    },
+{
+        "id": 1694660,
+        "name": "Parista",
+        "state": "",
+        "country": "PH",
+        "coord": {
+            "lon": 120.9282,
+            "lat": 15.8536
+        }
+    },
+ {
+        "id": 2634065,
+        "name": "Whiteparish",
+        "state": "",
+        "country": "GB",
+        "coord": {
+            "lon": -1.64855,
+            "lat": 51.01041
+        }
+    },
+    {
+        "id": 2634091,
+        "name": "Whitehills",
+        "state": "",
+        "country": "GB",
+        "coord": {
+            "lon": -2.58333,
+            "lat": 57.666672
+        }
+    },
+ {
+        "id": 2968815,
+        "name": "Paris",
+        "state": "",
+        "country": "FR",
+        "coord": {
+            "lon": 2.3486,
+            "lat": 48.853401
+        }
+    },
+    {
+        "id": 2968819,
+        "name": "Ville-d'Avray",
+        "state": "",
+        "country": "FR",
+        "coord": {
+            "lon": 2.19311,
+            "lat": 48.823582
+        }
+    },
+{
+        "id": 2988496,
+        "name": "Parisot",
+        "state": "",
+        "country": "FR",
+        "coord": {
+            "lon": 0.90008,
+            "lat": 44.828789
+        }
+    },
+    {
+        "id": 2988506,
+        "name": "Paris",
+        "state": "",
+        "country": "FR",
+        "coord": {
+            "lon": 2.34864,
+            "lat": 48.85339
+        }
+    },
+ {
+        "id": 2988507,
+        "name": "Paris",
+        "state": "",
+        "country": "FR",
+        "coord": {
+            "lon": 2.3488,
+            "lat": 48.853409
+        }
+    },
+    {
+        "id": 2988511,
+        "name": "Parigny",
+        "state": "",
+        "country": "FR",
+        "coord": {
+            "lon": -1.07925,
+            "lat": 48.594501
+        }
+    },
+    {
+        "id": 2988517,
+        "name": "Parigné-le-Pôlin",
+        "state": "",
+        "country": "FR",
+        "coord": {
+            "lon": 0.10705,
+            "lat": 47.84988
+        }
+    },
+    {
+        "id": 2988518,
+        "name": "Parigné",
+        "state": "",
+        "country": "FR",
+        "coord": {
+            "lon": -1.1921,
+            "lat": 48.427269
+        }
+    },
+ {
+        "id": 3576017,
+        "name": "Parish of Saint Paul",
+        "state": "",
+        "country": "AG",
+        "coord": {
+            "lon": -61.76667,
+            "lat": 17.033331
+        }
+    },
+    {
+        "id": 3576018,
+        "name": "Parish of Saint Mary",
+        "state": "",
+        "country": "AG",
+        "coord": {
+            "lon": -61.849998,
+            "lat": 17.049999
+        }
+    },
+ {
+        "id": 4246659,
+        "name": "Paris",
+        "state": "IL",
+        "country": "US",
+        "coord": {
+            "lon": -87.696136,
+            "lat": 39.611149
+        }
+    },
+    {
+        "id": 4246757,
+        "name": "Pawnee",
+        "state": "IL",
+        "country": "US",
+        "coord": {
+            "lon": -89.580368,
+            "lat": 39.591721
+        }
+    },
+ {
+        "id": 4303602,
+        "name": "Paris",
+        "state": "KY",
+        "country": "US",
+        "coord": {
+            "lon": -84.252991,
+            "lat": 38.209801
+        }
+    },
+ {
+        "id": 4931363,
+        "name": "Brimfield",
+        "state": "MA",
+        "country": "US",
+        "coord": {
+            "lon": -72.200912,
+            "lat": 42.122871
+        }
+    },
+    {
+        "id": 4931378,
+        "name": "Bristol County",
+        "state": "MA",
+        "country": "US",
+        "coord": {
+            "lon": -71.166161,
+            "lat": 41.833431
+        }
+    },
+ {
+        "id": 5060080,
+        "name": "Larimore",
+        "state": "ND",
+        "country": "US",
+        "coord": {
+            "lon": -97.626747,
+            "lat": 47.906658
+        }
+    },
+    {
+        "id": 5060162,
+        "name": "Lisbon",
+        "state": "ND",
+        "country": "US",
+        "coord": {
+            "lon": -97.681213,
+            "lat": 46.441631
+        }
+    },
+ {
+        "id": 6432355,
+        "name": "Rimons",
+        "state": "",
+        "country": "FR",
+        "coord": {
+            "lon": 0.01667,
+            "lat": 44.666672
+        }
+    },
+    {
+        "id": 6432356,
+        "name": "Riocaud",
+        "state": "",
+        "country": "FR",
+        "coord": {
+            "lon": 0.2,
+            "lat": 44.76667
+        }
+    },
+{
+        "id": 6617533,
+        "name": "Romenay",
+        "state": "",
+        "country": "FR",
+        "coord": {
+            "lon": 5.0687,
+            "lat": 46.502998
+        }
+    },
+ {
+        "id": 7034983,
+        "name": "Kromengan",
+        "state": "",
+        "country": "ID",
+        "coord": {
+            "lon": 112.491096,
+            "lat": -8.1296
+        }
+    },
+    {
+        "id": 7034990,
+        "name": "Jatirejo",
+        "state": "",
+        "country": "ID",
+        "coord": {
+            "lon": 112.488899,
+            "lat": -8.1273
+        }
+    },
+{
+        "id": 3169070,
+        "name": "Rome",
+        "state": "",
+        "country": "IT",
+        "coord": {
+            "lon": 12.4839,
+            "lat": 41.894741
+        }
+    },
+    {
+        "id": 3169071,
+        "name": "Roma Capitale",
+        "state": "",
+        "country": "IT",
+        "coord": {
+            "lon": 12.41667,
+            "lat": 41.900002
+        }
+    },
+{
+        "id": 3450950,
+        "name": "Romelândia",
+        "state": "",
+        "country": "BR",
+        "coord": {
+            "lon": -53.314442,
+            "lat": -26.676109
+        }
+    },
+    {
+        "id": 3450952,
+        "name": "Romaria",
+        "state": "",
+        "country": "BR",
+        "coord": {
+            "lon": -47.58556,
+            "lat": -18.8825
+        }
+    },
+{
+        "id": 3489741,
+        "name": "Little London",
+        "state": "",
+        "country": "JM",
+        "coord": {
+            "lon": -78.216408,
+            "lat": 18.248301
+        }
+    },
+    {
+        "id": 3489758,
+        "name": "Lionel Town",
+        "state": "",
+        "country": "JM",
+        "coord": {
+            "lon": -77.240608,
+            "lat": 17.81007
+        }
+    },
+ {
+        "id": 4119617,
+        "name": "London",
+        "state": "AR",
+        "country": "US",
+        "coord": {
+            "lon": -93.25296,
+            "lat": 35.328972
+        }
+    },
+{
+        "id": 4298960,
+        "name": "London",
+        "state": "KY",
+        "country": "US",
+        "coord": {
+            "lon": -84.08326,
+            "lat": 37.128979
+        }
+    },
+ {
+        "id": 1006984,
+        "name": "East London",
+        "state": "",
+        "country": "ZA",
+        "coord": {
+            "lon": 27.911619,
+            "lat": -33.015289
+        }
+    },
+ {
+        "id": 2643744,
+        "name": "City of London",
+        "state": "",
+        "country": "GB",
+        "coord": {
+            "lon": -0.08901,
+            "lat": 51.51334
+        }
+    },
+    {
+        "id": 2643745,
+        "name": "Londesborough",
+        "state": "",
+        "country": "GB",
+        "coord": {
+            "lon": -0.68333,
+            "lat": 53.883331
+        }
+    },
+ {
+        "id": 6459918,
+        "name": "Moskovec",
+        "state": "",
+        "country": "BG",
+        "coord": {
+            "lon": 24.683331,
+            "lat": 42.650002
+        }
+    },
+    {
+        "id": 6459922,
+        "name": "Benkovski",
+        "state": "",
+        "country": "BG",
+        "coord": {
+            "lon": 24.65,
+            "lat": 42.216671
+        }
+    },
+{
+        "id": 7046808,
+        "name": "Moskalenka",
+        "state": "",
+        "country": "UA",
+        "coord": {
+            "lon": 34.741928,
+            "lat": 46.286369
+        }
+    },
+    {
+        "id": 7046809,
+        "name": "Rivne",
+        "state": "",
+        "country": "UA",
+        "coord": {
+            "lon": 34.757729,
+            "lat": 46.360168
+        }
+    },
+ {
+        "id": 5601462,
+        "name": "Moreland",
+        "state": "ID",
+        "country": "US",
+        "coord": {
+            "lon": -112.442482,
+            "lat": 43.222691
+        }
+    },
+    {
+        "id": 5601538,
+        "name": "Moscow",
+        "state": "ID",
+        "country": "US",
+        "coord": {
+            "lon": -117.000168,
+            "lat": 46.732391
+        }
+    },
+ {
+        "id": 524901,
+        "name": "Moscow",
+        "state": "",
+        "country": "RU",
+        "coord": {
+            "lon": 37.615555,
+            "lat": 55.75222
+        }
+    },
+    {
+        "id": 524906,
+        "name": "Moskovskoje",
+        "state": "",
+        "country": "RU",
+        "coord": {
+            "lon": 39.602779,
+            "lat": 51.41111
+        }
+    },
+{
+        "id": 524925,
+        "name": "Moscow Oblast",
+        "state": "",
+        "country": "RU",
+        "coord": {
+            "lon": 37.628334,
+            "lat": 55.75639
+        }
+    },
+ {
+        "id": 5202009,
+        "name": "Moscow",
+        "state": "PA",
+        "country": "US",
+        "coord": {
+            "lon": -75.518517,
+            "lat": 41.33675
+        }
+    },
+    {
+        "id": 5202090,
+        "name": "Mount Alton",
+        "state": "PA",
+        "country": "US",
+        "coord": {
+            "lon": -78.6278,
+            "lat": 41.794231
+        }
+    },
+ {
+        "id": 6356055,
+        "name": "Barcelona",
+        "state": "",
+        "country": "ES",
+        "coord": {
+            "lon": 2.12804,
+            "lat": 41.399422
+        }
+    },
+    {
+        "id": 6356056,
+        "name": "Begues",
+        "state": "",
+        "country": "ES",
+        "coord": {
+            "lon": 1.89649,
+            "lat": 41.3269
+        }
+    },
+{
+        "id": 7290254,
+        "name": "Berlin Schoeneberg",
+        "state": "",
+        "country": "DE",
+        "coord": {
+            "lon": 13.34839,
+            "lat": 52.474571
+        }
+    },
+    {
+        "id": 7290255,
+        "name": "Berlin Treptow",
+        "state": "",
+        "country": "DE",
+        "coord": {
+            "lon": 13.44469,
+            "lat": 52.493759
+        }
+    },
+ {
+        "id": 5264381,
+        "name": "New Berlin",
+        "state": "WI",
+        "country": "US",
+        "coord": {
+            "lon": -88.108421,
+            "lat": 42.976398
+        }
+    },
+    {
+        "id": 5264412,
+        "name": "New Glarus",
+        "state": "WI",
+        "country": "US",
+        "coord": {
+            "lon": -89.635117,
+            "lat": 42.814449
+        }
+    },
+ {
+        "id": 5245387,
+        "name": "Beloit",
+        "state": "WI",
+        "country": "US",
+        "coord": {
+            "lon": -89.031776,
+            "lat": 42.50835
+        }
+    },
+    {
+        "id": 5245497,
+        "name": "Berlin",
+        "state": "WI",
+        "country": "US",
+        "coord": {
+            "lon": -88.943451,
+            "lat": 43.96804
+        }
+    },
+ {
+        "id": 4930431,
+        "name": "Berlin",
+        "state": "MA",
+        "country": "US",
+        "coord": {
+            "lon": -71.637009,
+            "lat": 42.381199
+        }
+    },
+{
+        "id": 4556518,
+        "name": "Berlin",
+        "state": "PA",
+        "country": "US",
+        "coord": {
+            "lon": -78.957802,
+            "lat": 39.920639
+        }
+    },
+ {
+        "id": 4500771,
+        "name": "Berlin",
+        "state": "NJ",
+        "country": "US",
+        "coord": {
+            "lon": -74.929047,
+            "lat": 39.791229
+        }
+    },
+ {
+        "id": 2950158,
+        "name": "Berlin",
+        "state": "",
+        "country": "DE",
+        "coord": {
+            "lon": 10.45,
+            "lat": 54.033329
+        }
+    },
+    {
+        "id": 2950159,
+        "name": "Berlin",
+        "state": "",
+        "country": "DE",
+        "coord": {
+            "lon": 13.41053,
+            "lat": 52.524368
+        }
+    },
+ {
+        "id": 3181467,
+        "name": "Brusson",
+        "state": "",
+        "country": "IT",
+        "coord": {
+            "lon": 7.72961,
+            "lat": 45.757759
+        }
+    },
+    {
+        "id": 3181468,
+        "name": "Brusnengo",
+        "state": "",
+        "country": "IT",
+        "coord": {
+            "lon": 8.25192,
+            "lat": 45.593861
+        }
+    },
+ {
+        "id": 3337388,
+        "name": "Flanders",
+        "state": "",
+        "country": "BE",
+        "coord": {
+            "lon": 4.5,
+            "lat": 51.0
+        }
+    },
+    {
+        "id": 3337389,
+        "name": "City of Brussels",
+        "state": "",
+        "country": "BE",
+        "coord": {
+            "lon": 4.34526,
+            "lat": 50.851151
+        }
+    },
+ {
+        "id": 625143,
+        "name": "Horad Minsk",
+        "state": "",
+        "country": "BY",
+        "coord": {
+            "lon": 27.566668,
+            "lat": 53.900002
+        }
+    },
+    {
+        "id": 625144,
+        "name": "Minsk",
+        "state": "",
+        "country": "BY",
+        "coord": {
+            "lon": 27.566668,
+            "lat": 53.900002
+        }
+    },
+ {
+        "id": 756135,
+        "name": "Warsaw",
+        "state": "",
+        "country": "PL",
+        "coord": {
+            "lon": 21.01178,
+            "lat": 52.229771
+        }
+    },
+    {
+        "id": 756151,
+        "name": "Warka",
+        "state": "",
+        "country": "PL",
+        "coord": {
+            "lon": 21.19091,
+            "lat": 51.784302
+        }
+    },
+ {
+        "id": 771687,
+        "name": "Gowarczów",
+        "state": "",
+        "country": "PL",
+        "coord": {
+            "lon": 20.438351,
+            "lat": 51.27845
+        }
+    },
+    {
+        "id": 771690,
+        "name": "Goszczyn",
+        "state": "",
+        "country": "PL",
+        "coord": {
+            "lon": 20.85154,
+            "lat": 51.731869
+        }
+    },
+{
+        "id": 941931,
+        "name": "Warrenton",
+        "state": "",
+        "country": "ZA",
+        "coord": {
+            "lon": 24.84753,
+            "lat": -28.11396
+        }
+    },
+    {
+        "id": 941966,
+        "name": "Warmbaths",
+        "state": "",
+        "country": "ZA",
+        "coord": {
+            "lon": 28.283331,
+            "lat": -24.883329
+        }
+    },
+{
+        "id": 971352,
+        "name": "New Kingsmead",
+        "state": "",
+        "country": "ZA",
+        "coord": {
+            "lon": 31.01667,
+            "lat": -29.816669
+        }
+    },
+    {
+        "id": 971377,
+        "name": "New Hanover",
+        "state": "",
+        "country": "ZA",
+        "coord": {
+            "lon": 30.528021,
+            "lat": -29.35519
+        }
+    },
+ {
+        "id": 1233163,
+        "name": "New Town",
+        "state": "",
+        "country": "LK",
+        "coord": {
+            "lon": 81.0,
+            "lat": 7.91667
+        }
+    },
+ {
+        "id": 1261481,
+        "name": "New Delhi",
+        "state": "",
+        "country": "IN",
+        "coord": {
+            "lon": 77.23114,
+            "lat": 28.61282
+        }
+    },
+ {
+        "id": 1697734,
+        "name": "New Washington",
+        "state": "",
+        "country": "PH",
+        "coord": {
+            "lon": 122.432198,
+            "lat": 11.6508
+        }
+    },
+{
+        "id": 2186224,
+        "name": "New Zealand",
+        "state": "",
+        "country": "NZ",
+        "coord": {
+            "lon": 174.0,
+            "lat": -42.0
+        }
+    },
+    {
+        "id": 2186239,
+        "name": "New Plymouth",
+        "state": "",
+        "country": "NZ",
+        "coord": {
+            "lon": 174.083328,
+            "lat": -39.066669
+        }
+    },
+ {
+        "id": 4079630,
+        "name": "New Hope",
+        "state": "AL",
+        "country": "US",
+        "coord": {
+            "lon": -86.394432,
+            "lat": 34.537029
+        }
+    },
+    {
+        "id": 4079916,
+        "name": "New Market",
+        "state": "AL",
+        "country": "US",
+        "coord": {
+            "lon": -86.427773,
+            "lat": 34.910091
+        }
+    }
+]

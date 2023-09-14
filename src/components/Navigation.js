@@ -4,6 +4,7 @@ import Geografija from "./Geografija";
 import Home from "./Home";
 import SearchResutsGeog from "./SearchResultsGeog";
 import SearchResutsFlag from "./SearchResultsFlag";
+import SearchResultsCity from "./SearchResultsCity";
 
 export default function Navigation() {
     return (
@@ -28,9 +29,9 @@ export default function Navigation() {
                
                 {/* <Route path="/" element={<Home />} /> */}
                 <Route path="/" element={<Geografija />} />
-                <Route path="/geografija/search" element={<SearchResutsGeog/>} />
+                <Route path="/search" element={<SearchResutsGeog/>} />
                 <Route path="/geografija/searchFlag" element={<SearchResutsFlag/>} />
-               
+               <Route path="/searchCity" element={<SearchResultsCity />} />
             </Routes>
               <div className="home">
 <div className="img"></div>
