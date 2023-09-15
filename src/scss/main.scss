@@ -5,6 +5,8 @@ $color-three: rgb(164, 168, 206);
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 18px;
+  
+
 }
 .loader {
     margin: auto;
@@ -69,13 +71,13 @@ height: 328px;
 }
 .place {
     background-color: #84867b;
-
+padding: 6px;
     display: flex;
-    height: 45px;
+    height: 50px;
     justify-content: space-around;
     .search {
         width: 50px;
-        background-color: brown;
+       
     }
 
 }
@@ -211,7 +213,7 @@ height: 328px;
   }
 
   .paper {
-  
+  margin-top: 5px;
     min-width: 185px;
     max-width: 185px;
     .base {
@@ -259,7 +261,7 @@ height: 328px;
 
     .place {
         display: block;
-        height: 140px;
+        height: 150px;
        
       
     padding-left: 50px;
