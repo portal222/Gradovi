@@ -10,6 +10,7 @@ const SearchResutsGeog = () => {
     const [error, setError] = useState(null);
     const [countries, setCountries] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [results, setResults] = useState([]);
 
 
     const globalCtx = useContext(GlobalContext);
@@ -39,6 +40,7 @@ const SearchResutsGeog = () => {
             setIsLoading(false);
 
             setCountries(filterData);
+            setResults(filterData.length);
         } catch (err) {
             setError(err);
             setIsLoading(false);
@@ -60,6 +62,10 @@ const SearchResutsGeog = () => {
                         <th colSpan={2}>
                             <SearchPlace />
                         </th>
+                    </tr>
+                    <tr className="results">
+                        <th>Number of countries:</th>
+                        <th>{results}</th>
                     </tr>
 
                 </thead>

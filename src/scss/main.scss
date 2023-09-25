@@ -61,7 +61,7 @@ body {
     background-image: url("https://upload.wikimedia.org/wikipedia/commons/b/b4/2002_six-color_world_political_map.png");
 width: 650px;
 height: 328px;
-// border-radius: 50%;
+
 
 
 
@@ -91,6 +91,11 @@ padding: 6px;
     background-color: $color-one;
 
     margin: auto;
+
+    .results {
+       padding-bottom: 15px;
+       border-bottom: solid 3px #7a9c99;
+    }
 
 
 

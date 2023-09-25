@@ -11,6 +11,7 @@ const SearchResultsCity = () => {
     const [error, setError] = useState(null);
     const [countries, setCountries] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [results, setResults] = useState([]);
 
 
     const globalCtx = useContext(GlobalContext);
@@ -38,6 +39,7 @@ const SearchResultsCity = () => {
             setIsLoading(false);
 
             setCountries(filterData);
+            setResults(filterData.length);
         } catch (err) {
             setError(err);
             setIsLoading(false);
@@ -59,6 +61,10 @@ const SearchResultsCity = () => {
                         <th colSpan={2}>
                             <SearchPlace />
                         </th>
+                    </tr>
+                    <tr className="results">
+                        <th>Number of cities</th>
+                        <th>{results}</th>
                     </tr>
 
                 </thead>
