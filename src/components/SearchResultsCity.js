@@ -50,6 +50,20 @@ const SearchResultsCity = () => {
 
     if (isLoading) {
         return <Loader />
+    } else if (results == 0) {
+        return (
+            <>
+                <table className="tabelaZemlje">
+                    <thead>
+                        <tr>
+                            <th><SearchPlace /></th>
+                        </tr>
+                        <tr>
+                            <th>Nothing found</th>
+                        </tr>
+                    </thead>
+                </table></>
+        )
     }
 
     return (

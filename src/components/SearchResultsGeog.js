@@ -48,10 +48,24 @@ const SearchResutsGeog = () => {
 
     };
 
-  
+
 
     if (isLoading) {
         return <Loader />
+    } else if (results == 0) {
+        return (
+            <>
+                <table className="tabelaZemlje">
+                    <thead>
+                        <tr>
+                            <th><SearchPlace /></th>
+                        </tr>
+                        <tr>
+                            <th>Nothing found</th>
+                        </tr>
+                    </thead>
+                </table></>
+        )
     }
     return (
         <>
@@ -155,9 +169,9 @@ const SearchResutsGeog = () => {
                         </tr>
                         <tr>
                             <td>Car signs:</td>
-                            <td className="population">{ dataObj.car.signs}</td>
+                            <td className="population">{dataObj.car.signs}</td>
                         </tr>
-                        
+
                         <tr>
                             <td>Lon Lat:</td>
                             <td className="long">{dataObj.latlng[0] + " " + dataObj.latlng[1]}</td>
