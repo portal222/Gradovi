@@ -5,6 +5,8 @@ import GlobalContext from "./GlobalContext";
 import BackToTop from "./BackToTop";
 import Loader from "./Loader";
 
+import MapTwoToneIcon from '@mui/icons-material/MapTwoTone';
+
 
 const SearchResutsGeog = () => {
     const [error, setError] = useState(null);
@@ -177,10 +179,11 @@ const SearchResutsGeog = () => {
                             <td className="long">{dataObj.latlng[0] + " " + dataObj.latlng[1]}</td>
                         </tr>
                         <tr className="region">
-                            <td className="maps">Googlemaps:</td>
-                            <td className="maps">
+                            <td >Googlemaps:</td>
+                            <td >
                                 <a href={dataObj.maps.googleMaps} target='_blank' >
-                                    maps
+                                   {/* <MapTwoToneIcon fontSize="medium"  color="action"/> */}
+                                   <MapTwoToneIcon className="mapIcon"/>
                                 </a>
                             </td>
                         </tr>

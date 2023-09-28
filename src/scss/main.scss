@@ -5,9 +5,10 @@ $color-three: rgb(164, 168, 206);
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 18px;
-  
+
 
 }
+
 .loader {
     margin: auto;
     width: 650px;
@@ -34,50 +35,55 @@ body {
     max-width: 650px;
     min-width: 650px;
     justify-content: space-around;
+
     .linker {
         color: $color-one;
         text-decoration: none;
         font-weight: bold;
     }
-   .linker:hover {
+
+    .linker:hover {
         color: #a8dbd7;
     }
 
 
 }
+
 .home {
     margin-top: 0;
     margin: auto;
     width: 650px;
-    height:880px;
-    background-color:white;
+    height: 880px;
+    background-color: white;
     padding-top: 100px;
-   
-  
- 
+
+
+
     .img {
         margin: auto;
         background-size: cover;
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/b/b4/2002_six-color_world_political_map.png");
-width: 650px;
-height: 328px;
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/b/b4/2002_six-color_world_political_map.png");
+        width: 650px;
+        height: 328px;
 
 
 
 
-      
+
     }
-   
+
 }
+
 .place {
     background-color: #84867b;
-padding: 6px;
+    padding: 6px;
     display: flex;
     height: 50px;
     justify-content: space-around;
+
     .search {
         width: 50px;
-       
+
     }
 
 }
@@ -93,8 +99,8 @@ padding: 6px;
     margin: auto;
 
     .results {
-       padding-bottom: 15px;
-       border-bottom: solid 3px #7a9c99;
+        padding-bottom: 15px;
+        border-bottom: solid 3px #7a9c99;
     }
 
 
@@ -103,7 +109,7 @@ padding: 6px;
         max-width: 400px;
         min-width: 400px;
         height: 50px;
-       
+
         background-color: #828c82;
         margin: auto;
     }
@@ -130,6 +136,7 @@ padding: 6px;
         }
 
     }
+
     .flagAlt {
         font-size: 32px;
     }
@@ -157,9 +164,9 @@ padding: 6px;
     }
 
 
-.lang {
-    font-size: 22px;
-}
+    .lang {
+        font-size: 22px;
+    }
 
 
 
@@ -182,7 +189,16 @@ padding: 6px;
     }
 
     .region {
-        border-bottom: solid 10px #7a9c99;
+        border-bottom: solid 10px #828c82;
+     .mapIcon {
+        color: #7a9c99;
+        // font-size: large;
+        font-size: 38px;
+       
+        &:hover {
+            color: $color-two;
+        }
+     }
     }
 }
 
@@ -191,6 +207,7 @@ padding: 6px;
 .nameOff {
     font-size: 24px;
 }
+
 .lonLat {
     font-size: 18px;
     border-bottom: solid 3px grey;
@@ -200,34 +217,36 @@ padding: 6px;
     position: fixed;
     bottom: 20px;
     right: 20px;
-    
+
     color: #84867b;
     cursor: pointer;
     border-radius: 400px;
+
     .arrowup {
         // align-items: center;
-      
+
         width: 24px;
         height: 24px;
         color: #7a9c99ac;
         background-color: rgba(165, 206, 195, 0.43);
-    
+
         border-radius: 12px;
         border: solid 3px #95beba7c;
-      }
-  }
+    }
+}
 
-  .paper {
-  margin-top: 5px;
+.paper {
+    margin-top: 5px;
     min-width: 185px;
     max-width: 185px;
+
     .base {
         max-width: 140px;
         padding-left: 10px;
-       
+
     }
-  
-  }
+
+}
 
 @media screen and (max-width: 500px) {
     body {
@@ -235,6 +254,7 @@ padding: 6px;
         margin: 0;
         padding: 0;
     }
+
     .loader {
         max-width: 358px;
         min-width: 358px;
@@ -251,28 +271,30 @@ padding: 6px;
         margin-top: 0;
         margin: auto;
         width: 358px;
-        height:880px;
-       
+        height: 880px;
+
         padding-top: 80px;
-       .img {
- height: 175px;
-    width: 358px;
-  
-    
- 
+
+        .img {
+            height: 175px;
+            width: 358px;
+
+
+
         }
-       
+
     }
 
     .place {
         display: block;
         height: 150px;
-       
-      
-    padding-left: 50px;
+
+
+        padding-left: 50px;
+
         .search {
-       
-            width: 230px ;
+
+            width: 230px;
             font-size: 14px;
         }
     }
@@ -308,6 +330,7 @@ padding: 6px;
             padding-bottom: 10px;
 
         }
+
         .lang {
             font-size: 16px;
         }
@@ -318,10 +341,12 @@ padding: 6px;
                 padding-top: 8px;
 
             }
+
             .imageFlsearch {
                 width: 310px;
             }
         }
+
         .flagAlt {
             font-size: 20px;
         }
@@ -331,6 +356,7 @@ padding: 6px;
             padding-top: 8px;
             width: 110px;
         }
+
         .population {
             font-size: 18px;
         }
@@ -350,24 +376,29 @@ padding: 6px;
             padding-bottom: 8px;
         }
 
-        .maps {
+        .region {
             border-bottom: solid 5px #828c82;
+            .mapIcon {
+                font-size: 22px;
+            }
         }
 
         .nameOff {
             font-size: 18px;
         }
     }
+
     .paper {
-  
+
         min-width: 250px;
         max-width: 250px;
+
         .base {
             max-width: 200px;
-           
+
         }
-      
-      }
+
+    }
 
 
 
