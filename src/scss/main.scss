@@ -40,11 +40,14 @@ body {
         color: $color-one;
         text-decoration: none;
         font-weight: bold;
+            &:hover {
+        font-weight: bold;
+        color: #fdc714;
+        text-shadow: 2px 2px 7px black;
+    }
     }
 
-    .linker:hover {
-        color: #a8dbd7;
-    }
+
 
 
 }
@@ -97,6 +100,16 @@ body {
     background-color: $color-one;
 
     margin: auto;
+
+    .imageDet {
+      
+        width: 500px;
+        margin: auto;
+        cursor: pointer;
+        &:hover {
+          box-shadow: 4px 4px 15px #fdc714;
+        }
+    }
 
     .results {
         padding-bottom: 15px;
@@ -196,9 +209,20 @@ body {
         font-size: 38px;
        
         &:hover {
-            color: $color-two;
+            color: #fdc714;
+         
+        
         }
      }
+    }
+    .nameOffCountry {
+        font-size: 24px;
+        cursor: pointer;
+        &:hover {
+            font-weight: bold;
+            color: #fdc714;
+            text-shadow: 2px 2px 7px black;
+        }
     }
 }
 
@@ -265,6 +289,9 @@ body {
         max-width: 358px;
         min-width: 358px;
         margin: auto;
+        .linker:hover {
+            text-shadow: 1px 1px 4px black;
+        }
     }
 
     .home {
@@ -308,6 +335,13 @@ body {
         max-width: 358px;
         min-width: 358px;
         margin: auto;
+
+        .imageDet {
+            width: 320px;
+            &:hover {
+                box-shadow: 2px 2px 12px #fdc714; 
+            }
+        }
 
         .naslov {
             text-align: center;
@@ -385,6 +419,14 @@ body {
 
         .nameOff {
             font-size: 18px;
+        }
+        .nameOffCountry {
+            font-size: 16px;
+           
+            &:hover {
+          
+                text-shadow: 1px 1px 4px black;
+            }
         }
     }
 

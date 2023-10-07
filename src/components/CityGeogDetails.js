@@ -3,10 +3,14 @@ import { useParams } from "react-router-dom";
 import axios from 'axios';
 import SearchPlace from "./SearchPlace";
 import MapTwoToneIcon from '@mui/icons-material/MapTwoTone';
+import Loader from "./Loader";
+
 
 
 const SearchResutsGeog = (props) => {
     const [error, setError] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+
     const [countries, setCountries] = useState([]);
 
 
@@ -28,17 +32,21 @@ const SearchResutsGeog = (props) => {
             const response = await axios.get(url);
             const data = response.data;
 
-            console.log("Detalji", data);
+            console.log("zemlja iz gradova", data);
 
             setCountries(data);
+            setIsLoading(false);
+
         } catch (err) {
             setError(err);
+            setIsLoading(false);
+
         }
 
     };
 
-    if (error) {
-        return <p>Error: {error.message}</p>;
+    if (isLoading) {
+        return <Loader />
     }
 
     return (

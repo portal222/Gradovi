@@ -64,6 +64,12 @@ const Geografija = () => {
         }
     };
 
+    const handleClick = (drId) => {
+        console.log("klik nda drz",drId);
+        const LinkTo = `detalji/${drId}`;
+        navigate(LinkTo);
+    } 
+
     if (isLoading) {
         return <Loader />
     }
@@ -98,8 +104,11 @@ const Geografija = () => {
                         </tr>
                         <tr className="name">
 
-                            <td colSpan={2}><img src={dataObj.flags.png}
-                                alt="nema zastave" className="image" /></td>
+                            <td colSpan={2}
+                            onClick={() => handleClick(dataObj.name.common)}>
+                                <img src={dataObj.flags.png}
+                                alt="nema zastave" className="imageDet" />
+                                </td>
 
                         </tr>
                         <tr>
@@ -107,10 +116,7 @@ const Geografija = () => {
                             <td className="capital">{dataObj.capital}</td>
                         </tr>
 
-                        {/* <tr>
-                        <td >Serbian</td>
-                        <td className="nameOff"> {dataObj.translations.srp.official}</td>
-                    </tr> */}
+                  
 
                         <tr className="region">
                             <td >Region</td>

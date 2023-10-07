@@ -100,11 +100,6 @@ const SearchResutsGeog = () => {
                             <td className="flag"><img src={dataObj.flags.png} alt="flag"
                                 className="imageFl" /></td>
                         </tr>
-                        {/* <tr>
-                        <td colSpan={2}>
-                            <p>{dataObj.flags.alt}</p>
-                        </td>
-                    </tr> */}
                         <tr>
                             <td >Name:</td>
                             <td className="nameComm">{dataObj.name.common}</td>
@@ -182,8 +177,8 @@ const SearchResutsGeog = () => {
                             <td >Googlemaps:</td>
                             <td >
                                 <a href={dataObj.maps.googleMaps} target='_blank' >
-                                   {/* <MapTwoToneIcon fontSize="medium"  color="action"/> */}
-                                   <MapTwoToneIcon className="mapIcon"/>
+                                 
+                                    <MapTwoToneIcon className="mapIcon" />
                                 </a>
                             </td>
                         </tr>

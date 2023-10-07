@@ -5,6 +5,7 @@ import GlobalContext from "./GlobalContext";
 import SearchPlace from "./SearchPlace";
 import BackToTop from "./BackToTop";
 import Loader from "./Loader";
+import { useNavigate } from "react-router-dom";
 
 
 const SearchResultsCity = () => {
@@ -16,6 +17,9 @@ const SearchResultsCity = () => {
 
     const globalCtx = useContext(GlobalContext);
     const searchStringValue = globalCtx.searchStringValue;
+
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         getCountries(searchStringValue);
@@ -43,10 +47,14 @@ const SearchResultsCity = () => {
         } catch (err) {
             setError(err);
             setIsLoading(false);
-
         }
-
     };
+
+    const handleClickCity = (drId) => {
+        console.log("klik na drzavu",drId);
+        const LinkTo = `gradoviDetalj/${drId}`;
+        navigate(LinkTo);
+    } 
 
     if (isLoading) {
         return <Loader />
@@ -98,7 +106,10 @@ const SearchResultsCity = () => {
                         </tr>
                         <tr>
                             <td >Country:</td>
-                            <td className="nameOff">{dataObj.country}</td>
+                            <td className="nameOffCountry"
+                              onClick={() => handleClickCity(dataObj.country)}>
+                                {dataObj.country}
+                          </td>
                         </tr>
                         <tr>
                             <td className="lonLat">Subcountry:</td>
