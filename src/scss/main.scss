@@ -107,7 +107,7 @@ body {
         margin: auto;
         cursor: pointer;
         &:hover {
-          box-shadow: 4px 4px 15px #fdc714;
+          box-shadow: 4px 4px 15px black;
         }
     }
 
@@ -339,7 +339,7 @@ body {
         .imageDet {
             width: 320px;
             &:hover {
-                box-shadow: 2px 2px 12px #fdc714; 
+                box-shadow: 2px 2px 12px black; 
             }
         }
 
