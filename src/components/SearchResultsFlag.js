@@ -5,6 +5,8 @@ import GlobalContext from "./GlobalContext";
 import SearchPlace from "./SearchPlace";
 import BackToTop from "./BackToTop";
 import Loader from "./Loader";
+import { useNavigate } from "react-router-dom";
+
 
 
 const SearchResutsFlag = () => {
@@ -16,6 +18,8 @@ const SearchResutsFlag = () => {
 
     const globalCtx = useContext(GlobalContext);
     const searchStringValue = globalCtx.searchStringValue;
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         getCountries(searchStringValue);
@@ -46,6 +50,12 @@ const SearchResutsFlag = () => {
         }
 
     };
+
+    const handleClick = (drId) => {
+        console.log("klik na drzavu",drId);
+        const LinkTo = `flags/${drId}`;
+        navigate(LinkTo);
+    } 
 
     if (isLoading) {
         return <Loader />
@@ -91,7 +101,9 @@ const SearchResutsFlag = () => {
                         <tr >
 
 
-                            <td colSpan={2} className="flag"><img src={dataObj.flags.png} alt="flag"
+                            <td colSpan={2}
+                            onClick={() => handleClick(dataObj.name.common)} className="flag">
+                                <img src={dataObj.flags.png} alt="flag"
                                 className="imageFlsearch" /></td>
                         </tr>
                         <tr>

@@ -33,8 +33,10 @@ export default function Navigation() {
                 <Route path="/" element={<Geografija />} />
                 <Route path="/search" element={<SearchResutsGeog/>} />
                 <Route path="/geografija/searchFlag" element={<SearchResutsFlag/>} />
+                <Route path="/geografija/searchFlag/flags/:drId" element={<GeographicDetails/>} />
                <Route path="/searchCity" element={<SearchResultsCity />} />
                <Route path="/detalji/:drId" element={<GeographicDetails />} />
+             
                <Route path="/searchCity/gradoviDetalj/:drId" element={<CityGeogDetails />} />
             </Routes>
               <div className="home">

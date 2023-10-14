@@ -65,7 +65,7 @@ const Geografija = () => {
     };
 
     const handleClick = (drId) => {
-        console.log("klik nda drz",drId);
+        console.log("klik na drz",drId);
         const LinkTo = `detalji/${drId}`;
         navigate(LinkTo);
     } 
@@ -107,21 +107,16 @@ const Geografija = () => {
                             <td colSpan={2}
                             onClick={() => handleClick(dataObj.name.common)}>
                                 <img src={dataObj.flags.png}
-                                alt="nema zastave" className="imageDet" />
+                                alt="flag" className="imageDet" />
                                 </td>
 
                         </tr>
-                        <tr>
+                        <tr className="region">
                             <td >Capital</td>
                             <td className="capital">{dataObj.capital}</td>
                         </tr>
 
                   
-
-                        <tr className="region">
-                            <td >Region</td>
-                            <td className="nameOff">{dataObj.region}</td>
-                        </tr>
 
                     </tbody>
 

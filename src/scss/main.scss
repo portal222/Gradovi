@@ -134,6 +134,7 @@ body {
 
     .flag {
         text-align: center;
+        padding-top: 20px;
 
 
         .imageFl {
@@ -144,8 +145,14 @@ body {
 
         .imageFlsearch {
             width: 550px;
-            padding-top: 25px;
+           margin-top: 25px;
+      
             margin: auto;
+        cursor: pointer;
+        &:hover {
+            box-shadow: 4px 4px 15px black;
+          }
+
         }
 
     }
@@ -372,12 +379,16 @@ body {
         .flag {
             .imageFl {
                 width: 190px;
-                padding-top: 8px;
+                // padding-top: 8px;
+                margin-top: 8px;
 
             }
 
             .imageFlsearch {
                 width: 310px;
+                &:hover {
+                    box-shadow: 2px 2px 12px black; 
+                }
             }
         }
 
