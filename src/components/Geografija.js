@@ -98,7 +98,8 @@ const Geografija = () => {
 
 
                         <tr>
-                            <td colSpan={2} className="name">
+                            <td colSpan={2} className="nameGeog"
+                            onClick={() => handleClick(dataObj.name.common)}>
                                 {dataObj.name.common}
                             </td>
                         </tr>

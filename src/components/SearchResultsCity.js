@@ -25,6 +25,8 @@ const SearchResultsCity = () => {
         getCountries(searchStringValue);
     }, [searchStringValue]);
 
+    
+
     const getCountries = async (searchStringValue) => {
         const url = "https://pkgstore.datahub.io/core/world-cities/world-cities_json/data/5b3dd46ad10990bca47b04b4739a02ba/world-cities_json.json";
 
@@ -50,7 +52,12 @@ const SearchResultsCity = () => {
         }
     };
 
-    const handleClickCity = (drId) => {
+    const handleClickCity = (cityId) => {
+        console.log("klik na grad",cityId);
+        const LinkTo = `citiesDetails/${cityId}`;
+        navigate(LinkTo);
+    } 
+    const handleClickCountry = (drId) => {
         console.log("klik na drzavu",drId);
         const LinkTo = `gradoviDetalj/${drId}`;
         navigate(LinkTo);
@@ -101,21 +108,30 @@ const SearchResultsCity = () => {
 
                         <tr>
                             <td >Name:</td>
-                            <td className="nameComm">{dataObj.name}</td>
+                            <td className="nameGeog"
+                            onClick={() => handleClickCity(dataObj.name)}>
+                                {dataObj.name}</td>
 
                         </tr>
                         <tr>
                             <td >Country:</td>
                             <td className="nameOffCountry"
-                              onClick={() => handleClickCity(dataObj.country)}>
+                              onClick={() => handleClickCountry(dataObj.country)}>
                                 {dataObj.country}
                           </td>
                         </tr>
                         <tr>
-                            <td className="lonLat">Subcountry:</td>
-                            <td className="lonLat">
-                                {dataObj.subcountry}</td>
+                            <td>Subcountry:</td>
+                            <td className="nameOff">
+                                {dataObj.subcountry}
+                            </td>
                         </tr>
+                        <tr>
+                            <td colSpan={2}>
+                                <hr></hr>
+                            </td>
+                        </tr>
+                     
 
 
                     </tbody>

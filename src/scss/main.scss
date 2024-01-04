@@ -40,11 +40,12 @@ body {
         color: $color-one;
         text-decoration: none;
         font-weight: bold;
-            &:hover {
-        font-weight: bold;
-        color: #fdc714;
-        text-shadow: 2px 2px 7px black;
-    }
+
+        &:hover {
+            font-weight: bold;
+            color: #fdc714;
+            text-shadow: 2px 2px 7px black;
+        }
     }
 
 
@@ -102,14 +103,18 @@ body {
     margin: auto;
 
     .imageDet {
-      
+
         width: 500px;
         margin: auto;
         cursor: pointer;
+        margin-top: 10px;
+
         &:hover {
-          box-shadow: 4px 4px 15px black;
+            box-shadow: 4px 4px 15px black;
         }
     }
+
+
 
     .results {
         padding-bottom: 15px;
@@ -137,21 +142,30 @@ body {
         padding-top: 20px;
 
 
+
         .imageFl {
-            padding-top: 25px;
+            // padding-top: 25px;
             width: 330px;
             margin: auto;
+            cursor: pointer;
+
+            &:hover {
+                box-shadow: 4px 4px 9px black;
+            }
+
+
         }
 
         .imageFlsearch {
             width: 550px;
-           margin-top: 25px;
-      
+            margin-top: 25px;
+
             margin: auto;
-        cursor: pointer;
-        &:hover {
-            box-shadow: 4px 4px 15px black;
-          }
+            cursor: pointer;
+
+            &:hover {
+                box-shadow: 4px 4px 15px black;
+            }
 
         }
 
@@ -169,6 +183,12 @@ body {
 
         .image {
             width: 450px;
+        }
+
+        .coat {
+            width: 570px;
+            padding-top: 10px;
+
         }
     }
 
@@ -193,38 +213,66 @@ body {
 
 
     .population {
-        font-size: 28px;
+        font-size: 26px;
         font-weight: bold;
+        min-width: 400px;
     }
 
     .long {
         font-size: 20px;
     }
 
+    tr {
+        &:nth-child(even) {
+            background-color: #dcdee9;
+        }
+    }
+
     td {
         padding-left: 30px;
         padding-right: 30px;
         padding-bottom: 10px;
-        font-size: 24;
+        font-size: 26;
+        max-width: 120px;
+
     }
 
-    .region {
-        border-bottom: solid 10px #828c82;
-     .mapIcon {
+    .mapIcon {
         color: #7a9c99;
         // font-size: large;
         font-size: 38px;
-       
+
         &:hover {
             color: #fdc714;
-         
-        
+
+
         }
-     }
     }
+
+    .region {
+        border-bottom: solid 5px #828c82;
+
+    }
+
     .nameOffCountry {
-        font-size: 24px;
+        font-size: 32px;
         cursor: pointer;
+        min-width: 400px;
+
+
+        &:hover {
+            font-weight: bold;
+            color: #fdc714;
+            text-shadow: 2px 2px 7px black;
+        }
+    }
+
+    .nameGeog {
+        font-size: 36px;
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+
         &:hover {
             font-weight: bold;
             color: #fdc714;
@@ -296,6 +344,7 @@ body {
         max-width: 358px;
         min-width: 358px;
         margin: auto;
+
         .linker:hover {
             text-shadow: 1px 1px 4px black;
         }
@@ -322,6 +371,7 @@ body {
     .place {
         display: block;
         height: 150px;
+        width: 300px;
 
 
         padding-left: 50px;
@@ -345,9 +395,15 @@ body {
 
         .imageDet {
             width: 320px;
+
             &:hover {
-                box-shadow: 2px 2px 12px black; 
+                box-shadow: 2px 2px 12px black;
             }
+        }
+
+        .search {
+            max-width: 320px;
+            min-width: 320px;
         }
 
         .naslov {
@@ -363,6 +419,9 @@ body {
                 width: 200px;
                 padding-top: 10px;
             }
+            .coat {
+                width: 320px;
+            }
         }
 
         .nameComm {
@@ -370,6 +429,10 @@ body {
             padding-top: 10px;
             padding-bottom: 10px;
 
+        }
+
+        .nameGeog {
+            font-size: 22px;
         }
 
         .lang {
@@ -386,8 +449,9 @@ body {
 
             .imageFlsearch {
                 width: 310px;
+
                 &:hover {
-                    box-shadow: 2px 2px 12px black; 
+                    box-shadow: 2px 2px 12px black;
                 }
             }
         }
@@ -404,6 +468,7 @@ body {
 
         .population {
             font-size: 18px;
+            min-width: 210px;
         }
 
         .long {
@@ -411,8 +476,9 @@ body {
         }
 
         td {
-            padding: 2px 10px;
+            padding: 2px 7px;
             font-size: 14px;
+            max-width: 80px;
         }
 
         .capital {
@@ -423,6 +489,7 @@ body {
 
         .region {
             border-bottom: solid 5px #828c82;
+
             .mapIcon {
                 font-size: 22px;
             }
@@ -431,11 +498,13 @@ body {
         .nameOff {
             font-size: 18px;
         }
+
         .nameOffCountry {
             font-size: 16px;
-           
+            min-width: 210px;
+
             &:hover {
-          
+
                 text-shadow: 1px 1px 4px black;
             }
         }

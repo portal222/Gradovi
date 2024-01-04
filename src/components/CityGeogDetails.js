@@ -2,169 +2,206 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from 'axios';
 import SearchPlace from "./SearchPlace";
-import MapTwoToneIcon from '@mui/icons-material/MapTwoTone';
+
 import Loader from "./Loader";
 
 
 
 const SearchResutsGeog = (props) => {
     const [error, setError] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
+    // const [isLoading, setIsLoading] = useState(true);
 
-    const [countries, setCountries] = useState([]);
+   
+    const [city, setCity] = useState([]);
+
+    const [citySo, setCitySo] = useState([]);
+    const [cityCo, setCityCo] = useState([]);
+    const [cityO3, setCityO3] = useState([]);
+    const [cityNo, setCityNo] = useState([]);
+    const [cityPm, setCityPm] = useState([]);
+    const [weather, setWeather] = useState([]);
+ 
+
+
+
 
 
     const params = useParams();
 
-    const drId = params.drId;
+    const cityId = params.cityId;
 
 
 
     useEffect(() => {
-        getCountries();
+        getCities();
+
     }, []);
 
-    const getCountries = async () => {
+    const getCities = async () => {
 
-        const url = `https://restcountries.com/v3.1/name/${drId}`;
+        const urlAir = `https://api.api-ninjas.com/v1/airquality?city=${cityId}`;
+        const url = `https://api.api-ninjas.com/v1/weather?city=${cityId}`;
+       
+
 
         try {
-            const response = await axios.get(url);
-            const data = response.data;
+            const response = await axios.get(urlAir,
+                {
+                    headers: {
+                        'X-Api-Key': 'D+dYjCxDSm5fEkIqyoCIeA==c2GvujXTiAbMIH05'
+                    }
+                }
+            );
+            const responseNs = await axios.get(url,
+                {
+                    headers: {
+                        'X-Api-Key': 'D+dYjCxDSm5fEkIqyoCIeA==c2GvujXTiAbMIH05'
+                    }
+                }
+            );
+     
 
-            console.log("zemlja iz gradova", data);
+            const dataAir = response.data;
+            const dataWeat = responseNs.data;
+         
 
-            setCountries(data);
-            setIsLoading(false);
+            console.log("rezultat city air", dataAir);
+            console.log("rezultat city vreme", dataWeat);
+        
+
+            setCity(dataAir);
+            setCityCo(dataAir.CO);
+            setCitySo(dataAir.SO2);
+            setCityO3(dataAir.O3);
+            setCityNo(dataAir.NO2);
+            setCityPm(dataAir.PM10);
+
+            setWeather(dataWeat);
+            setPopulation(dataPop);
+
+
 
         } catch (err) {
             setError(err);
-            setIsLoading(false);
+            // setIsLoading(false);
 
         }
 
     };
 
-    if (isLoading) {
-        return <Loader />
-    }
+
+    // if (isLoading) {
+    //     return <Loader />
+    // }
 
     return (
+        <>
+            <table className="tabelaZemlje">
+                <thead >
 
-        <table className="tabelaZemlje">
-            <thead >
+                    <tr>
+                        <th colSpan={2}>
+                            <SearchPlace />
+                        </th>
+                    </tr>
 
-                <tr>
-                    <th colSpan={2}>
-                        <SearchPlace />
-                    </th>
-                </tr>
-
-            </thead>
-
-            {countries.map((dataObj) => (
+                </thead>
 
 
 
-                <tbody key={dataObj.name.common} >
 
-                    <tr >
 
-                        <td><img className="imageTwo" src={dataObj.coatOfArms.png}
-                            alt=" coat" />
-                        </td>
-                        <td className="flag"><img src={dataObj.flags.png}
-                            alt="flag" className="imageFl" />
+                <tbody  >
+                    <tr>
+                        <td colSpan={2}
+                        className="name">
+                            Weather {cityId} 
                         </td>
                     </tr>
-                    <tr>
-                        <td >Name</td>
-                        <td className="nameComm">{dataObj.name.common}</td>
+                 
 
+                    <tr>
+                        <td>Wind speed</td>
+                        <td className="population">{weather.wind_speed} m/s {(weather.wind_speed * 3.6).toFixed(1)} km/h</td>
+                    </tr>
+
+                    <tr>
+                        <td>Wind degrees</td>
+                        <td className="population">{weather.wind_degrees}&#176; </td>
                     </tr>
                     <tr>
-                        <td >Official name</td>
-                        <td className="nameOff">{dataObj.name.official}</td>
+                        <td>Temparature</td>
+                        <td className="population">{weather.temp}&#176;C</td>
                     </tr>
                     <tr>
-                        <td >Serbian</td>
-                        <td className="nameOff"> {dataObj.translations.srp.official}</td>
+                        <td>Min Temparature</td>
+                        <td className="population">{weather.min_temp}&#176;C</td>
                     </tr>
                     <tr>
-                        <td >Capital</td>
-                        <td className="capital">{dataObj.capital}</td>
+                        <td>Max Temparature</td>
+                        <td className="population">{weather.max_temp}&#176;C</td>
                     </tr>
                     <tr>
-                        <td >Region</td>
-                        <td className="lang">{dataObj.region}</td>
+                        <td>Feels Like</td>
+                        <td className="population">{weather.feels_like}&#176;C</td>
                     </tr>
                     <tr>
-                        <td >Subregion</td>
-                        <td className="lang">{dataObj.subregion}</td>
+                        <td>Humidity</td>
+                        <td className="population">{weather.humidity} %</td>
                     </tr>
                     <tr>
-                        <td>Demonyms:</td>
-                        <td className="lang">{dataObj.demonyms.eng.m}</td>
                     </tr>
-                    <tr>
-                        <td>Languages:</td>
-                        <td className="lang">{dataObj.languages.jpn || dataObj.languages.que || dataObj.languages.grn || dataObj.languages.pau
-                            || dataObj.languages.nep || dataObj.languages.urd || dataObj.languages.heb || dataObj.languages.ber || dataObj.languages.hin
-                            || dataObj.languages.ara || dataObj.languages.pus || dataObj.languages.tuk || dataObj.languages.est || dataObj.languages.dan
-                            || dataObj.languages.vie || dataObj.languages.de || dataObj.languages.kaz || dataObj.languages.lav || dataObj.languages.swa
-                            || dataObj.languages.rus || dataObj.languages.ita || dataObj.languages.sqi || dataObj.languages.srp || dataObj.languages.zho
-                            || dataObj.languages.nld || dataObj.languages.hrv || dataObj.languages.mkd || dataObj.languages.bos || dataObj.languages.pol
-                            || dataObj.languages.por || dataObj.languages.slv || dataObj.languages.ron || dataObj.languages.lit || dataObj.languages.cat
-                            || dataObj.languages.bul || dataObj.languages.ell || dataObj.languages.kal || dataObj.languages.ces || dataObj.languages.slk
-                            || dataObj.languages.mon || dataObj.languages.cnr || dataObj.languages.hun || dataObj.languages.kor || dataObj.languages.mya
-                            || dataObj.languages.nor || dataObj.languages.fin || dataObj.languages.swe || dataObj.languages.ind
-                            || dataObj.languages.spa || dataObj.languages.deu || dataObj.languages.fra
-                            || dataObj.languages.eng}</td>
-                    </tr>
-                    <tr>
-                        <td>Timezones:</td>
-                        <td className="lang">
 
 
-                            {dataObj.timezones[0]}
+                    <tr>
+                        <td colSpan={2}
+                            className="name" >
+                            Air Quality
                         </td>
                     </tr>
+                    <tr>
 
 
-                    <tr>
-                        <td >Population</td>
-                        <td className="population">{dataObj.population}</td>
+                        <td >Carbon monoxide</td>
+                        <td className="population">{cityCo.concentration}</td>
                     </tr>
                     <tr>
-                        <td>Area sqkm:</td>
-                        <td className="population">{dataObj.area}</td>
+                        <td >Sulphur dioxide</td>
+                        <td className="population">{citySo.concentration}</td>
                     </tr>
                     <tr>
-                        <td>Car side:</td>
-                        <td className="lang">{dataObj.car.side}</td>
+                        <td >Ozone</td>
+                        <td className="population">{cityO3.concentration}</td>
                     </tr>
                     <tr>
-                        <td>Car signs:</td>
-                        <td className="population">{dataObj.car.signs}</td>
+                        <td >Nitrogen dioxide</td>
+                        <td className="population">{cityNo.concentration}</td>
+                    </tr>
+                    <tr>
+                        <td >PM10 particulates</td>
+                        <td className="population">{cityPm.concentration}</td>
+
+                    </tr>
+                    <tr>
+
+
+
+                        <td colSpan={2}
+                            className="name">
+                                {city.overall_aqi}</td>
+
+
                     </tr>
 
-                    <tr>
-                        <td>Lon Lat</td>
-                        <td className="long">{dataObj.latlng[0] + " " + dataObj.latlng[1]}</td>
-                    </tr>
-                    <tr className="region">
-                        <td className="maps">Googlemaps</td>
-                        <td className="maps">
-                            <a href={dataObj.maps.googleMaps} target='_blank' >
-                                <MapTwoToneIcon className="mapIcon" />
 
-                            </a>
-                        </td>
-                    </tr>
+
                 </tbody>
 
-            ))}
-        </table>
+
+            </table >
+
+
+        </>
 
     );
 };
