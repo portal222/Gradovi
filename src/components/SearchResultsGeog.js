@@ -35,9 +35,9 @@ const SearchResutsGeog = () => {
             const data = response.data;
             const filterData = data.filter((country) => {
                 return (
-                    country.name.official.toLowerCase().includes(searchStringValue.toLowerCase()) ||
-                    country.name.common.toLowerCase().includes(searchStringValue.toLowerCase()) ||
-                    country.translations.srp.official.toLowerCase().includes(searchStringValue.toLowerCase())
+                 
+                    country.name.common.toLowerCase().includes(searchStringValue.toLowerCase()) 
+                 
 
 
 

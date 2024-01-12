@@ -175,12 +175,12 @@ const SearchResutsGeog = (props) => {
 
 
                         <tr>
-                            <td >Population</td>
+                            <td >Population:</td>
                             <td className="population">{dataObj.population}</td>
                         </tr>
                         <tr>
-                            <td>Area sqkm:</td>
-                            <td className="population">{dataObj.area}</td>
+                            <td>Area:</td>
+                            <td className="population">{dataObj.area} km2</td>
                         </tr>
                         <tr>
                             <td>Car side:</td>
@@ -219,7 +219,7 @@ const SearchResutsGeog = (props) => {
                         </tr>
                         <tr>
                             <td>GDP:</td>
-                            <td className="population">{dataZem.gdp*1000000} $</td>
+                            <td className="population">{dataZem.gdp} M$</td>
                         </tr>
                         <tr>
                             <td>GDP growth:</td>
@@ -227,11 +227,11 @@ const SearchResutsGeog = (props) => {
                         </tr>
                         <tr>
                             <td>Exports:</td>
-                            <td className="population">{dataZem.exports*1000000} $</td>
+                            <td className="population">{dataZem.exports} M$</td>
                         </tr>
                         <tr>
                             <td>Imports:</td>
-                            <td className="population">{dataZem.imports*1000000} $</td>
+                            <td className="population">{dataZem.imports} M$</td>
                         </tr>
                         <tr>
                             <td>Forested Area:</td>
