@@ -4,12 +4,15 @@ import axios from 'axios';
 import SearchPlace from "./SearchPlace";
 import MapTwoToneIcon from '@mui/icons-material/MapTwoTone';
 import { useNavigate, useParams } from "react-router-dom";
+// import Loader from "./Loader";
 
 
 const SearchResutsGeog = (props) => {
     const [error, setError] = useState(null);
     const [countries, setCountries] = useState([]);
     const [zemlje, setZemlje] = useState([]);
+    // const [isLoading, setIsLoading] = useState(true);
+
 
     const navigate = useNavigate();
 
@@ -41,6 +44,7 @@ const SearchResutsGeog = (props) => {
             setCountries(data);
         } catch (err) {
             setError(err);
+            setIsLoading(false);
         }
 
     };
@@ -65,16 +69,21 @@ const SearchResutsGeog = (props) => {
 
         } catch (err) {
             setError(err);
+            // setIsLoading(false);
+
 
         }
 
     };
 
-
-
-    if (error) {
-        return <p>Error: {error.message}</p>;
+    const handleClick = (cityId) => {
+        console.log("iz drzava grad", cityId);
+        const LinkTo = `capital/${cityId}`;
+        navigate(LinkTo);
     }
+
+
+
 
     return (
         <>
@@ -124,7 +133,9 @@ const SearchResutsGeog = (props) => {
                         <tr>
                             <td >Capital</td>
                             <td
-                                className="population">{dataObj.capital}</td>
+                                className="nameOffCountry"
+                                onClick={() => handleClick(dataObj.capital)}>
+                                    {dataObj.capital}</td>
                         </tr>
                         <tr>
                             <td >Region</td>
@@ -208,7 +219,7 @@ const SearchResutsGeog = (props) => {
                         </tr>
                         <tr>
                             <td>GDP:</td>
-                            <td className="population">{dataZem.gdp * 1000} $</td>
+                            <td className="population">{dataZem.gdp*1000000} $</td>
                         </tr>
                         <tr>
                             <td>GDP growth:</td>
@@ -216,11 +227,11 @@ const SearchResutsGeog = (props) => {
                         </tr>
                         <tr>
                             <td>Exports:</td>
-                            <td className="population">{dataZem.exports * 1000} $</td>
+                            <td className="population">{dataZem.exports*1000000} $</td>
                         </tr>
                         <tr>
                             <td>Imports:</td>
-                            <td className="population">{dataZem.imports * 1000} $</td>
+                            <td className="population">{dataZem.imports*1000000} $</td>
                         </tr>
                         <tr>
                             <td>Forested Area:</td>

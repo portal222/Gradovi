@@ -197,7 +197,7 @@ const SearchResutsGeog = (props) => {
                  </tr>
                  <tr>
                      <td>GDP:</td>
-                     <td className="population">{dataZem.gdp*1000} $</td>
+                     <td className="population">{dataZem.gdp*1000000} $</td>
                  </tr>
                  <tr>
                      <td>GDP growth:</td>
@@ -205,11 +205,11 @@ const SearchResutsGeog = (props) => {
                  </tr>
                  <tr>
                      <td>Exports:</td>
-                     <td className="population">{dataZem.exports*1000} $</td>
+                     <td className="population">{dataZem.exports*1000000} $</td>
                  </tr>
                  <tr>
                      <td>Imports:</td>
-                     <td className="population">{dataZem.imports*1000} $</td>
+                     <td className="population">{dataZem.imports*1000000} $</td>
                  </tr>
                  <tr>
                      <td>Forested Area:</td>

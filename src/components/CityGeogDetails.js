@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from 'axios';
 import SearchPlace from "./SearchPlace";
+import SunriseSunset from "./SunriseSunset";
+// import TimeZone from "./TimeZone";
 
 import Loader from "./Loader";
 
@@ -9,9 +11,9 @@ import Loader from "./Loader";
 
 const SearchResutsGeog = (props) => {
     const [error, setError] = useState(null);
-    // const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
 
-   
+
     const [city, setCity] = useState([]);
 
     const [citySo, setCitySo] = useState([]);
@@ -20,7 +22,10 @@ const SearchResutsGeog = (props) => {
     const [cityNo, setCityNo] = useState([]);
     const [cityPm, setCityPm] = useState([]);
     const [weather, setWeather] = useState([]);
- 
+
+    const [vreme, setVreme] = useState([]);
+
+
 
 
 
@@ -34,6 +39,7 @@ const SearchResutsGeog = (props) => {
 
     useEffect(() => {
         getCities();
+        getCityTime();
 
     }, []);
 
@@ -41,7 +47,8 @@ const SearchResutsGeog = (props) => {
 
         const urlAir = `https://api.api-ninjas.com/v1/airquality?city=${cityId}`;
         const url = `https://api.api-ninjas.com/v1/weather?city=${cityId}`;
-       
+
+
 
 
         try {
@@ -59,15 +66,18 @@ const SearchResutsGeog = (props) => {
                     }
                 }
             );
-     
+
+
 
             const dataAir = response.data;
             const dataWeat = responseNs.data;
-         
+
+
+
 
             console.log("rezultat city air", dataAir);
             console.log("rezultat city vreme", dataWeat);
-        
+
 
             setCity(dataAir);
             setCityCo(dataAir.CO);
@@ -81,18 +91,42 @@ const SearchResutsGeog = (props) => {
 
 
 
+
+
         } catch (err) {
             setError(err);
-            // setIsLoading(false);
+            setIsLoading(false);
 
         }
 
     };
 
+    const getCityTime = async () => {
 
-    // if (isLoading) {
-    //     return <Loader />
-    // }
+        const urlTime = `https://api.api-ninjas.com/v1/worldtime?city=${cityId}`;
+
+        try {
+            const response = await axios.get(urlTime,
+                {
+                    headers: {
+                        'X-Api-Key': 'D+dYjCxDSm5fEkIqyoCIeA==c2GvujXTiAbMIH05'
+                    }
+                }
+            );
+            const dataTime = response.data;
+            console.log("koliko je sati", dataTime);
+            setVreme(dataTime);
+
+        } catch (err) {
+            setError(err);
+            setIsLoading(false);
+        }
+    };
+
+
+    if (isLoading) {
+        return <Loader />
+    }
 
     return (
         <>
@@ -112,13 +146,30 @@ const SearchResutsGeog = (props) => {
 
 
                 <tbody  >
-                    <tr>
-                        <td colSpan={2}
-                        className="name">
-                            Weather {cityId} 
+
+                <tr>
+                        <td >
+                            Time zone
+                        </td>
+                        <td className="population">
+                            {vreme.timezone} 
                         </td>
                     </tr>
-                 
+                    <tr>
+                        <td>
+                           Time
+                        </td>
+                        <td className="population">
+                            {vreme.hour + ":" + vreme.minute} 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colSpan={2}
+                            className="name">
+                            Weather {cityId}
+                        </td>
+                    </tr>
+
 
                     <tr>
                         <td>Wind speed</td>
@@ -149,8 +200,7 @@ const SearchResutsGeog = (props) => {
                         <td>Humidity</td>
                         <td className="population">{weather.humidity} %</td>
                     </tr>
-                    <tr>
-                    </tr>
+                    <SunriseSunset dates={weather} />
 
 
                     <tr>
@@ -184,14 +234,16 @@ const SearchResutsGeog = (props) => {
                     </tr>
                     <tr>
 
+                        <td>Overall Aqi</td>
 
-
-                        <td colSpan={2}
-                            className="name">
-                                {city.overall_aqi}</td>
+                        <td
+                            className="population">
+                            {city.overall_aqi}</td>
 
 
                     </tr>
+
+                   
 
 
 
