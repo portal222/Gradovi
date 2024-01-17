@@ -6,6 +6,9 @@ import SunriseSunset from "./SunriseSunset";
 // import TimeZone from "./TimeZone";
 
 import Loader from "./Loader";
+import CityPosition from "./CityPosition";
+import PublicIcon from '@mui/icons-material/Public';
+
 
 
 
@@ -24,6 +27,7 @@ const SearchResutsGeog = (props) => {
     const [weather, setWeather] = useState([]);
 
     const [vreme, setVreme] = useState([]);
+    const [cityPopul, setCityPopul] = useState([]);
 
 
 
@@ -40,8 +44,13 @@ const SearchResutsGeog = (props) => {
     useEffect(() => {
         getCities();
         getCityTime();
+        getCityPopul();
 
     }, []);
+
+ 
+       
+
 
     const getCities = async () => {
 
@@ -123,6 +132,35 @@ const SearchResutsGeog = (props) => {
         }
     };
 
+    const getCityPopul = async () => {
+        // const urlPop = `https://countriesnow.space/api/v0.1/countries/population/cities`
+        const urlPop = `https://api.api-ninjas.com/v1/city?name=${cityId}`
+        // const urlPop = `https://data.world/dr5hn/country-state-city/workspace/file?filename=${cityId}.json`
+  
+   
+   try {
+    const responsePop = await axios.get(urlPop,
+        {
+            headers: {
+                'X-Api-Key': 'D+dYjCxDSm5fEkIqyoCIeA==c2GvujXTiAbMIH05'
+            }
+        }
+        );
+
+    const dataPop = responsePop.data
+    console.log("broj stanovnika gradova", dataPop)
+    setCityPopul(dataPop);
+   } catch (err) {
+    setError(err);
+    setIsLoading(false);
+   }
+   
+    }
+
+   
+
+    
+
 
     if (isLoading) {
         return <Loader />
@@ -134,10 +172,12 @@ const SearchResutsGeog = (props) => {
                 <thead >
 
                     <tr>
-                        <th colSpan={2}>
+                        <th colSpan={3}>
                             <SearchPlace />
                         </th>
+
                     </tr>
+
 
                 </thead>
 
@@ -146,104 +186,156 @@ const SearchResutsGeog = (props) => {
 
 
                 <tbody  >
+                    <tr>
+                        <td colSpan={3}
+                            className="name">
+                            {cityId}
+                        </td>
+                    </tr>
+      
+                         <tr>
+                        <td>
+                            Population
+                        </td>
+                        <td colSpan={2}
+                        className="population">
+                            {cityPopul[0]?.population}
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td>Position</td>
+                       
+                            <CityPosition lonti={cityPopul} />
+                       
+                        <td className="mapIcon">
+                <a href="https://www.google.com/maps/" target="_blank"><PublicIcon fontSize="large" /> googleMap </a>
 
-                <tr>
+            </td>
+                    </tr>
+              
+                  
+              
+                    
+                    <tr>
                         <td >
                             Time zone
                         </td>
-                        <td className="population">
-                            {vreme.timezone} 
+                        <td colSpan={2} 
+                        className="population">
+                            {vreme.timezone}
                         </td>
                     </tr>
                     <tr>
                         <td>
-                           Time
+                            Time
                         </td>
-                        <td className="population">
-                            {vreme.hour + ":" + vreme.minute} 
+                        <td colSpan={2} 
+                        className="population">
+                            {vreme.hour + ":" + vreme.minute}
                         </td>
                     </tr>
                     <tr>
-                        <td colSpan={2}
-                            className="name">
-                            Weather {cityId}
+                        <td colSpan={3}
+                            className="population">
+                            Weather
                         </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        Cloud Precipitation
+                        </td>
+                        <td colSpan={2}
+                        className="population">{weather.cloud_pct}</td>
                     </tr>
 
 
                     <tr>
                         <td>Wind speed</td>
-                        <td className="population">{weather.wind_speed} m/s {(weather.wind_speed * 3.6).toFixed(1)} km/h</td>
+                        <td className="population">
+                            {weather.wind_speed} m/s</td>
+                          <td className="aqiNum">
+                             {(weather.wind_speed * 3.6).toFixed(1)} km/h</td>
                     </tr>
 
                     <tr>
                         <td>Wind degrees</td>
-                        <td className="population">{weather.wind_degrees}&#176; </td>
+                        <td colSpan={2} 
+                        className="population">{weather.wind_degrees}&#176; </td>
                     </tr>
                     <tr>
                         <td>Temparature</td>
-                        <td className="population">{weather.temp}&#176;C</td>
+                        <td colSpan={2}
+                        className="population">{weather.temp}&#176;C</td>
                     </tr>
                     <tr>
                         <td>Min Temparature</td>
-                        <td className="population">{weather.min_temp}&#176;C</td>
+                        <td colSpan={2}
+                        className="population">{weather.min_temp}&#176;C</td>
                     </tr>
                     <tr>
                         <td>Max Temparature</td>
-                        <td className="population">{weather.max_temp}&#176;C</td>
+                        <td colSpan={2}
+                        className="population">{weather.max_temp}&#176;C</td>
                     </tr>
                     <tr>
                         <td>Feels Like</td>
-                        <td className="population">{weather.feels_like}&#176;C</td>
+                        <td colSpan={2}
+                        className="population">{weather.feels_like}&#176;C</td>
                     </tr>
                     <tr>
                         <td>Humidity</td>
-                        <td className="population">{weather.humidity} %</td>
+                        <td colSpan={2}
+                        className="population">{weather.humidity} %</td>
                     </tr>
                     <SunriseSunset dates={weather} />
 
 
                     <tr>
-                        <td colSpan={2}
-                            className="name" >
+                        <td colSpan={3}
+                            className="population" >
                             Air Quality
                         </td>
                     </tr>
                     <tr>
 
 
-                        <td >Carbon monoxide</td>
-                        <td className="population">{cityCo.concentration}</td>
+                        <td ><b>CO </b> Carbon monoxide</td>
+                        <td className="population">{cityCo.concentration} </td>
+                        <td className="aqiNum">aqi {cityCo.aqi}</td>
                     </tr>
                     <tr>
-                        <td >Sulphur dioxide</td>
-                        <td className="population">{citySo.concentration}</td>
+                        <td ><b>SO2 </b> Sulphur dioxide</td>
+                        <td className="population">{citySo.concentration} </td>
+                        <td className="aqiNum">aqi {citySo.aqi}</td>
                     </tr>
                     <tr>
-                        <td >Ozone</td>
-                        <td className="population">{cityO3.concentration}</td>
+                        <td ><b>O3 </b> Ozone</td>
+                        <td className="population">{cityO3.concentration} </td>
+                        <td className="aqiNum">aqi {cityO3.aqi}</td>
                     </tr>
                     <tr>
-                        <td >Nitrogen dioxide</td>
-                        <td className="population">{cityNo.concentration}</td>
+                        <td ><b>NO2 </b> Nitrogen dioxide</td>
+                        <td className="population">{cityNo.concentration} </td>
+                        <td className="aqiNum">aqi {cityNo.aqi}</td>
                     </tr>
                     <tr>
-                        <td >PM10 particulates</td>
-                        <td className="population">{cityPm.concentration}</td>
+                        <td ><b>PM10 </b> particulates</td>
+                        <td className="population">{cityPm.concentration} </td>
+                        <td className="aqiNum">aqi {cityPm.aqi}</td>
 
                     </tr>
                     <tr>
 
                         <td>Overall Aqi</td>
 
-                        <td
+                        <td colSpan={2}
                             className="population">
                             {city.overall_aqi}</td>
 
 
                     </tr>
 
-                   
+
 
 
 

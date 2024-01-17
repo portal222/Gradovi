@@ -98,24 +98,20 @@ const Geografija = () => {
 
 
                         <tr>
-                            <td colSpan={2} className="nameGeog"
+                             <td 
+                          className="geogImg"
+                            onClick={() => handleClick(dataObj.name.common)}>
+                                <img src={dataObj.flags.png}
+                                alt="flag"
+                                className="imageDet"  />
+                                </td>
+                            <td  className="nameGeog"
                             onClick={() => handleClick(dataObj.name.common)}>
                                 {dataObj.name.common}
                             </td>
+                       
                         </tr>
-                        <tr className="name">
-
-                            <td colSpan={2}
-                            onClick={() => handleClick(dataObj.name.common)}>
-                                <img src={dataObj.flags.png}
-                                alt="flag" className="imageDet" />
-                                </td>
-
-                        </tr>
-                        <tr className="region">
-                            <td >Capital</td>
-                            <td className="capital">{dataObj.capital}</td>
-                        </tr>
+                 
 
                   
 

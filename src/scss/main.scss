@@ -102,17 +102,24 @@ body {
 
     margin: auto;
 
-    .imageDet {
+    .geogImg {
+        min-width: 250px;
+        max-width: 250px;
 
-        width: 500px;
-        margin: auto;
-        cursor: pointer;
-        margin-top: 10px;
 
-        &:hover {
-            box-shadow: 4px 4px 15px black;
+        .imageDet {
+
+            width: 200px;
+            margin: auto;
+            cursor: pointer;
+            margin-top: 10px;
+
+            &:hover {
+                box-shadow: 4px 4px 15px black;
+            }
         }
     }
+
 
 
 
@@ -213,9 +220,42 @@ body {
 
 
     .population {
-        font-size: 26px;
+        font-size: 24px;
         font-weight: bold;
-        min-width: 400px;
+        min-width: 220px;
+        max-width: 220px;
+    }
+    .aqiNum {
+        font-size: 24px;
+        font-weight: bold;
+        width: 350px;
+        text-align: left;
+    }
+
+    .position {
+        font-size: 24px;
+        font-weight: bold;
+        min-width: 300px;
+        text-align: left;
+        padding-left: 30px;
+        cursor: copy;
+
+        &:hover {
+
+            color: #fdc714;
+            text-shadow: 2px 2px 7px black;
+        }
+    }
+    .googleMap {
+        color: #84b4b0;
+     
+        cursor: pointer;
+        &:hover {
+
+            color: #fdc714;
+            text-shadow: 2px 2px 7px black;
+        }
+
     }
 
     .long {
@@ -230,20 +270,22 @@ body {
 
     td {
         padding-left: 30px;
-        padding-right: 30px;
+        padding-right: 10px;
         padding-bottom: 10px;
         font-size: 26;
-        max-width: 120px;
+        // max-width: 120px;
 
     }
 
     .mapIcon {
-        color: #7a9c99;
+        
         // font-size: large;
-        font-size: 38px;
+        font-size: 18px;
 
         &:hover {
-            color: #fdc714;
+          
+            text-shadow: 2px 2px 7px #fdc714;
+
 
 
         }
@@ -255,7 +297,7 @@ body {
     }
 
     .nameOffCountry {
-        font-size: 32px;
+        font-size: 30px;
         cursor: pointer;
         min-width: 400px;
 
@@ -268,9 +310,11 @@ body {
     }
 
     .nameGeog {
-        font-size: 36px;
+        max-width: 600px;
+        padding: 0;
+        font-size: 28px;
         font-weight: bold;
-        text-align: center;
+        text-align: left;
         cursor: pointer;
 
         &:hover {
@@ -392,14 +436,18 @@ body {
         max-width: 358px;
         min-width: 358px;
         margin: auto;
-
-        .imageDet {
-            width: 320px;
+.geogImg {
+    min-width: 140px;
+    max-width: 140px;
+     .imageDet {
+            width: 135px;
 
             &:hover {
                 box-shadow: 2px 2px 12px black;
             }
         }
+}
+       
 
         .search {
             max-width: 320px;
@@ -419,6 +467,7 @@ body {
                 width: 200px;
                 padding-top: 10px;
             }
+
             .coat {
                 width: 320px;
             }
@@ -465,10 +514,34 @@ body {
             padding-top: 8px;
             width: 110px;
         }
+        .position {
+            font-size: 18px;
+            min-width: 80px;
+            padding-left: 5px;
+        }
+        .mapIcon {
+        
+            // font-size: large;
+            font-size: 13px;
+    
+            &:hover {
+              
+                text-shadow: 1px 1px 5px #fdc714;
+    
+    
+    
+            }
+        }
 
         .population {
             font-size: 18px;
-            min-width: 210px;
+            min-width: 50px;
+            max-width: 100px;
+        }
+        .aqiNum {
+            font-size: 18px;
+            min-width: 100px;
+            width: 100px;
         }
 
         .long {
@@ -476,7 +549,7 @@ body {
         }
 
         td {
-            padding: 2px 7px;
+            padding: 5px 10px;
             font-size: 14px;
             max-width: 80px;
         }

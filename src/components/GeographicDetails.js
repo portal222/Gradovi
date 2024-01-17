@@ -44,7 +44,7 @@ const SearchResutsGeog = (props) => {
             setCountries(data);
         } catch (err) {
             setError(err);
-            setIsLoading(false);
+            // setIsLoading(false);
         }
 
     };

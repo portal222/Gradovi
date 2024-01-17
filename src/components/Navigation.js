@@ -40,7 +40,7 @@ export default function Navigation() {
         <Route path="/search/cities/:cityId" element={<CityGeogDetails />} />
 
         <Route path="/searchCity/gradoviDetalj/:drId" element={<GeographicDetails />} />
-        <Route path="/searchCity/citiesDetails/:cityId" element={<CityGeogDetails />} />
+        <Route path="search/detalji/:drId/capital/:cityId" element={<CityGeogDetails />} />
         <Route path="/detalji/:drId/capital/:cityId" element={<CityGeogDetails />} />
 
       </Routes>

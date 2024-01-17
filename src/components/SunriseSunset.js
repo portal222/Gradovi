@@ -36,7 +36,8 @@ export default class SunriseSunset extends React.Component {
             <>
               <tr>
                 <td>Sunrise</td>
-                 <td className="population">
+                 <td colSpan={2}
+                 className="population">
                         {hours + ":" + minutes + ":" + seconds}
                     </td>
               </tr>
@@ -44,7 +45,8 @@ export default class SunriseSunset extends React.Component {
              <tr>
                 <td>Sunset</td>
 
-                 <td className="population">
+                 <td colSpan={2} 
+                  className="population">
                         {hours2 + ":" + minutes2 + ":" + seconds2}
                     </td>
              </tr>
