@@ -36,9 +36,10 @@ export default function Navigation() {
         <Route path="/geografija/searchFlag" element={<SearchResutsFlag />} />
         <Route path="/geografija/searchFlag/flags/:drId" element={<GeographicDetails />} />
         <Route path="/searchCity" element={<SearchResultsCity />} />
+        <Route path="/searchCity/citiesDetails/:cityId" element={<CityGeogDetails />} />
         <Route path="/detalji/:drId" element={<GeographicDetails />} />
         <Route path="/search/cities/:cityId" element={<CityGeogDetails />} />
-
+        
         <Route path="/searchCity/gradoviDetalj/:drId" element={<GeographicDetails />} />
         <Route path="search/detalji/:drId/capital/:cityId" element={<CityGeogDetails />} />
         <Route path="/detalji/:drId/capital/:cityId" element={<CityGeogDetails />} />

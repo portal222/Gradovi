@@ -146,11 +146,11 @@ const SearchResutsGeog = (props) => {
                             <td className="lang">{dataObj.subregion}</td>
                         </tr>
                         <tr>
-                            <td>Demonyms:</td>
+                            <td>Demonyms</td>
                             <td className="lang">{dataObj.demonyms.eng.m}</td>
                         </tr>
                         <tr>
-                            <td>Languages:</td>
+                            <td>Languages</td>
                             <td className="lang">{dataObj.languages.jpn || dataObj.languages.que || dataObj.languages.grn || dataObj.languages.pau
                                 || dataObj.languages.nep || dataObj.languages.urd || dataObj.languages.heb || dataObj.languages.ber || dataObj.languages.hin
                                 || dataObj.languages.ara || dataObj.languages.pus || dataObj.languages.tuk || dataObj.languages.est || dataObj.languages.dan
@@ -165,7 +165,7 @@ const SearchResutsGeog = (props) => {
                                 || dataObj.languages.eng}</td>
                         </tr>
                         <tr>
-                            <td>Timezones:</td>
+                            <td>Timezones</td>
                             <td className="lang">
 
 
@@ -175,26 +175,22 @@ const SearchResutsGeog = (props) => {
 
 
                         <tr>
-                            <td >Population:</td>
+                            <td >Population</td>
                             <td className="population">{dataObj.population}</td>
                         </tr>
                         <tr>
-                            <td>Area:</td>
+                            <td>Area</td>
                             <td className="population">{dataObj.area} km2</td>
                         </tr>
                         <tr>
-                            <td>Car side:</td>
+                            <td>Car side</td>
                             <td className="lang">{dataObj.car.side}</td>
                         </tr>
                         <tr>
-                            <td>Car signs:</td>
+                            <td>Car signs</td>
                             <td className="population">{dataObj.car.signs}</td>
                         </tr>
 
-                        {/* <tr>
-                            <td>Lon Lat</td>
-                            <td className="long">{dataObj.latlng[0] + " " + dataObj.latlng[1]}</td>
-                        </tr> */}
                         <tr >
                             <td>Googlemaps</td>
                             <td >
@@ -214,95 +210,95 @@ const SearchResutsGeog = (props) => {
 
                     <tbody key={dataZem.name}>
                         <tr>
-                            <td>Currency:</td>
+                            <td>Currency</td>
                             <td className="population">{dataZem.currency.name + " - " + dataZem.currency.code}</td>
                         </tr>
                         <tr>
-                            <td>GDP:</td>
+                            <td>GDP</td>
                             <td className="population">{dataZem.gdp} M$</td>
                         </tr>
                         <tr>
-                            <td>GDP growth:</td>
+                            <td>GDP growth</td>
                             <td className="population">{dataZem.gdp_growth} %</td>
                         </tr>
                         <tr>
-                            <td>Exports:</td>
+                            <td>Exports</td>
                             <td className="population">{dataZem.exports} M$</td>
                         </tr>
                         <tr>
-                            <td>Imports:</td>
+                            <td>Imports</td>
                             <td className="population">{dataZem.imports} M$</td>
                         </tr>
                         <tr>
-                            <td>Forested Area:</td>
+                            <td>Forested Area</td>
                             <td className="population">{dataZem.forested_area} %</td>
                         </tr>
 
                         <tr>
-                            <td>CO2 Emissions:</td>
+                            <td>CO2 Emissions</td>
                             <td className="population">{dataZem.co2_emissions} </td>
                         </tr>
                         <tr>
-                            <td>Unemployment:</td>
+                            <td>Unemployment</td>
                             <td className="population">{dataZem.unemployment} %</td>
                         </tr>
                         <tr>
-                            <td>Employment Services:</td>
+                            <td>Employment Services</td>
                             <td className="population">{dataZem.employment_services} %</td>
                         </tr>
                         <tr>
-                            <td>Employment Industry:</td>
+                            <td>Employment Industry</td>
                             <td className="population">{dataZem.employment_industry} %</td>
                         </tr>
                         <tr>
-                            <td>Employment Agriculture:</td>
+                            <td>Employment Agriculture</td>
                             <td className="population">{dataZem.employment_agriculture} %</td>
                         </tr>
                         <tr>
-                            <td>Population:</td>
+                            <td>Population</td>
                             <td className="population">{dataZem.population * 1000} </td>
                         </tr>
                         <tr>
-                            <td>Urban Population:</td>
+                            <td>Urban Population</td>
                             <td className="population">{dataZem.urban_population} %</td>
                         </tr>
 
                         <tr>
-                            <td>Population Density:</td>
+                            <td>Population Density</td>
                             <td className="population">{dataZem.pop_density} %</td>
                         </tr>
                         <tr>
-                            <td>Population Growth:</td>
+                            <td>Population Growth</td>
                             <td className="population">{dataZem.pop_growth} </td>
                         </tr>
                         <tr>
-                            <td>Urban Population Growth:</td>
+                            <td>Urban Population Growth</td>
                             <td className="population">{dataZem.urban_population_growth} </td>
                         </tr>
 
                         <tr>
-                            <td>Fertility:</td>
+                            <td>Fertility</td>
                             <td className="population">{dataZem.fertility}</td>
                         </tr>
                         <tr>
-                            <td>Internet Users:</td>
+                            <td>Internet Users</td>
                             <td className="population">{dataZem.internet_users} %</td>
                         </tr>
 
                         <tr>
-                            <td>Refugees:</td>
+                            <td>Refugees</td>
                             <td className="population">{dataZem.refugees * 1000}</td>
                         </tr>
                         <tr>
-                            <td>Tourists:</td>
+                            <td>Tourists</td>
                             <td className="population">{dataZem.tourists * 1000}</td>
                         </tr>
                         <tr>
-                            <td>Life Expectancy Male - Female:</td>
+                            <td>Life Expectancy Male - Female</td>
                             <td className="population">{dataZem.life_expectancy_male + " - " + dataZem.life_expectancy_female} year</td>
                         </tr>
                         <tr className="region">
-                            <td>Homicide Rate:</td>
+                            <td>Homicide Rate</td>
                             <td className="population">{dataZem.homicide_rate}</td>
                         </tr>
 
