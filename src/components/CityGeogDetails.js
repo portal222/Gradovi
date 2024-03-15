@@ -7,7 +7,11 @@ import SunriseSunset from "./SunriseSunset";
 
 import Loader from "./Loader";
 import CityPosition from "./CityPosition";
-import PublicIcon from '@mui/icons-material/Public';
+import MapTwoToneIcon from '@mui/icons-material/MapTwoTone';
+import datas from "../../public/city.listDugacak.json";
+
+
+
 
 
 
@@ -28,6 +32,7 @@ const SearchResutsGeog = (props) => {
 
     const [vreme, setVreme] = useState([]);
     const [cityPopul, setCityPopul] = useState([]);
+    const [cityLong, setCityLong] = useState([]);
 
 
 
@@ -45,11 +50,10 @@ const SearchResutsGeog = (props) => {
         getCities();
         getCityTime();
         getCityPopul();
-
     }, []);
 
- 
-       
+
+
 
 
     const getCities = async () => {
@@ -113,6 +117,7 @@ const SearchResutsGeog = (props) => {
     const getCityTime = async () => {
 
         const urlTime = `https://api.api-ninjas.com/v1/worldtime?city=${cityId}`;
+        // const urlPop = `https://api.api-ninjas.com/v1/city?name=${cityId}`
 
         try {
             const response = await axios.get(urlTime,
@@ -122,9 +127,21 @@ const SearchResutsGeog = (props) => {
                     }
                 }
             );
+            // const responsePop = await axios.get(urlPop,
+            //     {
+            //         headers: {
+            //             'X-Api-Key': 'D+dYjCxDSm5fEkIqyoCIeA==c2GvujXTiAbMIH05'
+            //         }
+            //     }
+            //     );
+
             const dataTime = response.data;
             console.log("koliko je sati", dataTime);
             setVreme(dataTime);
+
+            // const dataPop = responsePop.data
+            // console.log("broj stanovnika gradova", dataPop)
+            // setCityPopul(dataPop);
 
         } catch (err) {
             setError(err);
@@ -134,32 +151,53 @@ const SearchResutsGeog = (props) => {
 
     const getCityPopul = async () => {
         // const urlPop = `https://countriesnow.space/api/v0.1/countries/population/cities`
-        const urlPop = `https://api.api-ninjas.com/v1/city?name=${cityId}`
         // const urlPop = `https://data.world/dr5hn/country-state-city/workspace/file?filename=${cityId}.json`
-  
-   
-   try {
-    const responsePop = await axios.get(urlPop,
-        {
-            headers: {
-                'X-Api-Key': 'D+dYjCxDSm5fEkIqyoCIeA==c2GvujXTiAbMIH05'
-            }
-        }
-        );
+        const urlPop = `https://api.api-ninjas.com/v1/city?name=${cityId}`
 
-    const dataPop = responsePop.data
-    console.log("broj stanovnika gradova", dataPop)
-    setCityPopul(dataPop);
-   } catch (err) {
-    setError(err);
-    setIsLoading(false);
-   }
-   
+
+        try {
+            const responsePop = await axios.get(urlPop,
+                {
+                    headers: {
+                        'X-Api-Key': 'D+dYjCxDSm5fEkIqyoCIeA==c2GvujXTiAbMIH05'
+                    }
+                }
+            );
+
+            const dataPop = responsePop.data
+            console.log("broj stanovnika gradova", dataPop)
+            setCityPopul(dataPop);
+        } catch (err) {
+            setError(err);
+            setIsLoading(false);
+        }
+
     }
 
-   
+    useEffect(() => {
+        getCityLong(cityId);
+    }, [cityId]);
 
-    
+    const getCityLong = (cityId) => {
+
+        try {
+            const filterData = datas.filter((city) => {
+                return (
+                    city.name.toLowerCase().includes(cityId.toLowerCase())
+                )
+            });
+            console.log("city long", filterData);
+            setCityLong(filterData);
+
+        } catch (err) {
+            setError(err);
+
+        }
+    };
+
+
+
+
 
 
     if (isLoading) {
@@ -192,36 +230,47 @@ const SearchResutsGeog = (props) => {
                             {cityId}
                         </td>
                     </tr>
-      
-                         <tr>
+
+                    <tr>
                         <td>
                             Population
                         </td>
                         <td colSpan={2}
-                        className="population">
+                            className="population">
                             {cityPopul[0]?.population}
                         </td>
-                    </tr> 
-                    <tr>
-                        <td>Position</td>
-                       
-                            <CityPosition lonti={cityPopul} />
-                       
-                        <td className="mapIcon">
-                <a href="https://www.google.com/maps/" target="_blank"><PublicIcon fontSize="large" /> googleMap </a>
-
-            </td>
                     </tr>
-              
-                  
-              
-                    
+                    <tr>
+                        <td>Position
+
+                        </td>
+                        <td className="dropdown">
+                            <span>
+                                <CityPosition lonti={cityLong} />
+                            </span>
+
+                            <span className="dropdown-content">
+                                <p>copy </p></span>
+                        </td>
+
+                        <td className="mapIcon">
+                            <a href="https://www.google.com/maps/" target="_blank">
+                                <MapTwoToneIcon className="mapIcon" />
+
+                                Map </a>
+
+                        </td>
+                    </tr>
+
+
+
+
                     <tr>
                         <td >
                             Time zone
                         </td>
-                        <td colSpan={2} 
-                        className="population">
+                        <td colSpan={2}
+                            className="population">
                             {vreme.timezone}
                         </td>
                     </tr>
@@ -229,8 +278,8 @@ const SearchResutsGeog = (props) => {
                         <td>
                             Time
                         </td>
-                        <td colSpan={2} 
-                        className="population">
+                        <td colSpan={2}
+                            className="population">
                             {vreme.hour + ":" + vreme.minute}
                         </td>
                     </tr>
@@ -242,10 +291,10 @@ const SearchResutsGeog = (props) => {
                     </tr>
                     <tr>
                         <td>
-                        Cloud Precipitation
+                            Cloud Precipitation
                         </td>
                         <td colSpan={2}
-                        className="population">{weather.cloud_pct}</td>
+                            className="population">{weather.cloud_pct}</td>
                     </tr>
 
 
@@ -253,39 +302,39 @@ const SearchResutsGeog = (props) => {
                         <td>Wind speed</td>
                         <td className="population">
                             {weather.wind_speed} m/s</td>
-                          <td className="aqiNum">
-                             {(weather.wind_speed * 3.6).toFixed(1)} km/h</td>
+                        <td className="aqiNum">
+                            {(weather.wind_speed * 3.6).toFixed(1)} km/h</td>
                     </tr>
 
                     <tr>
                         <td>Wind degrees</td>
-                        <td colSpan={2} 
-                        className="population">{weather.wind_degrees}&#176; </td>
+                        <td colSpan={2}
+                            className="population">{weather.wind_degrees}&#176; </td>
                     </tr>
                     <tr>
                         <td>Temparature</td>
                         <td colSpan={2}
-                        className="population">{weather.temp}&#176;C</td>
+                            className="population">{weather.temp}&#176;C</td>
                     </tr>
                     <tr>
                         <td>Min Temparature</td>
                         <td colSpan={2}
-                        className="population">{weather.min_temp}&#176;C</td>
+                            className="population">{weather.min_temp}&#176;C</td>
                     </tr>
                     <tr>
                         <td>Max Temparature</td>
                         <td colSpan={2}
-                        className="population">{weather.max_temp}&#176;C</td>
+                            className="population">{weather.max_temp}&#176;C</td>
                     </tr>
                     <tr>
                         <td>Feels Like</td>
                         <td colSpan={2}
-                        className="population">{weather.feels_like}&#176;C</td>
+                            className="population">{weather.feels_like}&#176;C</td>
                     </tr>
                     <tr>
                         <td>Humidity</td>
                         <td colSpan={2}
-                        className="population">{weather.humidity} %</td>
+                            className="population">{weather.humidity} %</td>
                     </tr>
                     <SunriseSunset dates={weather} />
 

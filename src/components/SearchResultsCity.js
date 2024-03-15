@@ -6,6 +6,7 @@ import SearchPlace from "./SearchPlace";
 import BackToTop from "./BackToTop";
 import Loader from "./Loader";
 import { useNavigate } from "react-router-dom";
+import datas from "../../public/city.listDugacak.json";
 
 
 const SearchResultsCity = () => {
@@ -27,20 +28,18 @@ const SearchResultsCity = () => {
 
     
 
-    const getCountries = async (searchStringValue) => {
-        const url = "https://pkgstore.datahub.io/core/world-cities/world-cities_json/data/5b3dd46ad10990bca47b04b4739a02ba/world-cities_json.json";
-
+    const getCountries = (searchStringValue) => {
+       
         try {
-            const response = await axios.get(url);
-            const data = response.data;
-            const filterData = data.filter((country) => {
+          
+            const filterData = datas.filter((city) => {
                 return (
-                    country.name.toLowerCase().includes(searchStringValue.toLowerCase())
+                    city.name.toLowerCase().includes(searchStringValue.toLowerCase())
 
                 )
 
             });
-            console.log("spisak gradova", data);
+            console.log("spisak gradova", datas);
             console.log("Pretraga gradova", filterData);
             setIsLoading(false);
 
@@ -57,11 +56,11 @@ const SearchResultsCity = () => {
         const LinkTo = `citiesDetails/${cityId}`;
         navigate(LinkTo);
     } 
-    const handleClickCountry = (drId) => {
-        console.log("klik na drzavu",drId);
-        const LinkTo = `gradoviDetalj/${drId}`;
-        navigate(LinkTo);
-    } 
+    // const handleClickCountry = (drId) => {
+    //     console.log("klik na drzavu",drId);
+    //     const LinkTo = `gradoviDetalj/${drId}`;
+    //     navigate(LinkTo);
+    // } 
 
     if (isLoading) {
         return <Loader />
@@ -102,30 +101,33 @@ const SearchResultsCity = () => {
 
 
 
-                    <tbody key={dataObj.geonameid} >
+                    <tbody key={dataObj.id} >
+            
 
 
 
                         <tr>
-                            <td >Name:</td>
                             <td className="nameGeog"
                             onClick={() => handleClickCity(dataObj.name)}>
                                 {dataObj.name}</td>
+                            <td >
+                                {dataObj.country}
+                            </td>
 
                         </tr>
-                        <tr>
+                        {/* <tr>
                             <td >Country:</td>
                             <td className="nameOffCountry"
                               onClick={() => handleClickCountry(dataObj.country)}>
                                 {dataObj.country}
                           </td>
-                        </tr>
-                        <tr>
+                        </tr> */}
+                        {/* <tr>
                             <td>Subcountry:</td>
                             <td className="nameOff">
                                 {dataObj.subcountry}
                             </td>
-                        </tr>
+                        </tr> */}
                         <tr>
                             <td colSpan={2}>
                                 <hr></hr>
