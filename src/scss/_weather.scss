@@ -62,15 +62,23 @@
                 color: gray;
                 padding: 1px 3px 1px 12px;
                 font-size: 14px;
+                width: 30px;
+            }
+            .temp {
+                text-align: left;
+                font-size: 17px;
+                font-weight: bold;
+                color: black;
             }
 
-            .temp {
+            .temp2 {
                 text-align: center;
                 font-size: 17px;
                 font-weight: bold;
                 color: black;
 
                 .imgHold {
+                  
                     color: #fdc714;
                     // font-size: 24px;
                     background-color: rgb(253, 238, 220);

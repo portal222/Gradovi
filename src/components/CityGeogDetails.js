@@ -297,7 +297,7 @@ const SearchResutsGeog = (props) => {
                                             >{weather.max_temp}&#176;
                                             </td>
                                             <td rowSpan={2}
-                                                className="temp">
+                                                className="temp2">
                                                 <CloudPicture clouds={weather} />
 
                                             </td>

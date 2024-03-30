@@ -91,8 +91,8 @@ const SearchResultsCity = () => {
                         </th>
                     </tr>
                     <tr className="results">
-                        <th>Number of cities</th>
-                        <th>{results}</th>
+                        <th colSpan={2}>Number of cities {results}</th>
+                       
                     </tr>
 
                 </thead>

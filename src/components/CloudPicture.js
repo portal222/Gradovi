@@ -1,4 +1,9 @@
 import React, { useState } from "react";
+import sunny from "../../public/assets/img/wi-day-sunny.svg";
+import overcast from "../../public/assets/img/wi-day-sunny-overcast.svg";
+import high from "../../public/assets/img/wi-day-cloudy-high.svg";
+import gusts from "../../public/assets/img/wi-day-cloudy-gusts.svg";
+import cloudy from "../../public/assets/img/wi-cloudy.svg";
 
 const CloudPicture = (props) => {
 
@@ -10,7 +15,7 @@ const CloudPicture = (props) => {
         return (
             <>
 
-                <img src="./assets/img/wi-day-sunny.svg"
+                <img src={sunny}
                     alt="no picture" className="imgHold"
                 /><p>
                  vedro vreme   
@@ -20,7 +25,7 @@ const CloudPicture = (props) => {
     } else if (picture > 19 && picture < 40) {
         return (
             <>
-                <img src="./assets/img/wi-day-sunny-overcast.svg"
+                <img src={overcast}
                     alt="no picture" className="imgHold"
                 />
                 <p>delimično vedro</p></>
@@ -29,7 +34,7 @@ const CloudPicture = (props) => {
         return (
             <>
            
-                <img src="/assets/img/wi-day-cloudy-high.svg"
+                <img src={high}
                     alt="no picture" className="imgHold"
                 />
                 <p>srednje oblačno</p>               </>
@@ -37,7 +42,7 @@ const CloudPicture = (props) => {
     } else if (picture > 59 && picture < 80) {
         return (
             <>
-                <img src="/assets/img/wi-day-cloudy-gusts.svg"
+                <img src={gusts}
                     alt="no picture" className="imgHold"
                 /><p>
                    delimično oblačno 
@@ -47,9 +52,8 @@ const CloudPicture = (props) => {
     } else if (picture > 79 && picture < 101) {
         return (
             <>
-                <img src="/assets/img/wi-cloudy.svg"
+                <img src={cloudy}
                     alt="no picture" className="imgHold"
-
                 />
 <p>
     oblačno 
