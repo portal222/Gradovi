@@ -10,7 +10,7 @@ const CloudPicture = (props) => {
         return (
             <>
 
-                <img src="/assets/img/wi-day-sunny.svg"
+                <img src="./assets/img/wi-day-sunny.svg"
                     alt="no picture" className="imgHold"
                 /><p>
                  vedro vreme   
@@ -20,7 +20,7 @@ const CloudPicture = (props) => {
     } else if (picture > 19 && picture < 40) {
         return (
             <>
-                <img src="/assets/img/wi-day-sunny-overcast.svg"
+                <img src="./assets/img/wi-day-sunny-overcast.svg"
                     alt="no picture" className="imgHold"
                 />
                 <p>delimično vedro</p></>
@@ -40,7 +40,7 @@ const CloudPicture = (props) => {
                 <img src="/assets/img/wi-day-cloudy-gusts.svg"
                     alt="no picture" className="imgHold"
                 /><p>
-                   veoma oblačno 
+                   delimično oblačno 
                 </p>
                 </>
         )

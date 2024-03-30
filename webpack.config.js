@@ -25,8 +25,8 @@ module.exports = {
                     "sass-loader"
                 ]
 
-
             },
+            
             {
                 test: /\.(jpe?g|gif|png|svg)$/i,
                 use: [
@@ -38,7 +38,11 @@ module.exports = {
                   },
                 ],
               }
-        ]
+        ],
+
+        // loaders: [
+        //     {test: /\.(png|jpg|svg)$/, loader: 'url-loader?limit=8192' }
+        //         ]
 
 
     },
