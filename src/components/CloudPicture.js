@@ -10,49 +10,49 @@ const CloudPicture = (props) => {
         return (
             <>
 
-                <img src="../img/wi-day-sunny.svg"
+                <img src="../../public/img/wi-day-sunny.svg"
                     alt="no picture" className="imgHold"
                 /><p>
-                 lepo vreme   
+                 vedro vreme   
                 </p>
                 </>
         )
     } else if (picture > 19 && picture < 40) {
         return (
             <>
-                <img src="../img/wi-day-sunny-overcast.svg"
+                <img src="../../public/img/wi-day-sunny-overcast.svg"
                     alt="no picture" className="imgHold"
                 />
-                <p>mala oblacnost</p></>
+                <p>delimično vedro</p></>
         )
     } else if (picture > 39 && picture < 60) {
         return (
             <>
-                {/* <img src="../img/wi-cloudy.svg" */}
-                <img src="../img/ikona-proba.svg"
+           
+                <img src="../../public/img/wi-day-cloudy-high.svg"
                     alt="no picture" className="imgHold"
                 />
-                <p>srednje oblacno</p>               </>
+                <p>srednje oblačno</p>               </>
         )
     } else if (picture > 59 && picture < 80) {
         return (
             <>
-                <img src="../img/wi-cloudy-gusts.svg"
+                <img src="../../public/img/wi-day-cloudy-gusts.svg"
                     alt="no picture" className="imgHold"
                 /><p>
-                   skoro potpuno 
+                   veoma oblačno 
                 </p>
                 </>
         )
     } else if (picture > 79 && picture < 101) {
         return (
             <>
-                <img src="../img/wi-day-cloudy-high.svg"
+                <img src="../../public/img/wi-cloudy.svg"
                     alt="no picture" className="imgHold"
 
                 />
 <p>
-    totalna naoblaka
+    oblačno 
 </p>
                 </>
         )
