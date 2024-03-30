@@ -1,0 +1,304 @@
+.mainDiv {
+    border-collapse: collapse;
+    max-width: 650px;
+    min-width: 650px;
+    background-color: rgb(216, 216, 216);
+
+    margin: auto;
+
+    .title {
+        color: gray;
+        padding: 1px 3px 1px 12px;
+        font-size: 14px;
+        width: 100px;
+    }
+
+    .cityName {
+        font-size: 30px;
+        text-align: center;
+        color: #2a0289;
+    }
+
+    .timeZone {
+        color: black;
+        font-size: 22px;
+        padding: 0px;
+        width: 200px;
+    }
+
+    .timeHour {
+        padding-right: 7px;
+        font-size: 22px;
+        max-width: 60px;
+        min-width: 60px;
+        font-weight: bold;
+        color: black;
+        overflow: hidden;
+    }
+
+    .windMain {
+        display: flex;
+        padding: 10px;
+        justify-content: space-between;
+        // align-content: space-between;
+        width: 630px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+        .tempHold {
+            width: 380px;
+            background-image: linear-gradient(#c8dee6, #d6efb9);
+            border-image: linear-gradient(#d6efb9, #c8dee6);
+            border-radius: 10px;
+            border: 4px solid transparent;
+            padding: 10px;
+
+            .tempDeg {
+                font-size: 36px;
+                font-weight: bold;
+                color: black;
+            }
+
+            .title {
+                color: gray;
+                padding: 1px 3px 1px 12px;
+                font-size: 14px;
+            }
+
+            .temp {
+                text-align: center;
+                font-size: 17px;
+                font-weight: bold;
+                color: black;
+
+                .imgHold {
+                    color: #fdc714;
+                    // font-size: 24px;
+                    background-color: rgb(253, 238, 220);
+                    border-radius: 8px;
+                    width: 50px;
+
+                }
+
+                p {
+                    margin: 0px;
+                }
+            }
+        }
+
+
+        .windHold {
+            width: 230px;
+            padding: 10px;
+            background-image: linear-gradient(#c8dee6, #d6efb9);
+            border-image: linear-gradient(#d6efb9, #c8dee6);
+
+            border: 4px solid transparent;
+            border-radius: 10px;
+
+            .degrees {
+                margin: auto;
+                width: 25px;
+                height: 25px;
+                color: brown;
+                font-size: large;
+            }
+
+            .title {
+                color: gray;
+                padding: 1px 3px 1px 12px;
+                font-size: 14px;
+            }
+
+            .wind {
+                font-size: 17px;
+                font-weight: bold;
+                color: black;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+        }
+
+    }
+
+    .dropdown {
+
+        min-width: 200px;
+        text-align: left;
+        padding: 0px;
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+
+        .position {
+            font-size: 14px;
+            color: black;
+            padding: 2px;
+
+            &:hover {
+                color: #fdc714;
+                text-shadow: 2px 2px 4px black;
+            }
+        }
+
+        .dropdown-content {
+            display: none;
+            font-size: 14px;
+            font-weight: lighter;
+            position: absolute;
+            min-width: 30px;
+
+            span {
+                // margin: 1px 0px;
+                padding: 1px 1px;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                background-color: #f9f9f9;
+                height: 20px;
+            }
+
+        }
+
+        &:hover .dropdown-content {
+            display: block;
+            color: black;
+            text-shadow: none;
+        }
+    }
+
+
+}
+
+@media screen and (max-width: 500px) {
+    .mainDiv {
+
+        max-width: 345px;
+        min-width: 345px;
+
+        .title {
+            padding: 1px 2px 1px 6px;
+            font-size: 10px;
+            width: 50px;
+        }
+
+        .cityName {
+            font-size: 22px;
+
+        }
+
+        .timeZone {
+            font-size: 14px;
+            font-weight: bold;
+            width: 70px;
+        }
+
+        .timeHour {
+            padding-right: 5px;
+            font-size: 14px;
+            max-width: 15px;
+            min-width: 15px;
+        }
+
+        .windMain {
+            padding: 5px;
+            width: 345px;
+
+            .tempHold {
+                width: 120px;
+
+                border-radius: 5px;
+                border: 2px solid transparent;
+                padding: 5px;
+
+                .tempDeg {
+                    font-size: 22px
+                }
+
+                .title {
+
+                    padding: 1px 2px 1px 6px;
+                    font-size: 10px;
+                }
+
+                .temp {
+
+                    font-size: 14px;
+
+
+                    .imgHold {
+
+
+                        border-radius: 4px;
+                        width: 30px;
+
+                    }
+
+                }
+            }
+
+
+            .windHold {
+                width: 90px;
+                padding: 5px;
+
+
+                border: 2px solid transparent;
+                border-radius: 5px;
+
+                .degrees {
+                    margin: auto;
+                    width: 25px;
+                    height: 25px;
+           
+                }
+
+                .title {
+            
+                    padding: 1px 3px 1px 12px;
+                    font-size: 10px;
+                }
+
+                .wind {
+                    font-size: 14px;
+                }
+            }
+
+        }
+
+        .dropdown {
+
+            min-width: 120px;
+
+
+
+
+            .position {
+                font-size: 10px;
+
+                padding: 2px;
+
+                &:hover {
+
+                    text-shadow: 2px 2px 4px black;
+                }
+            }
+
+            .dropdown-content {
+
+                font-size: 12px;
+
+                min-width: 20px;
+
+                span {
+
+                    padding: 1px 1px;
+                    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                    background-color: #f9f9f9;
+                    height: 20px;
+                }
+
+            }
+
+        }
+
+
+    }
+
+}

@@ -9,8 +9,13 @@ import Loader from "./Loader";
 import CityPosition from "./CityPosition";
 import MapTwoToneIcon from '@mui/icons-material/MapTwoTone';
 import datas from "../../public/city.listDugacak.json";
-
-
+// import { UpOutlined  } from "@mui/icons-material";
+// import {UpOutlined} from "@ant-design/icons"
+// import { ArrowUpOutlined } from "@ant-design/icons"
+// import { ArrowUpward } from "@mui/icons-material";
+// import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import NorthIcon from '@mui/icons-material/North';
+import CloudPicture from "./CloudPicture";
 
 
 
@@ -33,6 +38,8 @@ const SearchResutsGeog = (props) => {
     const [vreme, setVreme] = useState([]);
     const [cityPopul, setCityPopul] = useState([]);
     const [cityLong, setCityLong] = useState([]);
+    const [cloud, setCloud] = useState([]);
+    const [picture, setPicture] = useState([]);
 
 
 
@@ -91,6 +98,7 @@ const SearchResutsGeog = (props) => {
             console.log("rezultat city air", dataAir);
             console.log("rezultat city vreme", dataWeat);
 
+            console.log("broj oblaka", dataWeat.cloud_pct);
 
             setCity(dataAir);
             setCityCo(dataAir.CO);
@@ -100,8 +108,8 @@ const SearchResutsGeog = (props) => {
             setCityPm(dataAir.PM10);
 
             setWeather(dataWeat);
+            setCloud(dataWeat.cloud_pct);
             setPopulation(dataPop);
-
 
 
 
@@ -200,17 +208,21 @@ const SearchResutsGeog = (props) => {
 
 
 
+
+
+
+
     if (isLoading) {
         return <Loader />
     }
 
     return (
         <>
-            <table className="tabelaZemlje">
+            <table className="mainDiv">
                 <thead >
 
                     <tr>
-                        <th colSpan={3}>
+                        <th colSpan={5}>
                             <SearchPlace />
                         </th>
 
@@ -225,56 +237,158 @@ const SearchResutsGeog = (props) => {
 
                 <tbody  >
                     <tr>
-                        <td colSpan={3}
-                            className="name">
+                        <td colSpan={2}
+                            className="cityName">
                             {cityId}
                         </td>
+                        <td className="title">Timezone</td>
+
+                        <td 
+                            className="timeZone">
+                            {vreme.timezone}
+                        </td>
+                        <td className="timeHour">{vreme.hour + ":" + vreme.minute}</td>
+
                     </tr>
 
                     <tr>
-                        <td>
+                        <td className="title">
                             Population
                         </td>
-                        <td colSpan={2}
-                            className="population">
+                        <td
+                            className="timeZone">
                             {cityPopul[0]?.population}
                         </td>
-                    </tr>
-                    <tr>
-                        <td>Position
-
-                        </td>
+                        <td className="title">Position</td>
                         <td className="dropdown">
                             <span>
                                 <CityPosition lonti={cityLong} />
                             </span>
 
                             <span className="dropdown-content">
-                                <p>copy </p></span>
+                                <span>copy </span></span>
                         </td>
-
-                        <td className="mapIcon">
+                        <td className="timeHour">
                             <a href="https://www.google.com/maps/" target="_blank">
-                                <MapTwoToneIcon className="mapIcon" />
+                                <MapTwoToneIcon />
 
-                                Map </a>
+                                </a>
 
                         </td>
                     </tr>
-
-
-
-
                     <tr>
-                        <td >
-                            Time zone
-                        </td>
-                        <td colSpan={2}
-                            className="population">
-                            {vreme.timezone}
-                        </td>
+                        <td colSpan={5}
+                        >
+                            <div className="windMain">
+                                <table className="tempHold">
+                                    <tbody>
+                                        <tr>
+                                            <td rowSpan={2} className="tempDeg">
+                                                {weather.temp}&#176;
+                                            </td>
+                                            <td className="title">min</td>
+                                            <td
+                                                className="temp"
+                                            > {weather.min_temp}&#176;
+                                            </td>
+                                            <td className="title">max</td>
+                                            <td
+                                                className="temp"
+                                            >{weather.max_temp}&#176;
+                                            </td>
+                                            <td rowSpan={2}
+                                                className="temp">
+                                                <CloudPicture clouds={weather} />
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colSpan={3}
+                                            className="title">feels like</td>
+                                            <td 
+                                                className="temp">
+                                                {weather.feels_like}&#176;
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                                <table className="windHold">
+                                    <tbody>
+                                        <tr>
+                                            <td rowSpan={2}>
+                                                <p
+                                                    className="degrees"
+                                                    style={{ rotate: `${weather.wind_degrees}deg` }}>
+                                                    < NorthIcon />
+
+                                                </p>
+                                            </td>
+                                            <td
+                                                className="wind"
+                                            > {weather.wind_speed}
+                                            </td>
+                                            <td className="title">m/s</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="wind">
+                                                {(weather.wind_speed * 3.6).toFixed(1)} </td>
+                                            <td className="title">km/h</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div></td>
                     </tr>
-                    <tr>
+                    {/* <tr >
+
+                        <td className="windMain"
+                          colSpan={2}
+                        >
+                            <table className="tempHold">
+                                <tbody>
+                                    <tr>
+                                        <td rowSpan={2}>
+                                            {weather.temp}&#176;C
+                                        </td>
+                                        <td
+                                            className="temp"
+                                        >min {weather.min_temp}&#176;C max {weather.max_temp}&#176;C
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            className="temp">
+                                            feels like {weather.feels_like}&#176;C
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table className="windHold">
+                                <tbody>
+                                    <tr>
+                                        <td rowSpan={2}>
+                                            <p
+                                                className="degrees"
+                                                style={{ rotate: `${weather.wind_degrees}deg` }}>
+                                                < NorthIcon />
+
+                                            </p>
+                                        </td>
+                                        <td
+                                            className="wind"
+                                        > {weather.wind_speed} m/s
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="wind">
+                                            {(weather.wind_speed * 3.6).toFixed(1)} km/h</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr> */}
+
+                    {/* <tr>
                         <td>
                             Time
                         </td>
@@ -298,39 +412,10 @@ const SearchResutsGeog = (props) => {
                     </tr>
 
 
-                    <tr>
-                        <td>Wind speed</td>
-                        <td className="population">
-                            {weather.wind_speed} m/s</td>
-                        <td className="aqiNum">
-                            {(weather.wind_speed * 3.6).toFixed(1)} km/h</td>
-                    </tr>
 
-                    <tr>
-                        <td>Wind degrees</td>
-                        <td colSpan={2}
-                            className="population">{weather.wind_degrees}&#176; </td>
-                    </tr>
-                    <tr>
-                        <td>Temparature</td>
-                        <td colSpan={2}
-                            className="population">{weather.temp}&#176;C</td>
-                    </tr>
-                    <tr>
-                        <td>Min Temparature</td>
-                        <td colSpan={2}
-                            className="population">{weather.min_temp}&#176;C</td>
-                    </tr>
-                    <tr>
-                        <td>Max Temparature</td>
-                        <td colSpan={2}
-                            className="population">{weather.max_temp}&#176;C</td>
-                    </tr>
-                    <tr>
-                        <td>Feels Like</td>
-                        <td colSpan={2}
-                            className="population">{weather.feels_like}&#176;C</td>
-                    </tr>
+
+
+
                     <tr>
                         <td>Humidity</td>
                         <td colSpan={2}
@@ -382,7 +467,7 @@ const SearchResutsGeog = (props) => {
                             {city.overall_aqi}</td>
 
 
-                    </tr>
+                    </tr> */}
 
 
 
