@@ -34,26 +34,26 @@ export default class SunriseSunset extends React.Component {
         return (
 
             <>
-              <tr>
-                <td>Sunrise</td>
-                 <td colSpan={2}
-                 className="population">
+                <table className="windHold">
+                    <tbody>
+                        <tr>
+                <td className="title">Sunrise</td>
+                 <td 
+                 className="wind">
                         {hours + ":" + minutes + ":" + seconds}
                     </td>
-              </tr>
-                   
-             <tr>
-                <td>Sunset</td>
+              </tr> 
+                <tr>
+                <td className="title">Sunset</td>
 
-                 <td colSpan={2} 
-                  className="population">
+                 <td  
+                  className="wind">
                         {hours2 + ":" + minutes2 + ":" + seconds2}
                     </td>
              </tr>
-                   
-                   
-            
-
+                    </tbody>
+                </table>
+          
 
             </>
 

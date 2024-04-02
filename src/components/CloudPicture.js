@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import sunny from "../../public/assets/img/wi-day-sunny.svg";
-import overcast from "../../public/assets/img/wi-day-sunny-overcast.svg";
+import overcast from "../../public/assets/img/Delimicno_vedro.svg";
 import high from "../../public/assets/img/wi-day-cloudy-high.svg";
-import gusts from "../../public/assets/img/wi-day-cloudy-gusts.svg";
+import gusts from "../../public/assets/img/Oblacno.svg";
 import cloudy from "../../public/assets/img/wi-cloudy.svg";
 
 const CloudPicture = (props) => {
 
-    ;
+    
 
     const picture = props.clouds.cloud_pct
 

@@ -5,6 +5,7 @@ import GlobalContext from "./GlobalContext";
 import BackToTop from "./BackToTop";
 import Loader from "./Loader";
 import { useNavigate, useParams } from "react-router-dom";
+import SearchBox from "./SearchBox";
 
 
 import MapTwoToneIcon from '@mui/icons-material/MapTwoTone';
@@ -92,9 +93,13 @@ const SearchResutsGeog = () => {
             <table className="tabelaZemlje">
                 <thead >
 
-                    <tr>
-                        <th colSpan={2}>
-                            <SearchPlace />
+                    <tr className="place">
+                        <th >
+            <SearchBox placeholder={'Search Countries'} linkTo={'/search'} className="search"/>
+                         
+                        </th>
+                        <th>
+                            <a href="#">home</a>
                         </th>
                     </tr>
                     <tr className="results">

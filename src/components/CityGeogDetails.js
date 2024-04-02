@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from 'axios';
-import SearchPlace from "./SearchPlace";
-import SunriseSunset from "./SunriseSunset";
+// import SearchPlace from "./SearchPlace";
+import SearchBoxCity from "./SearchBoxCity";
+
 // import TimeZone from "./TimeZone";
 
 import Loader from "./Loader";
 import CityPosition from "./CityPosition";
 import MapTwoToneIcon from '@mui/icons-material/MapTwoTone';
 import datas from "../../public/city.listDugacak.json";
-// import { UpOutlined  } from "@mui/icons-material";
-// import {UpOutlined} from "@ant-design/icons"
-// import { ArrowUpOutlined } from "@ant-design/icons"
-// import { ArrowUpward } from "@mui/icons-material";
-// import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import NorthIcon from '@mui/icons-material/North';
+
+import SunriseSunset from "./SunriseSunset";
 import CloudPicture from "./CloudPicture";
+import wind from "../../public/assets/img/wind-arrow.svg";
+import CityAqi from "./CityAqi";
+import Home  from "./Home";
 
 
 
@@ -33,6 +33,7 @@ const SearchResutsGeog = (props) => {
     const [cityO3, setCityO3] = useState([]);
     const [cityNo, setCityNo] = useState([]);
     const [cityPm, setCityPm] = useState([]);
+    const [cityOverall, setCityOverall] = useState([]);
     const [weather, setWeather] = useState([]);
 
     const [vreme, setVreme] = useState([]);
@@ -100,12 +101,13 @@ const SearchResutsGeog = (props) => {
 
             console.log("broj oblaka", dataWeat.cloud_pct);
 
-            setCity(dataAir);
+
             setCityCo(dataAir.CO);
             setCitySo(dataAir.SO2);
             setCityO3(dataAir.O3);
             setCityNo(dataAir.NO2);
             setCityPm(dataAir.PM10);
+            setCityOverall(dataAir);
 
             setWeather(dataWeat);
             setCloud(dataWeat.cloud_pct);
@@ -125,7 +127,7 @@ const SearchResutsGeog = (props) => {
     const getCityTime = async () => {
 
         const urlTime = `https://api.api-ninjas.com/v1/worldtime?city=${cityId}`;
-        // const urlPop = `https://api.api-ninjas.com/v1/city?name=${cityId}`
+
 
         try {
             const response = await axios.get(urlTime,
@@ -135,21 +137,12 @@ const SearchResutsGeog = (props) => {
                     }
                 }
             );
-            // const responsePop = await axios.get(urlPop,
-            //     {
-            //         headers: {
-            //             'X-Api-Key': 'D+dYjCxDSm5fEkIqyoCIeA==c2GvujXTiAbMIH05'
-            //         }
-            //     }
-            //     );
+
 
             const dataTime = response.data;
             console.log("koliko je sati", dataTime);
             setVreme(dataTime);
 
-            // const dataPop = responsePop.data
-            // console.log("broj stanovnika gradova", dataPop)
-            // setCityPopul(dataPop);
 
         } catch (err) {
             setError(err);
@@ -158,8 +151,7 @@ const SearchResutsGeog = (props) => {
     };
 
     const getCityPopul = async () => {
-        // const urlPop = `https://countriesnow.space/api/v0.1/countries/population/cities`
-        // const urlPop = `https://data.world/dr5hn/country-state-city/workspace/file?filename=${cityId}.json`
+
         const urlPop = `https://api.api-ninjas.com/v1/city?name=${cityId}`
 
 
@@ -222,19 +214,16 @@ const SearchResutsGeog = (props) => {
                 <thead >
 
                     <tr>
-                        <th colSpan={5}>
-                            <SearchPlace />
+                        <th colSpan={3}>
+                            {/* <SearchPlace /> */}
+           <SearchBoxCity placeholder={'Search Cities'} linkTo={'/searchCity'} className="search" />
+
                         </th>
-
+                        <th colSpan={2}>
+                            <a href="#">home</a>
+                        </th>
                     </tr>
-
-
                 </thead>
-
-
-
-
-
                 <tbody  >
                     <tr>
                         <td colSpan={2}
@@ -243,7 +232,7 @@ const SearchResutsGeog = (props) => {
                         </td>
                         <td className="title">Timezone</td>
 
-                        <td 
+                        <td
                             className="timeZone">
                             {vreme.timezone}
                         </td>
@@ -266,49 +255,54 @@ const SearchResutsGeog = (props) => {
                             </span>
 
                             <span className="dropdown-content">
-                                <span>copy </span></span>
+                                <span>copy and paste in  <MapTwoToneIcon /></span></span>
                         </td>
                         <td className="timeHour">
                             <a href="https://www.google.com/maps/" target="_blank">
                                 <MapTwoToneIcon />
-
-                                </a>
-
+                            </a>
                         </td>
                     </tr>
                     <tr>
-                        <td colSpan={5}
-                        >
+                        <td colSpan={5}>
                             <div className="windMain">
                                 <table className="tempHold">
                                     <tbody>
                                         <tr>
-                                            <td rowSpan={2} className="tempDeg">
+                                        <td rowSpan={3} className="tempDeg">
                                                 {weather.temp}&#176;
                                             </td>
+                                          
                                             <td className="title">min</td>
                                             <td
                                                 className="temp"
                                             > {weather.min_temp}&#176;
                                             </td>
-                                            <td className="title">max</td>
+                                            <td rowSpan={3}
+                                                className="temp2">
+                                                <CloudPicture clouds={weather} />
+                                            </td>
+                                        
+                                        </tr>
+                                        <tr>
+                                            <td className="title">
+                                                max.
+                                            </td>
                                             <td
                                                 className="temp"
                                             >{weather.max_temp}&#176;
                                             </td>
-                                            <td rowSpan={2}
-                                                className="temp2">
-                                                <CloudPicture clouds={weather} />
-
-                                            </td>
+                                          
                                         </tr>
                                         <tr>
-                                            <td colSpan={3}
-                                            className="title">feels like</td>
-                                            <td 
+                                        
+                                            <td
+                                                className="title">feels like</td>
+                                            <td
                                                 className="temp">
                                                 {weather.feels_like}&#176;
                                             </td>
+                                         
                                         </tr>
 
                                     </tbody>
@@ -317,157 +311,44 @@ const SearchResutsGeog = (props) => {
                                     <tbody>
                                         <tr>
                                             <td rowSpan={2}>
-                                                <p
-                                                    className="degrees"
-                                                    style={{ rotate: `${weather.wind_degrees}deg` }}>
-                                                    < NorthIcon />
-
-                                                </p>
+                                                <div className="windPlace">
+                                                   <img style={{
+                                                        rotate: `${weather.wind_degrees}deg`,
+                                                        width: '18px'
+                                                    }}
+                                                        src={wind} alt="no picture"
+                                                    />
+                                                </div>                                         
                                             </td>
-                                            <td
-                                                className="wind"
-                                            > {weather.wind_speed}
+                                            <td className="wind">
+                                                 {weather.wind_speed}
                                             </td>
                                             <td className="title">m/s</td>
                                         </tr>
                                         <tr>
+                                            
                                             <td className="wind">
                                                 {(weather.wind_speed * 3.6).toFixed(1)} </td>
                                             <td className="title">km/h</td>
                                         </tr>
+                                       
                                     </tbody>
                                 </table>
                             </div></td>
                     </tr>
-                    {/* <tr >
-
-                        <td className="windMain"
-                          colSpan={2}
-                        >
-                            <table className="tempHold">
-                                <tbody>
-                                    <tr>
-                                        <td rowSpan={2}>
-                                            {weather.temp}&#176;C
-                                        </td>
-                                        <td
-                                            className="temp"
-                                        >min {weather.min_temp}&#176;C max {weather.max_temp}&#176;C
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            className="temp">
-                                            feels like {weather.feels_like}&#176;C
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <table className="windHold">
-                                <tbody>
-                                    <tr>
-                                        <td rowSpan={2}>
-                                            <p
-                                                className="degrees"
-                                                style={{ rotate: `${weather.wind_degrees}deg` }}>
-                                                < NorthIcon />
-
-                                            </p>
-                                        </td>
-                                        <td
-                                            className="wind"
-                                        > {weather.wind_speed} m/s
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="wind">
-                                            {(weather.wind_speed * 3.6).toFixed(1)} km/h</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    <tr>
+                        <td colSpan={5}>
+                            <div className="windMain">
+                             
+                            <SunriseSunset dates={weather} />
+<CityAqi dataAirSo={citySo} dataAirCo={cityCo}
+                                dataAirO3={cityO3} dataAirNo={cityNo}
+                                dataAirPm={cityPm} dataOverall={cityOverall} />
+                            </div>
                         </td>
-                    </tr> */}
-
-                    {/* <tr>
-                        <td>
-                            Time
-                        </td>
-                        <td colSpan={2}
-                            className="population">
-                            {vreme.hour + ":" + vreme.minute}
-                        </td>
+                       
                     </tr>
-                    <tr>
-                        <td colSpan={3}
-                            className="population">
-                            Weather
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Cloud Precipitation
-                        </td>
-                        <td colSpan={2}
-                            className="population">{weather.cloud_pct}</td>
-                    </tr>
-
-
-
-
-
-
-                    <tr>
-                        <td>Humidity</td>
-                        <td colSpan={2}
-                            className="population">{weather.humidity} %</td>
-                    </tr>
-                    <SunriseSunset dates={weather} />
-
-
-                    <tr>
-                        <td colSpan={3}
-                            className="population" >
-                            Air Quality
-                        </td>
-                    </tr>
-                    <tr>
-
-
-                        <td ><b>CO </b> Carbon monoxide</td>
-                        <td className="population">{cityCo.concentration} </td>
-                        <td className="aqiNum">aqi {cityCo.aqi}</td>
-                    </tr>
-                    <tr>
-                        <td ><b>SO2 </b> Sulphur dioxide</td>
-                        <td className="population">{citySo.concentration} </td>
-                        <td className="aqiNum">aqi {citySo.aqi}</td>
-                    </tr>
-                    <tr>
-                        <td ><b>O3 </b> Ozone</td>
-                        <td className="population">{cityO3.concentration} </td>
-                        <td className="aqiNum">aqi {cityO3.aqi}</td>
-                    </tr>
-                    <tr>
-                        <td ><b>NO2 </b> Nitrogen dioxide</td>
-                        <td className="population">{cityNo.concentration} </td>
-                        <td className="aqiNum">aqi {cityNo.aqi}</td>
-                    </tr>
-                    <tr>
-                        <td ><b>PM10 </b> particulates</td>
-                        <td className="population">{cityPm.concentration} </td>
-                        <td className="aqiNum">aqi {cityPm.aqi}</td>
-
-                    </tr>
-                    <tr>
-
-                        <td>Overall Aqi</td>
-
-                        <td colSpan={2}
-                            className="population">
-                            {city.overall_aqi}</td>
-
-
-                    </tr> */}
+                
 
 
 

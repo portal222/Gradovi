@@ -26,12 +26,12 @@ const SearchResultsCity = () => {
         getCountries(searchStringValue);
     }, [searchStringValue]);
 
-    
+
 
     const getCountries = (searchStringValue) => {
-       
+
         try {
-          
+
             const filterData = datas.filter((city) => {
                 return (
                     city.name.toLowerCase().includes(searchStringValue.toLowerCase())
@@ -52,10 +52,10 @@ const SearchResultsCity = () => {
     };
 
     const handleClickCity = (cityId) => {
-        console.log("klik na grad",cityId);
+        console.log("klik na grad", cityId);
         const LinkTo = `citiesDetails/${cityId}`;
         navigate(LinkTo);
-    } 
+    }
     // const handleClickCountry = (drId) => {
     //     console.log("klik na drzavu",drId);
     //     const LinkTo = `gradoviDetalj/${drId}`;
@@ -92,7 +92,7 @@ const SearchResultsCity = () => {
                     </tr>
                     <tr className="results">
                         <th colSpan={2}>Number of cities {results}</th>
-                       
+
                     </tr>
 
                 </thead>
@@ -102,38 +102,25 @@ const SearchResultsCity = () => {
 
 
                     <tbody key={dataObj.id} >
-            
+
 
 
 
                         <tr>
                             <td className="nameGeog"
-                            onClick={() => handleClickCity(dataObj.name)}>
+                                onClick={() => handleClickCity(dataObj.name)}>
                                 {dataObj.name}</td>
                             <td >
                                 {dataObj.country}
                             </td>
 
                         </tr>
-                        {/* <tr>
-                            <td >Country:</td>
-                            <td className="nameOffCountry"
-                              onClick={() => handleClickCountry(dataObj.country)}>
-                                {dataObj.country}
-                          </td>
-                        </tr> */}
-                        {/* <tr>
-                            <td>Subcountry:</td>
-                            <td className="nameOff">
-                                {dataObj.subcountry}
-                            </td>
-                        </tr> */}
                         <tr>
                             <td colSpan={2}>
                                 <hr></hr>
                             </td>
                         </tr>
-                     
+
 
 
                     </tbody>

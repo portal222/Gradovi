@@ -90,9 +90,13 @@ const SearchResutsGeog = (props) => {
             <table className="tabelaZemlje">
                 <thead >
 
-                    <tr>
-                        <th colSpan={2}>
-                            <SearchPlace />
+                    <tr className="place">
+                        <th >
+                        <SearchBox placeholder={'Search Countries'} linkTo={'/search'} className="search"/>
+
+                        </th>
+                        <th>
+                            <a href="#">home</a>
                         </th>
                     </tr>
 
@@ -135,7 +139,7 @@ const SearchResutsGeog = (props) => {
                             <td
                                 className="nameOffCountry"
                                 onClick={() => handleClick(dataObj.capital)}>
-                                    {dataObj.capital}</td>
+                                {dataObj.capital}</td>
                         </tr>
                         <tr>
                             <td >Region</td>
@@ -204,31 +208,86 @@ const SearchResutsGeog = (props) => {
 
                 ))}
             </table>
-            <table className="tabelaZemlje">
+            <table className="mainDiv">
                 {zemlje.map((dataZem) => (
 
 
                     <tbody key={dataZem.name}>
                         <tr>
-                            <td>Currency</td>
-                            <td className="population">{dataZem.currency.name + " - " + dataZem.currency.code}</td>
+                            <td colSpan={2}>
+                                <div className="windMain">
+                                    <table className="windHold">
+                                        <tbody><tr>
+                                            <td colSpan={2}
+                                                className="title">
+                                                Currency
+                                            </td>
+                                        </tr>
+                                            <tr>
+                                                <td colSpan={2}
+                                                    className="wind">
+                                                    {dataZem.currency.name + " - " + dataZem.currency.code}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td className="title">GDP</td>
+                                                <td className="wind">{dataZem.gdp} M$</td>
+                                            </tr>
+                                            <tr>
+                                                <td className="title"> GDP growth</td>
+                                                <td className="wind">{dataZem.gdp_growth} %</td>
+                                            </tr>
+                                            <tr>
+                                                <td className="title">Exports</td>
+                                                <td className="wind">{dataZem.exports} M$</td>
+                                            </tr>
+                                            <tr>
+                                                <td className="title">Imports</td>
+                                                <td className="wind">{dataZem.imports} M$</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table className="tempHold">
+                                        <tbody>
+                                            <tr>
+                                                <td className="title2">
+                                                    Population
+                                                </td>
+
+
+                                                <td className="popNumb">{dataZem.population * 1000} </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td className="title2">Urban Population</td>
+                                                <td className="temp">{dataZem.urban_population} %</td>
+                                            </tr>
+                                             <tr>
+                            <td className="title2">Population Density</td>
+                            <td className="temp">{dataZem.pop_density} %</td>
                         </tr>
                         <tr>
-                            <td>GDP</td>
-                            <td className="population">{dataZem.gdp} M$</td>
+                            <td className="title2">Population Growth</td>
+                            <td className="temp">{dataZem.pop_growth} </td>
                         </tr>
                         <tr>
-                            <td>GDP growth</td>
-                            <td className="population">{dataZem.gdp_growth} %</td>
+                            <td className="title2">Urban Population Growth</td>
+                            <td className="temp">{dataZem.urban_population_growth} </td>
                         </tr>
+
                         <tr>
-                            <td>Exports</td>
-                            <td className="population">{dataZem.exports} M$</td>
+                            <td className="title2">Fertility</td>
+                            <td className="temp">{dataZem.fertility}</td>
                         </tr>
-                        <tr>
-                            <td>Imports</td>
-                            <td className="population">{dataZem.imports} M$</td>
+
+                                        </tbody>
+                                    </table>
+                                </div></td>
+
+
                         </tr>
+
+
                         <tr>
                             <td>Forested Area</td>
                             <td className="population">{dataZem.forested_area} %</td>
@@ -254,32 +313,10 @@ const SearchResutsGeog = (props) => {
                             <td>Employment Agriculture</td>
                             <td className="population">{dataZem.employment_agriculture} %</td>
                         </tr>
-                        <tr>
-                            <td>Population</td>
-                            <td className="population">{dataZem.population * 1000} </td>
-                        </tr>
-                        <tr>
-                            <td>Urban Population</td>
-                            <td className="population">{dataZem.urban_population} %</td>
-                        </tr>
 
-                        <tr>
-                            <td>Population Density</td>
-                            <td className="population">{dataZem.pop_density} %</td>
-                        </tr>
-                        <tr>
-                            <td>Population Growth</td>
-                            <td className="population">{dataZem.pop_growth} </td>
-                        </tr>
-                        <tr>
-                            <td>Urban Population Growth</td>
-                            <td className="population">{dataZem.urban_population_growth} </td>
-                        </tr>
 
-                        <tr>
-                            <td>Fertility</td>
-                            <td className="population">{dataZem.fertility}</td>
-                        </tr>
+
+                       
                         <tr>
                             <td>Internet Users</td>
                             <td className="population">{dataZem.internet_users} %</td>
