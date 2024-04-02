@@ -4,6 +4,7 @@ import axios from 'axios';
 import SearchPlace from "./SearchPlace";
 import MapTwoToneIcon from '@mui/icons-material/MapTwoTone';
 import { useNavigate, useParams } from "react-router-dom";
+import SearchBox from "./SearchBox";
 // import Loader from "./Loader";
 
 
