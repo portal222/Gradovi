@@ -15,7 +15,7 @@ import SunriseSunset from "./SunriseSunset";
 import CloudPicture from "./CloudPicture";
 import wind from "../../public/assets/img/wind-arrow.svg";
 import CityAqi from "./CityAqi";
-import Home  from "./Home";
+import Home from "./Home";
 
 
 
@@ -211,68 +211,71 @@ const SearchResutsGeog = (props) => {
     return (
         <>
             <table className="mainDiv">
-                <thead >
 
-                    <tr>
-                        <th colSpan={3}>
-                            {/* <SearchPlace /> */}
-           <SearchBoxCity placeholder={'Search Cities'} linkTo={'/searchCity'} className="search" />
-
-                        </th>
-                        <th colSpan={2}>
-                            <a href="#">home</a>
-                        </th>
-                    </tr>
-                </thead>
                 <tbody  >
                     <tr>
-                        <td colSpan={2}
-                            className="cityName">
-                            {cityId}
-                        </td>
-                        <td className="title">Timezone</td>
+                        <td>
+                            <div>
+                                <table className="cityMain">
+                                    <tbody>
+                                        <tr><td colSpan={4} className="holder"></td></tr>
+                                        <tr>
+                                            <td colSpan={2}
+                                                className="cityName">
+                                                {cityId}
+                                            </td>
+                                            <td className="title">Timezone</td>
+                                            <td
+                                                className="timeZone">
+                                                {vreme.timezone}
+                                            </td>
+                                            <td className="timeHour">{vreme.hour + ":" + vreme.minute}</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title">
+                                                Population
+                                            </td>
+                                            <td
+                                                className="timeZone">
+                                                {cityPopul[0]?.population}
+                                            </td>
+                                            <td className="title">Position</td>
+                                            <td className="dropdown">
+                                                <span>
+                                                    <CityPosition lonti={cityLong} />
+                                                </span>
 
-                        <td
-                            className="timeZone">
-                            {vreme.timezone}
+                                                <span className="dropdown-content">
+                                                    <span>copy and paste in <MapTwoToneIcon className="map" /></span></span>
+                                            </td>
+                                            <td >
+                                                <a href="https://www.google.com/maps/" target="_blank">
+                                                    <MapTwoToneIcon className="googleMap" />
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </td>
-                        <td className="timeHour">{vreme.hour + ":" + vreme.minute}</td>
+
+
+
+
 
                     </tr>
 
-                    <tr>
-                        <td className="title">
-                            Population
-                        </td>
-                        <td
-                            className="timeZone">
-                            {cityPopul[0]?.population}
-                        </td>
-                        <td className="title">Position</td>
-                        <td className="dropdown">
-                            <span>
-                                <CityPosition lonti={cityLong} />
-                            </span>
 
-                            <span className="dropdown-content">
-                                <span>copy and paste in  <MapTwoToneIcon /></span></span>
-                        </td>
-                        <td className="timeHour">
-                            <a href="https://www.google.com/maps/" target="_blank">
-                                <MapTwoToneIcon />
-                            </a>
-                        </td>
-                    </tr>
                     <tr>
-                        <td colSpan={5}>
+                        <td>
                             <div className="windMain">
                                 <table className="tempHold">
                                     <tbody>
                                         <tr>
-                                        <td rowSpan={3} className="tempDeg">
+                                            <td rowSpan={3} className="tempDeg">
                                                 {weather.temp}&#176;
                                             </td>
-                                          
+
                                             <td className="title">min</td>
                                             <td
                                                 className="temp"
@@ -282,7 +285,7 @@ const SearchResutsGeog = (props) => {
                                                 className="temp2">
                                                 <CloudPicture clouds={weather} />
                                             </td>
-                                        
+
                                         </tr>
                                         <tr>
                                             <td className="title">
@@ -292,17 +295,17 @@ const SearchResutsGeog = (props) => {
                                                 className="temp"
                                             >{weather.max_temp}&#176;
                                             </td>
-                                          
+
                                         </tr>
                                         <tr>
-                                        
+
                                             <td
                                                 className="title">feels like</td>
                                             <td
                                                 className="temp">
                                                 {weather.feels_like}&#176;
                                             </td>
-                                         
+
                                         </tr>
 
                                     </tbody>
@@ -312,43 +315,43 @@ const SearchResutsGeog = (props) => {
                                         <tr>
                                             <td rowSpan={2}>
                                                 <div className="windPlace">
-                                                   <img style={{
-                                                        rotate: `${weather.wind_degrees}deg`,
-                                                        width: '18px'
-                                                    }}
+                                                    <img className="arrow"
+                                                        style={{
+                                                            rotate: `${weather.wind_degrees}deg`
+                                                        }}
                                                         src={wind} alt="no picture"
                                                     />
-                                                </div>                                         
+                                                </div>
                                             </td>
                                             <td className="wind">
-                                                 {weather.wind_speed}
+                                                {weather.wind_speed}
                                             </td>
                                             <td className="title">m/s</td>
                                         </tr>
                                         <tr>
-                                            
+
                                             <td className="wind">
                                                 {(weather.wind_speed * 3.6).toFixed(1)} </td>
                                             <td className="title">km/h</td>
                                         </tr>
-                                       
+
                                     </tbody>
                                 </table>
                             </div></td>
                     </tr>
                     <tr>
-                        <td colSpan={5}>
+                        <td >
                             <div className="windMain">
-                             
-                            <SunriseSunset dates={weather} />
-<CityAqi dataAirSo={citySo} dataAirCo={cityCo}
-                                dataAirO3={cityO3} dataAirNo={cityNo}
-                                dataAirPm={cityPm} dataOverall={cityOverall} />
+
+                                <SunriseSunset dates={weather} />
+                                <CityAqi dataAirSo={citySo} dataAirCo={cityCo}
+                                    dataAirO3={cityO3} dataAirNo={cityNo}
+                                    dataAirPm={cityPm} dataOverall={cityOverall} />
                             </div>
                         </td>
-                       
+
                     </tr>
-                
+
 
 
 

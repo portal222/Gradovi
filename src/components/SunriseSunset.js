@@ -36,6 +36,13 @@ export default class SunriseSunset extends React.Component {
             <>
                 <table className="windHold">
                     <tbody>
+                    <tr>
+                <td className="title">Humidity</td>
+                 <td 
+                 className="wind">
+                        {this.props.dates.humidity} %
+                    </td>
+              </tr> 
                         <tr>
                 <td className="title">Sunrise</td>
                  <td 

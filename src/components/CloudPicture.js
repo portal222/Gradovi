@@ -1,70 +1,82 @@
 import React, { useState } from "react";
-import sunny from "../../public/assets/img/wi-day-sunny.svg";
-import overcast from "../../public/assets/img/Delimicno_vedro.svg";
-import high from "../../public/assets/img/wi-day-cloudy-high.svg";
-import gusts from "../../public/assets/img/Oblacno.svg";
-import cloudy from "../../public/assets/img/wi-cloudy.svg";
+import sunny from "../../public/assets/img/Sunny.svg";
+import MostlySunny from "../../public/assets/img/Mostly_sunny.svg"
+import PartlySunny from "../../public/assets/img/Partly_sunny.svg";
+import PartlyCloudy from "../../public/assets/img/Partly_cloudy.svg";
+import MostlyCloudy from "../../public/assets/img/Mostly_cloudy.svg";
+import Cloudy from "../../public/assets/img/Cloudy.svg";
 
 const CloudPicture = (props) => {
 
-    
+
 
     const picture = props.clouds.cloud_pct
 
-    if (picture < 20) {
+    if (picture < 11) {
         return (
             <>
 
                 <img src={sunny}
                     alt="no picture" className="imgHold"
                 /><p>
-                 vedro vreme   
+                    Sunny
                 </p>
-                </>
+            </>
         )
-    } else if (picture > 19 && picture < 40) {
+    } else if (picture > 10 && picture < 31) {
         return (
             <>
-                <img src={overcast}
+                <img src={MostlySunny}
                     alt="no picture" className="imgHold"
                 />
-                <p>delimično vedro</p></>
+                <p>Mostly sunny</p></>
         )
-    } else if (picture > 39 && picture < 60) {
+    } else if (picture > 30 && picture < 51) {
         return (
             <>
-           
-                <img src={high}
+
+                <img src={PartlySunny}
                     alt="no picture" className="imgHold"
                 />
-                <p>srednje oblačno</p>               </>
+                <p>Partly sunny</p>               </>
         )
-    } else if (picture > 59 && picture < 80) {
+    } else if (picture > 50 && picture < 71) {
         return (
             <>
-                <img src={gusts}
+                <img src={PartlyCloudy}
                     alt="no picture" className="imgHold"
                 /><p>
-                   delimično oblačno 
+                    Partly cloudy
                 </p>
-                </>
+            </>
         )
-    } else if (picture > 79 && picture < 101) {
+    } else if (picture > 70 && picture < 91) {
         return (
             <>
-                <img src={cloudy}
+                <img src={MostlyCloudy}
                     alt="no picture" className="imgHold"
                 />
-<p>
-    oblačno 
-</p>
-                </>
+                <p>
+                    Mostly Cloudy
+                </p>
+            </>
+        )
+    } else if (picture > 90 && picture < 101) {
+        return (
+            <>
+                <img src={Cloudy}
+                    alt="no picture" className="imgHold"
+                />
+                <p>
+                    Cloudy
+                </p>
+            </>
         )
     }
     return (
         <>
             <div>
-                nema podataka
+                no data
             </div>
         </>
     )

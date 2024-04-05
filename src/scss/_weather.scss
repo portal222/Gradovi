@@ -1,8 +1,12 @@
-$color1: #cdcdcd;
+$color1: #ece8e8;
 $color2: #a7abb0;
 $color3: #C4D8E2;
-$color4: rgb(251, 230, 184);
+$color4: rgb(246, 252, 255);
 $color5: #FFFAF0;
+// $color6: rgb(251, 236, 206);
+// $color7: rgb(217, 183, 183);
+$color6: #e0f2f1;
+$color7: #c8e6c9;
 
 .mainDiv {
     border-collapse: collapse;
@@ -12,51 +16,151 @@ $color5: #FFFAF0;
 
     margin: auto;
 
+    .cityMain {
+        background-image: linear-gradient($color6, $color7);
+        border-image: linear-gradient($color7, $color6);
+
+        border: 2px solid transparent;
+        border-radius: 5px;
+
+
+        .title {
+            color: gray;
+            padding: 1px 3px 1px 12px;
+            font-size: 14px;
+            width: 100px;
+            vertical-align: middle;
+
+        }
+
+        .holder {
+            padding: 5px;
+        }
+
+        .cityName {
+            font-size: 30px;
+            text-align: center;
+            color: #2a0289;
+            vertical-align: middle;
+        }
+
+        .timeZone {
+            color: black;
+            font-size: 22px;
+            width: 200px;
+            vertical-align: middle;
+
+
+        }
+
+        .timeHour {
+            padding-right: 7px;
+
+            font-size: 22px;
+            max-width: 60px;
+            min-width: 60px;
+            font-weight: bold;
+            color: black;
+            overflow: hidden;
+            vertical-align: middle;
+        }
+
+        .googleMap {
+            font-size: medium;
+            color: dodgerblue;
+            cursor: pointer;
+
+            &:hover {
+                color: #fdc714;
+                text-shadow: 2px 2px 7px black;
+
+            }
+        }
+
+        .dropdown {
+
+            min-width: 200px;
+            text-align: left;
+            padding: 0px;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+
+            .position {
+                font-size: 14px;
+                color: black;
+                // padding-top: 12px;
+
+                vertical-align: middle;
+
+                &:hover {
+                    color: #fdc714;
+                    text-shadow: 2px 2px 4px black;
+                }
+            }
+
+            .dropdown-content {
+                display: none;
+                font-size: 14px;
+                font-weight: lighter;
+                position: absolute;
+                min-width: 30px;
+
+                span {
+                    position: relative;
+                    top: -2px;
+                    padding: 5px 13px;
+                    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                    background-color: #f9f9f9;
+                    display: flex;
+                    align-content: center;
+
+                    .map {
+                        font-size: small;
+                        color: dodgerblue;
+                    }
+
+                }
+
+            }
+
+            &:hover .dropdown-content {
+                display: block;
+                color: black;
+                text-shadow: none;
+            }
+        }
+    }
+
     .title {
         color: gray;
         padding: 1px 3px 1px 12px;
         font-size: 14px;
         width: 100px;
+        vertical-align: center;
 
     }
 
-    .cityName {
-        font-size: 30px;
-        text-align: center;
-        color: #2a0289;
-    }
 
-    .timeZone {
-        color: black;
-        font-size: 22px;
-        padding: 0px;
-        width: 200px;
-    }
 
-    .timeHour {
-        padding-right: 7px;
-        font-size: 22px;
-        max-width: 60px;
-        min-width: 60px;
-        font-weight: bold;
-        color: black;
-        overflow: hidden;
-    }
+
 
     .windMain {
         display: flex;
         padding: 10px;
         justify-content: space-between;
-        // align-content: space-between;
+
         width: 630px;
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
         .tempHold {
-            width: 380px;
+
+            min-width: 380px;
+            max-width: 380px;
             background-image: linear-gradient($color4, $color3);
             border-image: linear-gradient($color3, $color4);
             border-radius: 5px;
-            border: 8px solid transparent;
+            border: 2px solid transparent;
             padding: 10px;
             max-height: 40px;
 
@@ -73,6 +177,8 @@ $color5: #FFFAF0;
                 padding: 1px 3px 1px 12px;
                 font-size: 14px;
                 width: 30px;
+                vertical-align: middle;
+
 
             }
 
@@ -81,6 +187,8 @@ $color5: #FFFAF0;
                 padding: 1px 3px 1px 12px;
                 font-size: 14px;
                 min-width: 100px;
+                vertical-align: middle;
+
             }
 
             .popNumb {
@@ -117,25 +225,27 @@ $color5: #FFFAF0;
 
                 p {
                     font-size: 18px;
-                    margin: 0px;
+                    margin: 4px;
                 }
             }
         }
 
 
         .windHold {
-            width: 230px;
+
+            min-width: 230px;
+            max-width: 230px;
             padding: 10px;
             background-image: linear-gradient($color4, $color3);
             border-image: linear-gradient($color3, $color4);
 
-            border: 8px solid transparent;
+            border: 2px solid transparent;
             border-radius: 5px;
             max-height: 40px;
 
             .windPlace {
-                width: 40px;
-                height: 40px;
+                width: 55px;
+                height: 55px;
                 // background-color: #fdc714;
                 // display: flex;
                 // flex-wrap: wrap;
@@ -143,6 +253,10 @@ $color5: #FFFAF0;
                 text-align: center;
                 justify-content: center;
                 align-content: center;
+
+                .arrow {
+                    width: 18px;
+                }
 
             }
 
@@ -152,6 +266,9 @@ $color5: #FFFAF0;
                 color: gray;
                 padding: 1px 3px 1px 12px;
                 font-size: 14px;
+
+                vertical-align: middle;
+
             }
 
             .wind {
@@ -165,6 +282,19 @@ $color5: #FFFAF0;
             .wind2 {
                 padding: 15px;
             }
+
+            .googleMap {
+                color: dodgerblue;
+                cursor: pointer;
+                font-size: medium;
+
+                &:hover {
+
+                    color: #fdc714;
+                    text-shadow: 2px 2px 7px black;
+                }
+
+            }
         }
 
     }
@@ -172,52 +302,7 @@ $color5: #FFFAF0;
 
 
 
-    .dropdown {
 
-        min-width: 200px;
-        text-align: left;
-        padding: 0px;
-        position: relative;
-        display: inline-block;
-        cursor: pointer;
-
-        .position {
-            font-size: 14px;
-            color: black;
-            padding: 2px;
-
-            &:hover {
-                color: #fdc714;
-                text-shadow: 2px 2px 4px black;
-            }
-        }
-
-        .dropdown-content {
-            display: none;
-            font-size: 14px;
-            font-weight: lighter;
-            position: absolute;
-            min-width: 30px;
-
-            span {
-                position: relative;
-                top: -10px;
-                padding: 5px 13px;
-                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-                background-color: #f9f9f9;
-                display: flex;
-                align-content: center;
-
-            }
-
-        }
-
-        &:hover .dropdown-content {
-            display: block;
-            color: black;
-            text-shadow: none;
-        }
-    }
 
 
 }
@@ -225,8 +310,103 @@ $color5: #FFFAF0;
 @media screen and (max-width: 500px) {
     .mainDiv {
 
-        max-width: 345px;
-        min-width: 345px;
+        max-width: 358px;
+        min-width: 358px;
+
+        .cityMain {
+
+            border: 2px solid transparent;
+            border-radius: 5px;
+            padding-top: 10px;
+
+            .title {
+                color: gray;
+                padding: 1px 3px 1px 5px;
+                font-size: 10px;
+                width: 30px;
+
+
+
+            }
+
+            .holder {
+                padding: 3px;
+            }
+
+            .cityName {
+                font-size: 20px;
+                font-weight: bold;
+                vertical-align: middle;
+            }
+
+            .timeZone {
+                color: black;
+                font-size: 14px;
+                padding: 0px;
+                width: 200px;
+                vertical-align: middle;
+            }
+
+            .timeHour {
+                padding-right: 7px;
+                font-size: 14px;
+                max-width: 35px;
+                min-width: 35px;
+                vertical-align: middle;
+            }
+
+            .googleMap {
+                font-size: small;
+
+                &:hover {
+                    text-shadow: 2px 2px 4px black;
+
+                }
+            }
+
+            .dropdown {
+
+                min-width: 100px;
+                text-align: left;
+                padding: 0px;
+                position: relative;
+                display: inline-block;
+                cursor: pointer;
+
+                .position {
+                    font-size: 10px;
+                    color: black;
+                    // padding-top: 12px;
+
+                    &:hover {
+                        color: #fdc714;
+                        text-shadow: 1px 1px 2px black;
+                    }
+                }
+
+                .dropdown-content {
+                    display: none;
+                    font-size: 10px;
+                    font-weight: lighter;
+                    position: absolute;
+                    min-width: 20px;
+
+                    span {
+                        position: relative;
+                        top: -2px;
+                        padding: 3px 7px;
+
+
+                    }
+
+                }
+
+
+            }
+        }
+
+
+
 
         .title {
             padding: 1px 2px 1px 6px;
@@ -234,30 +414,15 @@ $color5: #FFFAF0;
             width: 50px;
         }
 
-        .cityName {
-            font-size: 22px;
-
-        }
-
-        .timeZone {
-            font-size: 14px;
-            font-weight: bold;
-            width: 70px;
-        }
-
-        .timeHour {
-            padding-right: 5px;
-            font-size: 14px;
-            max-width: 15px;
-            min-width: 15px;
-        }
 
         .windMain {
             padding: 5px;
             width: 345px;
 
             .tempHold {
-                width: 120px;
+
+                min-width: 185px;
+                max-width: 185px;
 
                 border-radius: 5px;
                 border: 2px solid transparent;
@@ -274,11 +439,14 @@ $color5: #FFFAF0;
                 }
 
                 .title2 {
+                    padding: 1px 2px 1px 4px;
+                    min-width: 30px;
                     font-size: 10px;
                 }
 
                 .popNumb {
-                    font-size: 17px;
+                    font-size: 13px;
+
 
                     padding: 3px;
                 }
@@ -296,7 +464,7 @@ $color5: #FFFAF0;
 
 
                         border-radius: 2px;
-                        width: 34px;
+                        width: 43px;
 
 
                     }
@@ -309,28 +477,45 @@ $color5: #FFFAF0;
 
 
             .windHold {
-                width: 90px;
+
+                min-width: 150px;
+                max-width: 150px;
                 padding: 5px;
 
 
                 border: 2px solid transparent;
                 border-radius: 5px;
 
-                .degrees {
-                    margin: auto;
-                    width: 25px;
-                    height: 25px;
+                .windPlace {
+                    width: 40px;
+                    height: 40px;
 
+                    .arrow {
+                        width: 12px;
+                    }
                 }
 
                 .title {
-
-                    padding: 1px 3px 1px 12px;
+                    padding: 1px 3px 1px 6px;
                     font-size: 10px;
                 }
 
                 .wind {
                     font-size: 12px;
+                }
+
+                .wind2 {
+                    padding: 10px;
+                }
+
+                .googleMap {
+                    font-size: small;
+
+                    &:hover {
+
+                        text-shadow: 2px 2px 4px black;
+                    }
+
                 }
             }
 

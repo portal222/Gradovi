@@ -1,6 +1,11 @@
 @import '../scss/_cssreset.scss';
 @import "../scss/_weather.scss";
 
+$color1: #ece8e8;
+
+// $color6: rgb(251, 236, 206);
+// $color7: rgb(217, 183, 183);
+
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 18px;
@@ -19,7 +24,7 @@ body {
 }
 
 .container {
-    background-color: #afb0af;
+    background-color: $color1;
     width: 500px;
     margin: auto;
     padding: 20px;
@@ -27,7 +32,7 @@ body {
 
 
 .navContainer {
-    background-color: $color2;
+    background-color: $color3;
     display: flex;
     flex-direction: row;
     margin: auto;
@@ -36,15 +41,25 @@ body {
     justify-content: space-around;
 
     .linker {
-        color: $color1;
-        text-decoration: none;
-        font-weight: bold;
 
-        &:hover {
+
+        padding: 10px;
+
+        .home {
+            background-color: $color3;
+
+            color: dodgerblue;
             font-weight: bold;
-            color: #fdc714;
-            text-shadow: 2px 2px 7px black;
+            text-decoration: none;
+
+            &:hover {
+
+                color: #fdc714;
+                text-shadow: 2px 2px 7px black;
+            }
         }
+
+
     }
 
 
@@ -78,7 +93,7 @@ body {
 }
 
 .place {
-    background-color: #84867b;
+    background-color: $color7;
     padding: 6px;
     display: flex;
     height: 50px;
@@ -104,6 +119,7 @@ body {
     .geogImg {
         min-width: 250px;
         max-width: 250px;
+        padding-left: 10px;
 
 
         .imageDet {
@@ -140,12 +156,14 @@ body {
 
     .imageTwo {
         width: 200px;
-        padding-top: 25px;
+        padding-top: 15px;
+        padding-left: 10px;
     }
 
     .flag {
         text-align: center;
-        padding-top: 20px;
+        padding-top: 15px;
+        padding-left: 2px;
 
 
 
@@ -165,7 +183,7 @@ body {
         .imageFlsearch {
             width: 550px;
             margin-top: 25px;
-         
+
 
             margin: auto;
             cursor: pointer;
@@ -195,6 +213,7 @@ body {
         .coat {
             width: 570px;
             padding-top: 10px;
+            padding-bottom: 10px;
 
         }
     }
@@ -213,11 +232,52 @@ body {
 
     .lang {
         font-size: 22px;
+        vertical-align: middle;
     }
 
+    .population {
+        font-size: 24;
+        font-weight: bold;
+        vertical-align: middle;
+    }
 
+    .nameOffCountry {
+        font-size: 25px;
+        min-width: 310px;
+        font-weight: bold;
+        color: dodgerblue;
+        vertical-align: middle;
+        cursor: pointer;
 
+        &:hover {
+            color: #fdc714;
 
+            text-shadow: 1px 1px 4px black;
+        }
+    }
+
+    .region {
+        vertical-align: middle;
+        padding: 5px 10px;
+        color: gray;
+    }
+
+    .nameGeog {
+        max-width: 600px;
+        vertical-align: middle;
+        padding: 5px 10px;
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+        color: dodgerblue;
+
+        &:hover {
+            font-weight: bold;
+            color: #fdc714;
+            text-shadow: 2px 2px 7px black;
+        }
+    }
 
 
     .aqiNum {
@@ -227,90 +287,92 @@ body {
         text-align: left;
     }
 
-    
 
 
 
 
 
-    .googleMap {
-        color: #84b4b0;
-        cursor: pointer;
-        &:hover {
 
-            color: #fdc714;
-            text-shadow: 2px 2px 7px black;
-        }
 
-    }
 
     .long {
         font-size: 20px;
     }
 
-    tr {
-        &:nth-child(even) {
-            background-color: #dcdee9;
-        }
-    }
 
-    td {
-        padding-left: 30px;
-        padding-right: 10px;
-        padding-bottom: 10px;
-        font-size: 26;
-        // max-width: 120px;
 
-    }
 
-    .mapIcon {
 
-        // font-size: large;
-        font-size: 18px;
 
-        &:hover {
-            color: #fdc714;
-            text-shadow: 1px 1px 2px black;
+    .countryMain {
+        // margin: auto;
 
+        background-image: linear-gradient($color6, $color7);
+        border-image: linear-gradient($color7, $color6);
+        border: 2px solid transparent;
+
+        border-radius: 5px;
+        padding: 7px;
+
+        .title {
+            color: gray;
+            padding: 1px 3px 1px 7px;
+            font-size: 14px;
+            width: 30px;
+            vertical-align: middle;
 
 
         }
-    }
 
-    .region {
-        border-bottom: solid 5px #828c82;
+        .nameOff {
+            font-size: 17px;
+        }
 
-    }
-
-    .nameOffCountry {
-        font-size: 30px;
-        cursor: pointer;
-        min-width: 400px;
-        color: dodgerblue;
-
-
-        &:hover {
+        .lang {
+            text-align: left;
+            font-size: 17px;
             font-weight: bold;
-            color: #fdc714;
-            text-shadow: 2px 2px 7px black;
+            color: black;
+            padding: 5px;
         }
-    }
 
-    .nameGeog {
-        max-width: 600px;
-        padding-left: 7px;
-        font-size: 30px;
-        font-weight: bold;
-        text-align: left;
-        cursor: pointer;
-        color: dodgerblue;
-
-        &:hover {
+        .lang2 {
+            font-size: 20px;
             font-weight: bold;
-            color: #fdc714;
-            text-shadow: 2px 2px 7px black;
+            text-align: left;
+
+            color: black;
+
+        }
+
+        .nameComm {
+            font-size: 28px;
+            font-weight: bold;
+            min-width: 300px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .nameOffCity {
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 300px;
+            color: dodgerblue;
+            vertical-align: middle;
+
+
+            &:hover {
+
+                color: #fdc714;
+                text-shadow: 2px 2px 7px black;
+            }
         }
     }
+
+
+
+
 }
 
 
@@ -472,6 +534,8 @@ body {
 
         .nameGeog {
             font-size: 22px;
+            padding: 3px 8px;
+
         }
 
         .lang {
@@ -479,6 +543,9 @@ body {
         }
 
         .flag {
+            padding-top: 10px;
+            padding-left: 20px;
+
             .imageFl {
                 width: 190px;
                 // padding-top: 8px;
@@ -487,7 +554,7 @@ body {
             }
 
             .imageFlsearch {
-                width: 310px;
+                width: 200px;
 
                 &:hover {
                     box-shadow: 2px 2px 12px black;
@@ -501,7 +568,8 @@ body {
 
 
         .imageTwo {
-            padding-top: 8px;
+            padding-top: 10px;
+            padding-left: 5px;
             width: 110px;
         }
 
@@ -560,12 +628,6 @@ body {
             font-size: 14px;
         }
 
-        td {
-            padding: 5px 10px;
-            font-size: 14px;
-            max-width: 80px;
-        }
-
         .capital {
             font-size: 22px;
             padding-top: 8px;
@@ -573,7 +635,7 @@ body {
         }
 
         .region {
-            border-bottom: solid 5px #828c82;
+            padding: 3px 8px;
 
             .mapIcon {
                 font-size: 22px;
@@ -588,9 +650,61 @@ body {
             font-size: 16px;
             min-width: 210px;
 
-            &:hover {
+        }
 
-                text-shadow: 1px 1px 4px black;
+        .countryMain {
+            // width: 358px;
+            // margin: auto;
+            // width: 610px;
+            background-image: linear-gradient($color6, $color7);
+            border-image: linear-gradient($color7, $color6);
+            border: 2px solid transparent;
+
+            border-radius: 5px;
+            padding: 7px;
+
+            .title {
+                color: gray;
+                padding: 1px 3px 1px 4px;
+                font-size: 10px;
+                width: 30px;
+                vertical-align: middle;
+
+
+            }
+
+            .nameOff {
+                font-size: 12px;
+            }
+
+            .lang {
+                text-align: left;
+                font-size: 12px;
+
+
+            }
+
+            .lang2 {
+                font-size: 14px;
+            }
+
+            .nameComm {
+                font-size: 20px;
+                min-width: 180px;
+            }
+
+            .nameOffCity {
+                font-size: 20px;
+
+                width: 180px;
+
+
+
+                &:hover {
+
+                    color: #fdc714;
+                    text-shadow: 2px 2px 5px black;
+                }
             }
         }
     }
@@ -602,13 +716,6 @@ body {
 
         .base {
             max-width: 200px;
-
         }
-
     }
-
-
-
-
-
 }

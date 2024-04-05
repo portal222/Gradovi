@@ -14,8 +14,8 @@ export default function Navigation() {
       <div className="navContainer">
 
 
-        <p>
-          <Link to='/' className="linker">
+        <p className="linker">
+          <Link to='/' className="home">
             COUNTRIES OF THE WORLD
           </Link>
         </p>

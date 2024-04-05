@@ -16,7 +16,7 @@ const SearchResutsGeog = () => {
     const [countries, setCountries] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [results, setResults] = useState([]);
-  
+
     const navigate = useNavigate();
 
 
@@ -36,9 +36,9 @@ const SearchResutsGeog = () => {
             const data = response.data;
             const filterData = data.filter((country) => {
                 return (
-                 
-                    country.name.common.toLowerCase().includes(searchStringValue.toLowerCase()) 
-                 
+
+                    country.name.common.toLowerCase().includes(searchStringValue.toLowerCase())
+
 
 
 
@@ -57,16 +57,16 @@ const SearchResutsGeog = () => {
     };
 
     const handleClick = (drId) => {
-        console.log("klik na drz",drId);
+        console.log("klik na drz", drId);
         const LinkTo = `detalji/${drId}`;
         navigate(LinkTo);
-    } 
+    }
     const handleClickCity = (cityId) => {
         console.log("klik na glavni grad", cityId);
         const LinkTo = `cities/${cityId}`;
         navigate(LinkTo);
     }
-    
+
 
 
 
@@ -93,18 +93,10 @@ const SearchResutsGeog = () => {
             <table className="tabelaZemlje">
                 <thead >
 
-                    <tr className="place">
-                        <th >
-            <SearchBox placeholder={'Search Countries'} linkTo={'/search'} className="search"/>
-                         
-                        </th>
-                        <th>
-                            <a href="#">home</a>
-                        </th>
-                    </tr>
+
                     <tr className="results">
-                        <th>Number of countries:</th>
-                        <th>{results}</th>
+                        <th colSpan={2}>Number of countries: {results}</th>
+
                     </tr>
 
                 </thead>
@@ -113,48 +105,56 @@ const SearchResutsGeog = () => {
 
 
 
-                    <tbody key={dataObj.name.common} >
+                    <tbody key={dataObj.idd.suffixes} >
 
                         <tr >
 
-                            <td 
+                            <td
                             ><img className="imageTwo" src={dataObj.coatOfArms.png}
 
                                 alt=" coat" /></td>
                             <td onClick={() => handleClick(dataObj.name.common)}
-                            className="flag" ><img src={dataObj.flags.png} alt="flag"
-                                className="imageFl" /></td>
+                                className="flag" >
+                                <img src={dataObj.flags.png} alt="flag"
+                                    className="imageFl" /></td>
                         </tr>
                         <tr>
-                            <td >Name:</td>
+                            <td className="region">Name:</td>
                             <td
-                            onClick={() => handleClick(dataObj.name.common)} 
-                            className="nameGeog">{dataObj.name.common}</td>
+                                onClick={() => handleClick(dataObj.name.common)}
+                                className="nameGeog">
+                                {dataObj.name.common}</td>
 
                         </tr>
-                        
-                      
+
+
                         <tr>
-                            <td >Capital:</td>
-                            <td 
-                            onClick={() => handleClickCity(dataObj.capital[0])}
-                            className="nameOffCountry">{dataObj.capital[0]}</td>
+                            <td className="region">Capital:</td>
+                            <td
+                                onClick={() => handleClickCity(dataObj.capital[0])}
+                                className="nameOffCountry">{dataObj.capital[0]}</td>
                         </tr>
                         <tr>
-                            <td >Region:</td>
+                            <td className="region">Region:</td>
                             <td className="lang">{dataObj.region}</td>
                         </tr>
-                       
-                        <tr className="region">
-                            <td >Population:</td>
+
+                        <tr >
+                            <td className="region">Population:</td>
                             <td className="population">{dataObj.population}</td>
                         </tr>
-                       
+                        <tr>
+                            <td colSpan={2}>
+                                <hr></hr>
+
+                            </td>
+                        </tr>
+
                     </tbody>
 
                 ))}
             </table>
-            
+
             <div>{<BackToTop />}</div>
         </>
     );
