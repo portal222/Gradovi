@@ -38,15 +38,16 @@ $color7: #c8e6c9;
         }
 
         .cityName {
-            font-size: 30px;
+            font-size: 27px;
             text-align: center;
             color: #2a0289;
             vertical-align: middle;
+            padding: 10px 2px;
         }
 
         .timeZone {
             color: black;
-            font-size: 22px;
+            font-size: 20px;
             width: 200px;
             vertical-align: middle;
 
@@ -54,11 +55,11 @@ $color7: #c8e6c9;
         }
 
         .timeHour {
-            padding-right: 7px;
+            padding-right: 10px;
 
-            font-size: 22px;
-            max-width: 60px;
-            min-width: 60px;
+            font-size: 20px;
+            max-width: 65px;
+            min-width: 65px;
             font-weight: bold;
             color: black;
             overflow: hidden;
@@ -151,12 +152,12 @@ $color7: #c8e6c9;
         justify-content: space-between;
 
         width: 630px;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
         .tempHold {
 
-            min-width: 380px;
-            max-width: 380px;
+            min-width: 385px;
+            max-width: 385px;
             background-image: linear-gradient($color4, $color3);
             border-image: linear-gradient($color3, $color4);
             border-radius: 5px;
@@ -192,7 +193,7 @@ $color7: #c8e6c9;
             }
 
             .popNumb {
-                font-size: 21px;
+                font-size: 19px;
                 font-weight: bold;
                 text-align: center;
                 padding: 4px;
@@ -200,7 +201,7 @@ $color7: #c8e6c9;
 
             .temp {
                 text-align: left;
-                font-size: 17px;
+                font-size: 15px;
                 font-weight: bold;
                 color: black;
                 padding: 5px;
@@ -208,7 +209,7 @@ $color7: #c8e6c9;
 
             .temp2 {
                 text-align: center;
-                font-size: 17px;
+                font-size: 15px;
                 font-weight: bold;
                 color: black;
                 max-height: 50px;
@@ -219,7 +220,8 @@ $color7: #c8e6c9;
 
                     background-color: $color5;
                     border-radius: 8px;
-                    width: 70px;
+                    width: 50px;
+                    padding: 10px;
 
                 }
 
@@ -233,8 +235,8 @@ $color7: #c8e6c9;
 
         .windHold {
 
-            min-width: 230px;
-            max-width: 230px;
+            min-width: 232px;
+            max-width: 232px;
             padding: 10px;
             background-image: linear-gradient($color4, $color3);
             border-image: linear-gradient($color3, $color4);
@@ -272,7 +274,7 @@ $color7: #c8e6c9;
             }
 
             .wind {
-                font-size: 17px;
+                font-size: 15px;
                 font-weight: bold;
                 padding: 5px;
                 color: black;
@@ -312,7 +314,7 @@ $color7: #c8e6c9;
 
         max-width: 358px;
         min-width: 358px;
-
+       
         .cityMain {
 
             border: 2px solid transparent;
@@ -334,24 +336,24 @@ $color7: #c8e6c9;
             }
 
             .cityName {
-                font-size: 20px;
+                font-size: 17px;
                 font-weight: bold;
                 vertical-align: middle;
             }
 
             .timeZone {
                 color: black;
-                font-size: 14px;
+                font-size: 11px;
                 padding: 0px;
                 width: 200px;
                 vertical-align: middle;
             }
 
             .timeHour {
-                padding-right: 7px;
-                font-size: 14px;
-                max-width: 35px;
-                min-width: 35px;
+                padding-right: 10px;
+                font-size: 12px;
+                max-width: 40px;
+                min-width: 40px;
                 vertical-align: middle;
             }
 
@@ -421,8 +423,8 @@ $color7: #c8e6c9;
 
             .tempHold {
 
-                min-width: 185px;
-                max-width: 185px;
+                min-width: 190px;
+                max-width: 190px;
 
                 border-radius: 5px;
                 border: 2px solid transparent;
@@ -463,9 +465,9 @@ $color7: #c8e6c9;
                     .imgHold {
 
 
-                        border-radius: 2px;
-                        width: 43px;
-
+                        border-radius: 3px;
+                        width: 35px;
+padding: 5px;
 
                     }
 

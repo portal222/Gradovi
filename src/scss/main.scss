@@ -7,7 +7,9 @@ $color1: #ece8e8;
 // $color7: rgb(217, 183, 183);
 
 body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    // font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    // font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 18px;
 
 
@@ -306,51 +308,58 @@ body {
         background-image: linear-gradient($color6, $color7);
         border-image: linear-gradient($color7, $color6);
         border: 2px solid transparent;
-
+        
+        
         border-radius: 5px;
         padding: 7px;
-
+        
         .title {
             color: gray;
-            padding: 1px 3px 1px 7px;
-            font-size: 14px;
+            padding: 5px;
+            font-size: 15px;
             width: 30px;
-            vertical-align: middle;
-
-
+            vertical-align: top;
+           
+            
+            
         }
-
+        
         .nameOff {
             font-size: 17px;
         }
-
+        
         .lang {
             text-align: left;
             font-size: 17px;
             font-weight: bold;
             color: black;
             padding: 5px;
+           
+            
         }
 
         .lang2 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
             text-align: left;
+            vertical-align: top;
+            padding: 5px;
 
             color: black;
 
         }
 
         .nameComm {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: bold;
             min-width: 300px;
             text-align: center;
             vertical-align: middle;
+            padding: 10px 2px;
         }
 
         .nameOffCity {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: bold;
             cursor: pointer;
             width: 300px;
@@ -690,7 +699,7 @@ body {
             }
 
             .nameOffCity {
-                font-size: 20px;
+                font-size: 16px;
 
                 width: 180px;
 
