@@ -425,6 +425,11 @@ body {
     }
 
 }
+.footer {
+    font-size: 12px;
+    color: #5e5f5e;
+    text-align: center;
+}
 
 @media screen and (max-width: 500px) {
     body {
@@ -453,9 +458,9 @@ body {
         margin-top: 0;
         margin: auto;
         width: 358px;
-        height: 880px;
+        height: 200px;
 
-        padding-top: 80px;
+        padding-top: 10px;
 
         .img {
             height: 175px;
@@ -722,5 +727,8 @@ body {
         .base {
             max-width: 200px;
         }
+    }
+    .footer {
+        font-size: 9px;
     }
 }

@@ -7,6 +7,7 @@ import SearchResutsFlag from "./SearchResultsFlag";
 import SearchResultsCity from "./SearchResultsCity";
 import GeographicDetails from "./GeographicDetails"
 import CityGeogDetails from "./CityGeogDetails";
+import Footers from "./Footers";
 
 export default function Navigation() {
   return (
@@ -50,6 +51,7 @@ export default function Navigation() {
         {/* <img src="../img/politic-glob.png" alt="globus" /> */}
       </div>
 
+      <Footers />
     </HashRouter>
   )
 }
