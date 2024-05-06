@@ -10,11 +10,21 @@ $color7: #c8e6c9;
 
 .mainDiv {
     border-collapse: collapse;
+
     max-width: 650px;
     min-width: 650px;
     background-color: rgb(216, 216, 216);
 
     margin: auto;
+    .countryName {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
+        color: #423267;
+        text-align: center;
+        background-color: #e4d399;
+        font-size: 22px;
+        padding: 10px;
+    }
 
     .cityMain {
         background-image: linear-gradient($color6, $color7);
@@ -368,7 +378,7 @@ $color7: #c8e6c9;
 
             .dropdown {
 
-                min-width: 100px;
+                min-width: 120px;
                 text-align: left;
                 padding: 0px;
                 position: relative;

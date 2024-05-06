@@ -107,22 +107,26 @@ const SearchResutsFlag = () => {
                                 className="imageFlsearch" /></td>
                         </tr>
                         <tr>
-                            <td colSpan={2} className="flagAlt">
-                                <p>{dataObj.flags.alt}</p>
+                            <td colSpan={2}>
+                                <p className="flagAlt" >{dataObj.flags.alt}</p>
                             </td>
                         </tr>
                         <tr>
-                            <td >Name:</td>
-                            <td className="nameComm">{dataObj.name.common}</td>
+                            <td className="region" >Name:</td>
+                            <td className="nameCommClick" 
+                             onClick={() => handleClick(dataObj.name.common)}>
+                                {dataObj.name.common}</td>
 
                         </tr>
 
 
 
-                        <tr className="region">
-                            <td >Subregion:</td>
-                            <td >{dataObj.subregion}</td>
+                        <tr >
+                            <td className="region">Subregion:</td>
+                            <td className="region">{dataObj.subregion}</td>
                         </tr>
+                        <tr><td colSpan={2}>
+                            <hr></hr></td></tr>
 
 
 

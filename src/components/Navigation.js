@@ -8,6 +8,7 @@ import SearchResultsCity from "./SearchResultsCity";
 import GeographicDetails from "./GeographicDetails"
 import CityGeogDetails from "./CityGeogDetails";
 import Footers from "./Footers";
+import GeographicDetIso2 from "./GeographicDetIso2";
 
 export default function Navigation() {
   return (
@@ -30,14 +31,16 @@ export default function Navigation() {
       </div>
       <Routes>
 
-        {/* <Route path="/" element={<Home />} /> */}
+       
         <Route path="/" element={<Geografija />} />
         <Route path="/search" element={<SearchResutsGeog />} />
         <Route path="/search/detalji/:drId" element={<GeographicDetails />} />
+        <Route path="/searchCity/detalji/:drId" element={<GeographicDetails />} />
         <Route path="/geografija/searchFlag" element={<SearchResutsFlag />} />
         <Route path="/geografija/searchFlag/flags/:drId" element={<GeographicDetails />} />
         <Route path="/searchCity" element={<SearchResultsCity />} />
         <Route path="/searchCity/citiesDetails/:cityId" element={<CityGeogDetails />} />
+        <Route path="/searchCity/gradoviDetIso/:isoId" element={<GeographicDetIso2 />} />
         <Route path="/detalji/:drId" element={<GeographicDetails />} />
         <Route path="/search/cities/:cityId" element={<CityGeogDetails />} />
         
@@ -48,7 +51,7 @@ export default function Navigation() {
       </Routes>
       <div className="home">
         <div className="img"></div>
-        {/* <img src="../img/politic-glob.png" alt="globus" /> */}
+       
       </div>
 
       <Footers />

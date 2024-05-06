@@ -8,7 +8,7 @@ import SearchBox from "./SearchBox";
 // import Loader from "./Loader";
 
 
-const SearchResutsGeog = (props) => {
+const GeographicDetIso2 = (props) => {
     const [error, setError] = useState(null);
     const [countries, setCountries] = useState([]);
     const [zemlje, setZemlje] = useState([]);
@@ -22,48 +22,34 @@ const SearchResutsGeog = (props) => {
 
     const params = useParams();
 
-    const drId = params.drId;
+    const isoId = params.isoId;
 
 
 
     useEffect(() => {
-        getCountries();
+        
         getZemlje();
 
     }, []);
 
-    const getCountries = async () => {
-
-        const url = `https://restcountries.com/v3.1/name/${drId}`;
-
-        try {
-            const response = await axios.get(url);
-            const data = response.data;
-
-            console.log("Detalji", data);
-
-            setCountries(data);
-        } catch (err) {
-            setError(err);
-            // setIsLoading(false);
-        }
-
-    };
+   
 
     const getZemlje = async () => {
-        const url = `https://api.api-ninjas.com/v1/country?name=${drId}`;
+        // const url = `https://api.api-ninjas.com/v1/country?iso2=${isoId}`;
+        const url = `https://restcountries.com/v3.1/alpha/${isoId}`
+
 
         try {
-            const response = await axios.get(url,
-                {
-                    headers: {
-                        'X-Api-Key': 'D+dYjCxDSm5fEkIqyoCIeA==c2GvujXTiAbMIH05'
-                    }
-                }
-            );
+            const response = await axios.get(url)
+            //     {
+            //         headers: {
+            //             'X-Api-Key': 'D+dYjCxDSm5fEkIqyoCIeA==c2GvujXTiAbMIH05'
+            //         }
+            //     }
+            // );
             const data = response.data;
 
-            console.log("detalji druge zemlje", data);
+            console.log("detalji jpreko CCa2 koda ", data);
 
 
             setZemlje(data);
@@ -88,106 +74,19 @@ const SearchResutsGeog = (props) => {
 
     return (
         <>
-            {countries.map((dataObj) => (
-                <table className="tabelaZemlje">
-
-
-
-
-
-
-                    <tbody key={dataObj.population} >
-
-                        <tr className="name">
-
-                            <td ><img className="coat" src={dataObj.coatOfArms.png}
-                                alt=" coat" />
-                            </td>
-                        </tr>
-                        <tr className="name">
-                            <td
-                            ><img className="coat" src={dataObj.flags.png}
-                                alt="flag" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className="countryMain">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-
-                                                <td colSpan={2}
-                                                    className="nameComm">{dataObj.name.common}</td>
-                                                <td className="title">Capital</td>
-                                                <td
-                                                    className="nameOffCity"
-                                                    onClick={() => handleClick(dataObj.capital)}>
-                                                    {dataObj.capital}</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title">Official </td>
-                                                <td className="lang2">{dataObj.name.official}</td>
-                                                <td className="title">Serbian</td>
-                                                <td className="lang2"> {dataObj.translations.srp.official}</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td className="title">Region</td>
-                                                <td className="lang">{dataObj.region}</td>
-
-                                                <td className="title">Subregion</td>
-                                                <td className="lang">{dataObj.subregion}</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title">Demonyms</td>
-                                                <td className="lang">{dataObj.demonyms.eng.m}</td>
-
-                                                <td className="title">Languages</td>
-                                                <td className="lang">{dataObj.languages.jpn || dataObj.languages.que || dataObj.languages.grn || dataObj.languages.pau
-                                                    || dataObj.languages.nep || dataObj.languages.urd || dataObj.languages.heb || dataObj.languages.ber || dataObj.languages.hin
-                                                    || dataObj.languages.ara || dataObj.languages.pus || dataObj.languages.tuk || dataObj.languages.est || dataObj.languages.dan
-                                                    || dataObj.languages.vie || dataObj.languages.de || dataObj.languages.kaz || dataObj.languages.lav || dataObj.languages.swa
-                                                    || dataObj.languages.rus || dataObj.languages.ita || dataObj.languages.sqi || dataObj.languages.srp || dataObj.languages.zho
-                                                    || dataObj.languages.nld || dataObj.languages.hrv || dataObj.languages.mkd || dataObj.languages.bos || dataObj.languages.pol
-                                                    || dataObj.languages.por || dataObj.languages.slv || dataObj.languages.ron || dataObj.languages.lit || dataObj.languages.cat
-                                                    || dataObj.languages.bul || dataObj.languages.ell || dataObj.languages.kal || dataObj.languages.ces || dataObj.languages.slk
-                                                    || dataObj.languages.mon || dataObj.languages.cnr || dataObj.languages.hun || dataObj.languages.kor || dataObj.languages.mya
-                                                    || dataObj.languages.nor || dataObj.languages.fin || dataObj.languages.swe || dataObj.languages.ind
-                                                    || dataObj.languages.spa || dataObj.languages.deu || dataObj.languages.fra
-                                                    || dataObj.languages.eng}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </td>
-
-                        </tr>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </tbody>
-
-
-                </table>
-            ))}
-            {zemlje.map((dataZem) => (
+           
+             {zemlje.map((dataZem) => (
                 <table className="mainDiv">
 
 
-                    <tbody key={dataZem.name}>
+                    <tbody key={dataZem.name.common}>
+                        <tr>
+                            <td className="countryName">
+                                {dataZem.name.common}
+
+                            </td>
+
+                        </tr>
                         <tr>
                             <td >
                                 <div className="windMain">
@@ -199,11 +98,11 @@ const SearchResutsGeog = (props) => {
                                             </td>
                                             <td colSpan={2}
                                                 className="wind">
-                                                {dataZem.currency.name + " - " + dataZem.currency.code}
+                                                {/* {dataZem.currency.name + " - " + dataZem.currency.code} */}
                                             </td>
                                         </tr>
 
-                                            <tr>
+                                            {/* <tr>
                                                 <td className="title">GDP</td>
                                                 <td className="wind">{dataZem.gdp} M$</td>
                                             </tr>
@@ -279,12 +178,7 @@ const SearchResutsGeog = (props) => {
                                     <table className="windHold">
                                         <tbody>
 
-                                            {countries.map((dataArea) => (
-                                                <tr>
-                                                    <td className="title">Area</td>
-                                                    <td className="wind">{dataArea.area} km2</td>
-                                                </tr>
-                                            ))}
+                                  
                                             <tr>
                                                 <td className="title">Forested Area</td>
                                                 <td className="wind">{dataZem.forested_area} %</td>
@@ -327,42 +221,8 @@ const SearchResutsGeog = (props) => {
                         <tr>
                             <td>
                                 <div className="windMain">
-                                    <table className="windHold">
-                                        {countries.map((dataArea) => (
-                                            <tbody>
-                                                <tr>
-                                                    <td className="title">Timezones</td>
-                                                    <td className="wind">
-
-
-                                                        {dataArea.timezones[0]}
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td className="title">Code</td>
-                                                    <td className="wind">{dataArea.cca2}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td className="title">Car signs</td>
-                                                    <td className="wind">{dataArea.car.signs}</td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td className="title">Car side</td>
-                                                    <td className="wind">{dataArea.car.side}</td>
-                                                </tr>
-                                                <tr >
-                                                    <td className="title">Googlemaps</td>
-                                                    <td >
-                                                        <a href={dataArea.maps.googleMaps} target='_blank' >
-                                                            <MapTwoToneIcon className="googleMap" />
-
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        ))}
-                                    </table>
+                                   
+                                      
                                     <table className="tempHold">
                                         <tbody>
                                             <tr>
@@ -407,7 +267,7 @@ const SearchResutsGeog = (props) => {
                                             <tr>
                                                 <td className="title2">Refugees</td>
                                                 <td className="temp">{dataZem.refugees * 1000}</td>
-                                            </tr>
+                                            </tr> */}
                                         </tbody>
                                     </table>
 
@@ -440,4 +300,4 @@ const SearchResutsGeog = (props) => {
         </>
     );
 };
-export default SearchResutsGeog;
+export default GeographicDetIso2;

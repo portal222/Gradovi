@@ -7,6 +7,7 @@ import BackToTop from "./BackToTop";
 import Loader from "./Loader";
 import { useNavigate } from "react-router-dom";
 import datas from "../../public/city.listDugacak.json";
+import ResCountCca from "./ResCountCca";
 
 
 const SearchResultsCity = () => {
@@ -56,11 +57,7 @@ const SearchResultsCity = () => {
         const LinkTo = `citiesDetails/${cityId}`;
         navigate(LinkTo);
     }
-    // const handleClickCountry = (drId) => {
-    //     console.log("klik na drzavu",drId);
-    //     const LinkTo = `gradoviDetalj/${drId}`;
-    //     navigate(LinkTo);
-    // } 
+  
 
     if (isLoading) {
         return <Loader />
@@ -110,8 +107,10 @@ const SearchResultsCity = () => {
                             <td className="nameGeog"
                                 onClick={() => handleClickCity(dataObj.name)}>
                                 {dataObj.name}</td>
-                            <td >
+                            <td style={{fontWeight: "bold"}}>
+
                                 {dataObj.country}
+                                <ResCountCca code={dataObj.country}/>
                             </td>
 
                         </tr>

@@ -194,8 +194,25 @@ body {
 
     }
 
+
     .flagAlt {
-        font-size: 32px;
+        font-size: 22px;
+        padding: 10px 12px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    .nameCommClick {
+        cursor: pointer;
+        color: dodgerblue;
+        font-size: 22px;
+        font-weight: bold;
+
+        &:hover {
+            color: #fdc714;
+            text-shadow: 1px 1px 4px black;
+
+
+        }
     }
 
     .name {
@@ -256,12 +273,13 @@ body {
 
     .region {
         vertical-align: middle;
-        padding: 5px 10px;
+        font-size: 18px;
+        padding: 5px 12px;
         color: gray;
     }
 
     .nameGeog {
-        max-width: 600px;
+        max-width: 700px;
         vertical-align: middle;
         padding: 5px 10px;
         font-size: 30px;
@@ -269,6 +287,24 @@ body {
         text-align: center;
         cursor: pointer;
         color: dodgerblue;
+
+        &:hover {
+            font-weight: bold;
+            color: #fdc714;
+            text-shadow: 2px 2px 7px black;
+        }
+    }
+
+    .nameCount {
+        vertical-align: middle;
+        padding: 5px;
+        font-size: 22px;
+        font-weight: bold;
+        text-align: left;
+        color: dodgerblue;
+        cursor: pointer;
+
+
 
         &:hover {
             font-weight: bold;
@@ -308,34 +344,34 @@ body {
         background-image: linear-gradient($color6, $color7);
         border-image: linear-gradient($color7, $color6);
         border: 2px solid transparent;
-        
-        
+
+
         border-radius: 5px;
         padding: 7px;
-        
+
         .title {
             color: gray;
             padding: 5px;
             font-size: 15px;
             width: 30px;
             vertical-align: top;
-           
-            
-            
+
+
+
         }
-        
+
         .nameOff {
             font-size: 17px;
         }
-        
+
         .lang {
             text-align: left;
             font-size: 17px;
             font-weight: bold;
             color: black;
             padding: 5px;
-           
-            
+
+
         }
 
         .lang2 {
@@ -425,6 +461,7 @@ body {
     }
 
 }
+
 .footer {
     font-size: 12px;
     color: #5e5f5e;
@@ -548,6 +585,13 @@ body {
 
         }
 
+        .nameCount {
+
+            padding: 4px;
+            font-size: 16px;
+        }
+
+
         .lang {
             font-size: 16px;
         }
@@ -573,9 +617,20 @@ body {
         }
 
         .flagAlt {
-            font-size: 20px;
+            font-size: 18px;
+            padding: 10px 10px;
         }
 
+        .nameCommClick {
+            cursor: pointer;
+            color: blue;
+            font-size: 18px;
+
+
+            &:hover {
+                color: #fdc714;
+            }
+        }
 
         .imageTwo {
             padding-top: 10px;
@@ -646,9 +701,10 @@ body {
 
         .region {
             padding: 3px 8px;
+            font-size: 14px;
 
             .mapIcon {
-                font-size: 22px;
+                font-size: 14px;
             }
         }
 
@@ -728,6 +784,7 @@ body {
             max-width: 200px;
         }
     }
+
     .footer {
         font-size: 9px;
     }
