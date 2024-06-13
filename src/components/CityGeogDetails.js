@@ -16,6 +16,7 @@ import CloudPicture from "./CloudPicture";
 import wind from "../../public/assets/img/wind-arrow.svg";
 import CityAqi from "./CityAqi";
 import Home from "./Home";
+// import TimeZone from "./TimeZone";
 
 
 
@@ -35,8 +36,6 @@ const SearchResutsGeog = (props) => {
     const [cityPm, setCityPm] = useState([]);
     const [cityOverall, setCityOverall] = useState([]);
     const [weather, setWeather] = useState([]);
-
-    const [vreme, setVreme] = useState([]);
     const [cityPopul, setCityPopul] = useState([]);
     const [cityLong, setCityLong] = useState([]);
     const [cloud, setCloud] = useState([]);
@@ -52,11 +51,11 @@ const SearchResutsGeog = (props) => {
 
     const cityId = params.cityId;
 
+ 
 
 
     useEffect(() => {
         getCities();
-        getCityTime();
         getCityPopul();
     }, []);
 
@@ -124,31 +123,7 @@ const SearchResutsGeog = (props) => {
 
     };
 
-    const getCityTime = async () => {
 
-        const urlTime = `https://api.api-ninjas.com/v1/worldtime?city=${cityId}`;
-
-
-        try {
-            const response = await axios.get(urlTime,
-                {
-                    headers: {
-                        'X-Api-Key': 'D+dYjCxDSm5fEkIqyoCIeA==c2GvujXTiAbMIH05'
-                    }
-                }
-            );
-
-
-            const dataTime = response.data;
-            console.log("koliko je sati", dataTime);
-            setVreme(dataTime);
-
-
-        } catch (err) {
-            setError(err);
-            setIsLoading(false);
-        }
-    };
 
     const getCityPopul = async () => {
 
@@ -174,6 +149,8 @@ const SearchResutsGeog = (props) => {
 
     }
 
+
+
     useEffect(() => {
         getCityLong(cityId);
     }, [cityId]);
@@ -184,6 +161,7 @@ const SearchResutsGeog = (props) => {
             const filterData = datas.filter((city) => {
                 return (
                     city.name.toLowerCase().includes(cityId.toLowerCase())
+             
                 )
             });
             console.log("city long", filterData);
@@ -195,7 +173,16 @@ const SearchResutsGeog = (props) => {
         }
     };
 
+   
 
+
+     const lat = cityLong[0]?.coord.lat
+    const long = cityLong[0]?.coord.lon
+    const googleMap = 'https://maps.google.com/maps?q=' +
+        lat +
+        ',' +
+        long +
+        '&h1=en&z=10&output=embed'
 
 
 
@@ -218,18 +205,16 @@ const SearchResutsGeog = (props) => {
                             <div>
                                 <table className="cityMain">
                                     <tbody>
-                                        <tr><td colSpan={4} className="holder"></td></tr>
+                      
                                         <tr>
                                             <td colSpan={2}
                                                 className="cityName">
                                                 {cityId}
                                             </td>
-                                            <td className="title">Timezone</td>
-                                            <td
-                                                className="timeZone">
-                                                {vreme.timezone}
+                                 
+                                            <td rowSpan={2} >
+                                            <iframe src={googleMap} className="maps"></iframe>
                                             </td>
-                                            <td className="timeHour">{vreme.hour + ":" + vreme.minute}</td>
                                         </tr>
                                         <tr>
                                             <td className="title">
@@ -239,21 +224,10 @@ const SearchResutsGeog = (props) => {
                                                 className="timeZone">
                                                 {cityPopul[0]?.population}
                                             </td>
-                                            <td className="title">Position</td>
-                                            <td className="dropdown">
-                                                <span>
-                                                    <CityPosition lonti={cityLong} />
-                                                </span>
-
-                                                <span className="dropdown-content">
-                                                    <span>copy and paste in <MapTwoToneIcon className="map" /></span></span>
-                                            </td>
-                                            <td >
-                                                <a href="https://www.google.com/maps/" target="_blank">
-                                                    <MapTwoToneIcon className="googleMap" />
-                                                </a>
-                                            </td>
+                                           
+                               
                                         </tr>
+                                 
                                     </tbody>
                                 </table>
                             </div>

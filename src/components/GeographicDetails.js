@@ -89,7 +89,8 @@ const SearchResutsGeog = (props) => {
     return (
         <>
             {countries.map((dataObj) => (
-                <table className="tabelaZemlje">
+                <table key={dataObj.area}
+                className="tabelaZemlje">
 
 
 
@@ -359,6 +360,7 @@ const SearchResutsGeog = (props) => {
 
                                                         </a>
                                                     </td>
+
                                                 </tr>
                                             </tbody>
                                         ))}

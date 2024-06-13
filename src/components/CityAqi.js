@@ -16,8 +16,7 @@ const CityAqi = (props) => {
 
 
 
-    
-    // const citySo = props.dataAir
+
     const citySo = props.dataAirSo.concentration
     const citySoAqi = props.dataAirSo.aqi
    
@@ -31,7 +30,7 @@ const CityAqi = (props) => {
     const cityPmAqi = props.dataAirPm.aqi
     const cityOverall = props.dataOverall.overall_aqi
 
-    console.log("cestice sodiuma", citySo)
+
 
 
 
