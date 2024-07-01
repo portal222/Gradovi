@@ -19,7 +19,7 @@ const ResCountCca = (props) => {
     }, [])
 
     const getCountry = async () => {
-        // const urlCount = `https://raw.githubusercontent.com/iamspruce/search-filter-painate-reactjs/main/data/countries.json`
+      
         const urlCount = `https://restcountries.com/v3.1/alpha/${props.code}`
 
         try {
@@ -28,7 +28,7 @@ const ResCountCca = (props) => {
             const dataCount = responseCount.data
 
             console.log("DAJ podatke iz resCountCca", dataCount);
-            // console.log("prenesen kod propsa", props.code);
+         
 
 
             setCount(dataCount);
@@ -52,7 +52,8 @@ const ResCountCca = (props) => {
             <div>
 
                 {count.map((cca) => (
-                    <div className="nameCount"
+                    <div key={cca.name.common}
+                    className="nameCount"
                         onClick={() => handleCca(cca.name.common)}>
                         {cca.name.common}
                     </div>

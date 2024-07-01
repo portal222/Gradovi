@@ -1,6 +1,5 @@
 import React, { useRef, useContext } from "react";
-import { Paper,InputBase,IconButton } from "@mui/material";
-
+import { Paper, InputBase, IconButton } from "@mui/material";
 import LocationCityIcon from '@mui/icons-material/LocationCity';
 import { useNavigate } from "react-router-dom";
 import GlobalContext from "./GlobalContext";
@@ -30,28 +29,26 @@ const SearchBoxCity = (props) => {
 
     return (
         <Paper className="paper"
-        component = 'form'
-        se={{
-            p: '2px 4px',
-            display: 'flex',
-            alignItems: 'center',
-            width: '10rem',
-            backgroundColor: 'red',
-        }}
+            component='form'
+            se={{
+                p: '2px 4px',
+                display: 'flex',
+                alignItems: 'center',
+                width: '10rem',
+                backgroundColor: 'red',
+            }}
         >
             <InputBase className="base"
-            // sx={{ ml:1, flex: 1 }}
-            autoFocus
-            placeholder={props.placeholder}
-            // inputProps={{ 'ariel-label': 'search' }}
-            inputRef={searchString}
-            onKeyDown={handleKeyDown}
+                autoFocus
+                placeholder={props.placeholder}
+                inputRef={searchString}
+                onKeyDown={handleKeyDown}
             />
-            <IconButton 
-            type='button'
-            onClick={handleClickSearch}
-            sx={{ p: '10px'}}
-            aria-label='search'
+            <IconButton
+                type='button'
+                onClick={handleClickSearch}
+                sx={{ p: '10px' }}
+                aria-label='search'
             >
                 <LocationCityIcon />
             </IconButton>

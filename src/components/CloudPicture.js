@@ -8,9 +8,7 @@ import Cloudy from "../../public/assets/img/Cloudy.svg";
 
 const CloudPicture = (props) => {
 
-
-
-    const picture = props.clouds.cloud_pct
+    const picture = props.clouds
 
     if (picture < 11) {
         return (
@@ -18,9 +16,7 @@ const CloudPicture = (props) => {
 
                 <img src={sunny}
                     alt="no picture" className="imgHold"
-                /><p>
-                    Sunny
-                </p>
+                />
             </>
         )
     } else if (picture > 10 && picture < 31) {
@@ -29,7 +25,8 @@ const CloudPicture = (props) => {
                 <img src={MostlySunny}
                     alt="no picture" className="imgHold"
                 />
-                <p>Mostly sunny</p></>
+            
+                </>
         )
     } else if (picture > 30 && picture < 51) {
         return (
@@ -38,16 +35,14 @@ const CloudPicture = (props) => {
                 <img src={PartlySunny}
                     alt="no picture" className="imgHold"
                 />
-                <p>Partly sunny</p>               </>
+                            </>
         )
     } else if (picture > 50 && picture < 71) {
         return (
             <>
                 <img src={PartlyCloudy}
                     alt="no picture" className="imgHold"
-                /><p>
-                    Partly cloudy
-                </p>
+                />
             </>
         )
     } else if (picture > 70 && picture < 91) {
@@ -56,9 +51,7 @@ const CloudPicture = (props) => {
                 <img src={MostlyCloudy}
                     alt="no picture" className="imgHold"
                 />
-                <p>
-                    Mostly Cloudy
-                </p>
+           
             </>
         )
     } else if (picture > 90 && picture < 101) {
@@ -67,9 +60,7 @@ const CloudPicture = (props) => {
                 <img src={Cloudy}
                     alt="no picture" className="imgHold"
                 />
-                <p>
-                    Cloudy
-                </p>
+              
             </>
         )
     }

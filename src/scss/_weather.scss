@@ -3,19 +3,16 @@ $color2: #a7abb0;
 $color3: #C4D8E2;
 $color4: rgb(246, 252, 255);
 $color5: #FFFAF0;
-// $color6: rgb(251, 236, 206);
-// $color7: rgb(217, 183, 183);
 $color6: #e0f2f1;
 $color7: #c8e6c9;
 
 .mainDiv {
     border-collapse: collapse;
-
     max-width: 650px;
     min-width: 650px;
     background-color: rgb(216, 216, 216);
-
     margin: auto;
+
     .countryName {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         font-weight: bold;
@@ -28,24 +25,19 @@ $color7: #c8e6c9;
 
     .cityMain {
         background-image: linear-gradient($color6, $color7);
-        border-image: linear-gradient($color7, $color6);
-
-        border: 2px solid transparent;
-        border-radius: 5px;
-
-
+  
         .title {
             color: gray;
             padding: 1px 3px 1px 12px;
             font-size: 14px;
             width: 100px;
             vertical-align: middle;
-
         }
+
         .maps {
-            padding: 10px 20px;
-            width: 400px;
-            height: 180px;
+            padding: 10px 10px;
+            width: 630px;
+            height: 270px;
         }
 
         .holder {
@@ -65,13 +57,10 @@ $color7: #c8e6c9;
             font-size: 20px;
             width: 200px;
             vertical-align: middle;
-
-
         }
 
         .timeHour {
             padding-right: 10px;
-
             font-size: 20px;
             max-width: 65px;
             min-width: 65px;
@@ -94,7 +83,6 @@ $color7: #c8e6c9;
         }
 
         .dropdown {
-
             min-width: 200px;
             text-align: left;
             padding: 0px;
@@ -105,8 +93,6 @@ $color7: #c8e6c9;
             .position {
                 font-size: 14px;
                 color: black;
-                // padding-top: 12px;
-
                 vertical-align: middle;
 
                 &:hover {
@@ -135,9 +121,7 @@ $color7: #c8e6c9;
                         font-size: small;
                         color: dodgerblue;
                     }
-
                 }
-
             }
 
             &:hover .dropdown-content {
@@ -154,18 +138,12 @@ $color7: #c8e6c9;
         font-size: 14px;
         width: 100px;
         vertical-align: center;
-
     }
-
-
-
-
 
     .windMain {
         display: flex;
         padding: 10px;
         justify-content: space-between;
-
         width: 630px;
         font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
@@ -180,7 +158,6 @@ $color7: #c8e6c9;
             padding: 10px;
             max-height: 40px;
 
-
             .tempDeg {
                 font-size: 38px;
                 font-weight: bold;
@@ -194,8 +171,6 @@ $color7: #c8e6c9;
                 font-size: 14px;
                 width: 30px;
                 vertical-align: middle;
-
-
             }
 
             .title2 {
@@ -204,7 +179,6 @@ $color7: #c8e6c9;
                 font-size: 14px;
                 min-width: 100px;
                 vertical-align: middle;
-
             }
 
             .popNumb {
@@ -230,14 +204,11 @@ $color7: #c8e6c9;
                 max-height: 50px;
 
                 .imgHold {
-
-
-
+                    margin-top: 10px;
                     background-color: $color5;
                     border-radius: 8px;
                     width: 50px;
                     padding: 10px;
-
                 }
 
                 p {
@@ -263,9 +234,6 @@ $color7: #c8e6c9;
             .windPlace {
                 width: 55px;
                 height: 55px;
-                // background-color: #fdc714;
-                // display: flex;
-                // flex-wrap: wrap;
                 display: block;
                 text-align: center;
                 justify-content: center;
@@ -273,19 +241,15 @@ $color7: #c8e6c9;
 
                 .arrow {
                     width: 18px;
+                   margin-left: 25px;
                 }
-
             }
-
-
 
             .title {
                 color: gray;
                 padding: 1px 3px 1px 12px;
                 font-size: 14px;
-
                 vertical-align: middle;
-
             }
 
             .wind {
@@ -293,7 +257,6 @@ $color7: #c8e6c9;
                 font-weight: bold;
                 padding: 5px;
                 color: black;
-
             }
 
             .wind2 {
@@ -310,18 +273,9 @@ $color7: #c8e6c9;
                     color: #fdc714;
                     text-shadow: 2px 2px 7px black;
                 }
-
             }
         }
-
     }
-
-
-
-
-
-
-
 }
 
 @media screen and (max-width: 500px) {
@@ -329,12 +283,8 @@ $color7: #c8e6c9;
 
         max-width: 358px;
         min-width: 358px;
-       
-        .cityMain {
 
-            border: 2px solid transparent;
-            border-radius: 5px;
-            padding-top: 10px;
+        .cityMain {
 
             .title {
                 color: gray;
@@ -371,10 +321,11 @@ $color7: #c8e6c9;
                 min-width: 40px;
                 vertical-align: middle;
             }
+
             .maps {
-                padding: 5px 7px;
-                width: 200px;
-                height: 120px;
+                padding: 5px 4px;
+                width: 350px;
+                height: 250px;
             }
 
             .googleMap {
@@ -487,7 +438,7 @@ $color7: #c8e6c9;
 
                         border-radius: 3px;
                         width: 35px;
-padding: 5px;
+                        padding: 5px;
 
                     }
 
@@ -514,6 +465,7 @@ padding: 5px;
 
                     .arrow {
                         width: 12px;
+                    margin-left: 12px;
                     }
                 }
 

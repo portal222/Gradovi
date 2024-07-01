@@ -3,16 +3,9 @@
 
 $color1: #ece8e8;
 
-// $color6: rgb(251, 236, 206);
-// $color7: rgb(217, 183, 183);
-
 body {
     font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    // font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    // font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 18px;
-
-
 }
 
 .loader {
@@ -32,7 +25,6 @@ body {
     padding: 20px;
 }
 
-
 .navContainer {
     background-color: $color3;
     display: flex;
@@ -43,30 +35,18 @@ body {
     justify-content: space-around;
 
     .linker {
-
-
         padding: 10px;
-
         .home {
             background-color: $color3;
-
             color: dodgerblue;
             font-weight: bold;
             text-decoration: none;
-
             &:hover {
-
                 color: #fdc714;
                 text-shadow: 2px 2px 7px black;
             }
         }
-
-
     }
-
-
-
-
 }
 
 .home {
@@ -76,18 +56,13 @@ body {
     height: 510px;
     background-color: white;
     padding-top: 100px;
-
-
-
     .img {
         margin: auto;
         background-size: cover;
         background-image: url("https://upload.wikimedia.org/wikipedia/commons/b/b4/2002_six-color_world_political_map.png");
         width: 650px;
         height: 328px;
-
     }
-
 }
 
 .place {
@@ -96,32 +71,23 @@ body {
     display: flex;
     height: 50px;
     justify-content: space-around;
-
     .search {
         width: 50px;
-
     }
-
 }
 
 
 .tabelaZemlje {
-
     border-collapse: collapse;
     max-width: 650px;
     min-width: 650px;
     background-color: $color1;
-
     margin: auto;
-
     .geogImg {
         min-width: 250px;
         max-width: 250px;
         padding-left: 10px;
-
-
         .imageDet {
-
             width: 200px;
             margin: auto;
             cursor: pointer;
@@ -133,21 +99,15 @@ body {
         }
     }
 
-
-
-
     .results {
         padding-bottom: 15px;
         border-bottom: solid 3px #7a9c99;
     }
 
-
-
     .search {
         max-width: 400px;
         min-width: 400px;
         height: 50px;
-
         background-color: $color2;
         margin: auto;
     }
@@ -163,8 +123,6 @@ body {
         padding-top: 15px;
         padding-left: 2px;
 
-
-
         .imageFl {
             // padding-top: 25px;
             width: 330px;
@@ -174,26 +132,19 @@ body {
             &:hover {
                 box-shadow: 4px 4px 9px black;
             }
-
-
         }
 
         .imageFlsearch {
             width: 550px;
             margin-top: 25px;
-
-
             margin: auto;
             cursor: pointer;
 
             &:hover {
                 box-shadow: 4px 4px 15px black;
             }
-
         }
-
     }
-
 
     .flagAlt {
         font-size: 22px;
@@ -210,26 +161,20 @@ body {
         &:hover {
             color: #fdc714;
             text-shadow: 1px 1px 4px black;
-
-
         }
     }
 
     .name {
         font-weight: bold;
         font-size: 36px;
-
         text-align: center;
-
         .image {
             width: 450px;
         }
-
         .coat {
             width: 570px;
             padding-top: 10px;
             padding-bottom: 10px;
-
         }
     }
 
@@ -243,7 +188,6 @@ body {
         font-size: 28px;
         font-weight: bold;
     }
-
 
     .lang {
         font-size: 22px;
@@ -278,6 +222,16 @@ body {
         color: gray;
     }
 
+    .nameCity {
+        max-width: 700px;
+        vertical-align: middle;
+        padding: 5px 10px;
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+        color: rgb(147, 77, 1);
+    }
+
     .nameGeog {
         max-width: 700px;
         vertical-align: middle;
@@ -304,15 +258,12 @@ body {
         color: dodgerblue;
         cursor: pointer;
 
-
-
         &:hover {
             font-weight: bold;
             color: #fdc714;
             text-shadow: 2px 2px 7px black;
         }
     }
-
 
     .aqiNum {
         font-size: 24px;
@@ -321,31 +272,14 @@ body {
         text-align: left;
     }
 
-
-
-
-
-
-
-
-
     .long {
         font-size: 20px;
     }
 
-
-
-
-
-
     .countryMain {
-        // margin: auto;
-
         background-image: linear-gradient($color6, $color7);
         border-image: linear-gradient($color7, $color6);
         border: 2px solid transparent;
-
-
         border-radius: 5px;
         padding: 7px;
 
@@ -355,9 +289,6 @@ body {
             font-size: 15px;
             width: 30px;
             vertical-align: top;
-
-
-
         }
 
         .nameOff {
@@ -370,8 +301,6 @@ body {
             font-weight: bold;
             color: black;
             padding: 5px;
-
-
         }
 
         .lang2 {
@@ -380,9 +309,7 @@ body {
             text-align: left;
             vertical-align: top;
             padding: 5px;
-
             color: black;
-
         }
 
         .nameComm {
@@ -402,21 +329,13 @@ body {
             color: dodgerblue;
             vertical-align: middle;
 
-
             &:hover {
-
                 color: #fdc714;
                 text-shadow: 2px 2px 7px black;
             }
         }
     }
-
-
-
-
 }
-
-
 
 .nameOff {
     font-size: 24px;
@@ -437,13 +356,10 @@ body {
     border-radius: 400px;
 
     .arrowup {
-        // align-items: center;
-
         width: 24px;
         height: 24px;
         color: #7a9c99ac;
         background-color: rgba(165, 206, 195, 0.43);
-
         border-radius: 12px;
         border: solid 3px #95beba7c;
     }
@@ -457,12 +373,11 @@ body {
     .base {
         max-width: 140px;
         padding-left: 10px;
-
     }
-
 }
 
 .footer {
+    margin-top: 700px;
     font-size: 12px;
     color: #5e5f5e;
     text-align: center;
@@ -496,29 +411,20 @@ body {
         margin: auto;
         width: 358px;
         height: 200px;
-
         padding-top: 10px;
 
         .img {
             height: 175px;
             width: 358px;
-
-
-
         }
-
     }
 
     .place {
         display: block;
         height: 150px;
         width: 300px;
-
-
         padding-left: 50px;
-
         .search {
-
             width: 230px;
             font-size: 14px;
         }
@@ -533,11 +439,9 @@ body {
         max-width: 358px;
         min-width: 358px;
         margin: auto;
-
         .geogImg {
             min-width: 140px;
             max-width: 140px;
-
             .imageDet {
                 width: 135px;
 
@@ -552,7 +456,6 @@ body {
             max-width: 320px;
             min-width: 320px;
         }
-
         .naslov {
             text-align: center;
         }
@@ -561,12 +464,10 @@ body {
             font-size: 24px;
             text-align: center;
             padding-top: 15px;
-
             .image {
                 width: 200px;
                 padding-top: 10px;
             }
-
             .coat {
                 width: 320px;
             }
@@ -576,21 +477,22 @@ body {
             font-size: 22px;
             padding-top: 10px;
             padding-bottom: 10px;
+        }
 
+        .nameCity {
+            padding: 3px 8px;
+            font-size: 22px;
         }
 
         .nameGeog {
             font-size: 22px;
             padding: 3px 8px;
-
         }
 
         .nameCount {
-
             padding: 4px;
             font-size: 16px;
         }
-
 
         .lang {
             font-size: 16px;
@@ -609,7 +511,6 @@ body {
 
             .imageFlsearch {
                 width: 200px;
-
                 &:hover {
                     box-shadow: 2px 2px 12px black;
                 }
@@ -625,7 +526,6 @@ body {
             cursor: pointer;
             color: blue;
             font-size: 18px;
-
 
             &:hover {
                 color: #fdc714;
@@ -645,16 +545,9 @@ body {
         }
 
         .mapIcon {
-
-            // font-size: large;
             font-size: 13px;
-
             &:hover {
-
                 text-shadow: 1px 1px 5px #fdc714;
-
-
-
             }
         }
 
@@ -719,13 +612,9 @@ body {
         }
 
         .countryMain {
-            // width: 358px;
-            // margin: auto;
-            // width: 610px;
             background-image: linear-gradient($color6, $color7);
             border-image: linear-gradient($color7, $color6);
             border: 2px solid transparent;
-
             border-radius: 5px;
             padding: 7px;
 
@@ -735,8 +624,6 @@ body {
                 font-size: 10px;
                 width: 30px;
                 vertical-align: middle;
-
-
             }
 
             .nameOff {
@@ -746,8 +633,6 @@ body {
             .lang {
                 text-align: left;
                 font-size: 12px;
-
-
             }
 
             .lang2 {
@@ -761,10 +646,7 @@ body {
 
             .nameOffCity {
                 font-size: 16px;
-
                 width: 180px;
-
-
 
                 &:hover {
 
@@ -776,10 +658,8 @@ body {
     }
 
     .paper {
-
         min-width: 250px;
         max-width: 250px;
-
         .base {
             max-width: 200px;
         }

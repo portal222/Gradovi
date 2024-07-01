@@ -4,12 +4,7 @@ import SearchPlace from "./SearchPlace";
 import GlobalContext from "./GlobalContext";
 import BackToTop from "./BackToTop";
 import Loader from "./Loader";
-import { useNavigate, useParams } from "react-router-dom";
-import SearchBox from "./SearchBox";
-
-
-import MapTwoToneIcon from '@mui/icons-material/MapTwoTone';
-
+import { useNavigate } from "react-router-dom";
 
 const SearchResutsGeog = () => {
     const [error, setError] = useState(null);
@@ -18,8 +13,6 @@ const SearchResutsGeog = () => {
     const [results, setResults] = useState([]);
 
     const navigate = useNavigate();
-
-
 
     const globalCtx = useContext(GlobalContext);
     const searchStringValue = globalCtx.searchStringValue;
@@ -36,24 +29,17 @@ const SearchResutsGeog = () => {
             const data = response.data;
             const filterData = data.filter((country) => {
                 return (
-
                     country.name.common.toLowerCase().includes(searchStringValue.toLowerCase())
-
-
-
-
                 );
             });
             console.log("Pretraga", filterData);
             setIsLoading(false);
-
             setCountries(filterData);
             setResults(filterData.length);
         } catch (err) {
             setError(err);
             setIsLoading(false);
         }
-
     };
 
     const handleClick = (drId) => {
@@ -66,10 +52,6 @@ const SearchResutsGeog = () => {
         const LinkTo = `cities/${cityId}`;
         navigate(LinkTo);
     }
-
-
-
-
 
     if (isLoading) {
         return <Loader />
@@ -88,30 +70,20 @@ const SearchResutsGeog = () => {
                 </table></>
         )
     }
+
     return (
         <>
             <table className="tabelaZemlje">
                 <thead >
-
-
                     <tr className="results">
                         <th colSpan={2}>Number of countries: {results}</th>
-
                     </tr>
-
                 </thead>
-
                 {countries.map((dataObj) => (
-
-
-
                     <tbody key={dataObj.idd.suffixes} >
-
                         <tr >
-
                             <td
                             ><img className="imageTwo" src={dataObj.coatOfArms.png}
-
                                 alt=" coat" /></td>
                             <td onClick={() => handleClick(dataObj.name.common)}
                                 className="flag" >
@@ -124,10 +96,7 @@ const SearchResutsGeog = () => {
                                 onClick={() => handleClick(dataObj.name.common)}
                                 className="nameGeog">
                                 {dataObj.name.common}</td>
-
                         </tr>
-
-
                         <tr>
                             <td className="region">Capital:</td>
                             <td
@@ -149,12 +118,9 @@ const SearchResutsGeog = () => {
 
                             </td>
                         </tr>
-
                     </tbody>
-
                 ))}
             </table>
-
             <div>{<BackToTop />}</div>
         </>
     );

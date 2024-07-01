@@ -1,6 +1,5 @@
 import React, { useRef, useContext } from "react";
 import { Paper,InputBase,IconButton } from "@mui/material";
-
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import { useNavigate } from "react-router-dom";
 import GlobalContext from "./GlobalContext";
@@ -40,10 +39,8 @@ const SearchBox = (props) => {
         }}
         >
             <InputBase className="base"
-            // sx={{ ml:1, flex: 1 }}
             autoFocus
             placeholder={props.placeholder}
-            // inputProps={{ 'ariel-label': 'search' }}
             inputRef={searchString}
             onKeyDown={handleKeyDown}
             />

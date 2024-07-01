@@ -1,35 +1,21 @@
 import React, { useState, useEffect } from "react";
-
 import axios from 'axios';
-import SearchPlace from "./SearchPlace";
 import MapTwoToneIcon from '@mui/icons-material/MapTwoTone';
 import { useNavigate, useParams } from "react-router-dom";
-import SearchBox from "./SearchBox";
-// import Loader from "./Loader";
-
 
 const SearchResutsGeog = (props) => {
     const [error, setError] = useState(null);
     const [countries, setCountries] = useState([]);
     const [zemlje, setZemlje] = useState([]);
-    // const [isLoading, setIsLoading] = useState(true);
-
 
     const navigate = useNavigate();
 
-
-
-
     const params = useParams();
-
     const drId = params.drId;
-
-
 
     useEffect(() => {
         getCountries();
         getZemlje();
-
     }, []);
 
     const getCountries = async () => {
@@ -39,15 +25,11 @@ const SearchResutsGeog = (props) => {
         try {
             const response = await axios.get(url);
             const data = response.data;
-
             console.log("Detalji", data);
-
             setCountries(data);
         } catch (err) {
             setError(err);
-            // setIsLoading(false);
         }
-
     };
 
     const getZemlje = async () => {
@@ -62,19 +44,12 @@ const SearchResutsGeog = (props) => {
                 }
             );
             const data = response.data;
-
             console.log("detalji druge zemlje", data);
-
-
             setZemlje(data);
 
         } catch (err) {
             setError(err);
-            // setIsLoading(false);
-
-
         }
-
     };
 
     const handleClick = (cityId) => {
@@ -83,24 +58,13 @@ const SearchResutsGeog = (props) => {
         navigate(LinkTo);
     }
 
-
-
-
     return (
         <>
             {countries.map((dataObj) => (
                 <table key={dataObj.area}
                 className="tabelaZemlje">
-
-
-
-
-
-
                     <tbody key={dataObj.population} >
-
                         <tr className="name">
-
                             <td ><img className="coat" src={dataObj.coatOfArms.png}
                                 alt=" coat" />
                             </td>
@@ -117,7 +81,6 @@ const SearchResutsGeog = (props) => {
                                     <table>
                                         <tbody>
                                             <tr>
-
                                                 <td colSpan={2}
                                                     className="nameComm">{dataObj.name.common}</td>
                                                 <td className="title">Capital</td>
@@ -162,32 +125,12 @@ const SearchResutsGeog = (props) => {
                                     </table>
                                 </div>
                             </td>
-
                         </tr>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     </tbody>
-
-
                 </table>
             ))}
             {zemlje.map((dataZem) => (
                 <table className="mainDiv">
-
-
                     <tbody key={dataZem.name}>
                         <tr>
                             <td >
@@ -203,7 +146,6 @@ const SearchResutsGeog = (props) => {
                                                 {dataZem.currency.name + " - " + dataZem.currency.code}
                                             </td>
                                         </tr>
-
                                             <tr>
                                                 <td className="title">GDP</td>
                                                 <td className="wind">{dataZem.gdp} M$</td>
@@ -212,7 +154,6 @@ const SearchResutsGeog = (props) => {
                                                 <td className="title"> GDP growth</td>
                                                 <td className="wind">{dataZem.gdp_growth} %</td>
                                             </tr>
-
                                             <tr>
                                                 <td className="title"> GDP per capita</td>
                                                 <td className="wind">{dataZem.gdp_per_capita} $</td>
@@ -233,10 +174,7 @@ const SearchResutsGeog = (props) => {
                                                 <td className="title2">
                                                     Population
                                                 </td>
-
-
                                                 <td className="popNumb">{dataZem.population * 1000} </td>
-
                                             </tr>
                                             <tr>
                                                 <td className="title2">Urban Population</td>
@@ -267,12 +205,9 @@ const SearchResutsGeog = (props) => {
                                                 <td className="title2">Life Expectancy Male - Female</td>
                                                 <td className="temp">{dataZem.life_expectancy_male + " - " + dataZem.life_expectancy_female} year</td>
                                             </tr>
-
                                         </tbody>
                                     </table>
                                 </div></td>
-
-
                         </tr>
                         <tr>
                             <td >
@@ -298,7 +233,6 @@ const SearchResutsGeog = (props) => {
                                                 <td className="title">Threatened species</td>
                                                 <td className="wind">{dataZem.threatened_species} </td>
                                             </tr>
-
                                         </tbody>
                                     </table>
                                     <table className="tempHold">
@@ -357,10 +291,8 @@ const SearchResutsGeog = (props) => {
                                                     <td >
                                                         <a href={dataArea.maps.googleMaps} target='_blank' >
                                                             <MapTwoToneIcon className="googleMap" />
-
                                                         </a>
                                                     </td>
-
                                                 </tr>
                                             </tbody>
                                         ))}
@@ -412,33 +344,12 @@ const SearchResutsGeog = (props) => {
                                             </tr>
                                         </tbody>
                                     </table>
-
                                 </div>
                             </td>
                         </tr>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     </tbody>
                 </table>
             ))}
-
         </>
     );
 };
