@@ -80,7 +80,7 @@ const SearchResutsGeog = () => {
                     </tr>
                 </thead>
                 {countries.map((dataObj) => (
-                    <tbody key={dataObj.idd.suffixes} >
+                    <tbody key={dataObj.area} >
                         <tr >
                             <td
                             ><img className="imageTwo" src={dataObj.coatOfArms.png}

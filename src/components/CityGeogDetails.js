@@ -2,10 +2,14 @@ import React, { useState, useEffect } from "react";
 import SunriseSunset from "./SunriseSunset";
 import CloudPicture from "./CloudPicture";
 import windA from "../../public/assets/img/wind-arrow.svg";
+import DateHour from "./DateHour";
+import DateDays from "./DateDays";
 
 const SearchResutsGeog = (props) => {
     const [error, setError] = useState(null);
     const [wind, setWind] = useState([]);
+    const [popul, setPopul] = useState([]);
+    const [forecast, setForecast] = useState([]);
 
     const lat = props.lat
     const lon = props.lon
@@ -23,6 +27,7 @@ const SearchResutsGeog = (props) => {
 
     useEffect(() => {
         getWeather(lat, lon);
+        getForecast(lat, lon);
     }, [lat, lon])
 
     const getWeather = async (lat, lon) => {
@@ -31,6 +36,14 @@ const SearchResutsGeog = (props) => {
         const data = await response.json();
         console.log(" podaci weather sa fetchom ", data);
         setWind(data);
+    }
+    const getForecast = async (lat, lon) => {
+        const urlWeat = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=68ba2a247cda7d9e6110196a5ba81f27';
+        const response = await fetch(urlWeat);
+        const data = await response.json();
+        console.log(" podaci forecast sa fetchom ", data);
+        setPopul(data);
+        setForecast(data.list);
     }
 
     return (
@@ -49,13 +62,13 @@ const SearchResutsGeog = (props) => {
                                     <tbody>
                                         <tr>
                                             <td rowSpan={2} className="tempDeg">
-                                                {(wind.main?.temp -273.15).toFixed(1)}&#176;
+                                                {(wind.main?.temp - 273.15).toFixed(1)}&#176;C
                                             </td>
 
                                             <td className="title">min</td>
                                             <td
                                                 className="temp"
-                                            > {(wind.main?.temp_min -273.15).toFixed(1)}&#176;
+                                            > {(wind.main?.temp_min - 273.15).toFixed(1)}&#176;C
                                             </td>
                                             <td rowSpan={3}
                                                 className="temp2">
@@ -68,7 +81,7 @@ const SearchResutsGeog = (props) => {
                                             </td>
                                             <td
                                                 className="temp"
-                                            >{(wind.main?.temp_max -273.15).toFixed(1)}&#176;
+                                            >{(wind.main?.temp_max - 273.15).toFixed(1)}&#176;C
                                             </td>
                                         </tr>
                                         <tr>
@@ -80,7 +93,7 @@ const SearchResutsGeog = (props) => {
                                                 className="title">feels like</td>
                                             <td
                                                 className="temp">
-                                                {(wind.main?.feels_like -273.15).toFixed(1)}&#176;
+                                                {(wind.main?.feels_like - 273.15).toFixed(1)}&#176;C
                                             </td>
                                         </tr>
                                     </tbody>
@@ -121,7 +134,7 @@ const SearchResutsGeog = (props) => {
                                             <td className="wind">
                                                 {wind.main?.pressure}
                                             </td>
-                                            <td className="title">mbar</td>
+                                            <td className="title">mb</td>
                                         </tr>
 
                                     </tbody>
@@ -131,12 +144,83 @@ const SearchResutsGeog = (props) => {
                     <tr>
                         <td >
                             <div className="windMain">
-                                <SunriseSunset dates={wind.sys} />
+                                <SunriseSunset dates={wind.sys} population={popul.city?.population}
+                                    cityName={popul.city?.name} />
                             </div>
                         </td>
                     </tr>
                 </tbody>
             </table >
+            <table className="forecast">
+                <thead>
+                    <tr>
+                        <td colSpan={5} className="titleMain">
+                            Weather Forecast
+                        </td>
+                    </tr>
+                    <tr >
+                        <td className="title">
+                            Date and time
+                        </td>
+                        <td className="title">
+                            Temp.
+                        </td>
+                        <td className="title">
+                            Description
+                        </td>
+                    
+                        <td className="title">
+                            Wind
+                        </td>
+                        <td className="title">
+                            humidity <br></br>
+                            pressure
+                        </td>
+                    </tr>
+                </thead>
+                {forecast.map((obj, id) => (
+                    <tbody className="forecast" key={id}>
+                        <tr>
+                            <td className="date" rowSpan={2}>
+                                {obj.dt_txt?.replace('15:00:00', '').replace('18:00:00', '').replace('21:00:00', '')
+                                .replace('00:00:00', '').replace('03:00:00', '').replace('06:00:00', '').replace('09:00:00', '')
+                                .replace('12:00:00', '').replace('2024-', '')}
+                                <br></br>
+                                <DateDays time={obj.dt}/>
+                                <br></br>
+                                <DateHour time={obj.dt} />
+                                </td>
+                            <td rowSpan={2} className="temp">
+                                {(obj.main?.temp - 273.15).toFixed(1)}&#176;C
+                            </td>
+                            <td className="cloud">
+                                <CloudPicture clouds={obj.clouds?.all} />
+                            </td>
+                          
+                            <td className="windPlace">
+                                <img className="arrow"
+                                    style={{
+                                        rotate: `${obj.wind?.deg - 180}deg`
+                                    }}
+                                    src={windA} alt="no picture"
+                                />
+                            </td>
+                            <td rowSpan={2} className="press">
+                                {obj.main?.humidity}% <br></br>
+                                {obj.main?.pressure}mb
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="desc">{obj.weather?.[0]?.description}</td>
+                            <td className="desc"> {obj.wind?.speed}m/s</td>
+
+
+                        </tr>
+                    </tbody>
+
+                ))}
+
+            </table>
         </>
     );
 };

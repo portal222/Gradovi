@@ -11,31 +11,33 @@ const TableRow = (props) => {
     const [open, setOpen] = useState(false);
 
     return (
-        <>
-            <tr>
-                <td  >
-                    <IconButton
-                        aria-label='expand row'
-                        size='small'
-                        onClick={() => setOpen(!open)}
-                    >
-                        {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-                    </IconButton>
-                    Position and weather</td>
-            </tr>
-            <tr>
-                <td>
+        <table>
+            <tbody>
+                <tr>
+                    <td  >
+                        <IconButton
+                            aria-label='expand row'
+                            size='small'
+                            onClick={() => setOpen(!open)}
+                        >
+                            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                        </IconButton>
+                        Position and weather</td>
+                </tr>
+                <tr>
+                    <td>
 
-                    <Collapse in={open} timeout='auto' unmountOnExit>
-                        <Box sx={{ margin: 0 }}>
-                            <CityGeogDetails
-                                lat={props.lat} lon={props.lon}
-                            />
-                        </Box>
-                    </Collapse>
-                </td>
-            </tr>
-        </>
+                        <Collapse in={open} timeout='auto' unmountOnExit>
+                            <Box sx={{ margin: 0 }}>
+                                <CityGeogDetails
+                                    lat={props.lat} lon={props.lon}
+                                />
+                            </Box>
+                        </Collapse>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     )
 }
 export default TableRow;
