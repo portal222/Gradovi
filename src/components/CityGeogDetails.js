@@ -46,6 +46,28 @@ const SearchResutsGeog = (props) => {
         setForecast(data.list);
     }
 
+
+    const classFunction = (temp) => {
+        if (temp > 303 ) {
+            return 'hotTemp1';
+        } else if (temp > 298 && temp < 303) {
+            return 'hotTemp2';
+        } else if (temp > 293 && temp < 299) {
+            return 'hotTemp3';
+        } else if (temp > 288 && temp < 294) {
+            return 'hotTemp4';
+        } else if (temp > 283 && temp < 289) {
+            return 'hotTemp5';
+        } else if (temp > 278 && temp < 284) {
+            return 'hotTemp6';
+        } else if (temp > 273 && temp < 279) {
+            return 'hotTemp7';
+        } else if (temp > 268 && temp < 274) {
+            return 'hotTemp8';
+        }
+    };
+
+
     return (
         <>
             <table className="mainDiv">
@@ -61,7 +83,9 @@ const SearchResutsGeog = (props) => {
                                 <table className="tempHold">
                                     <tbody>
                                         <tr>
-                                            <td rowSpan={2} className="tempDeg">
+                                            <td rowSpan={2} className={`tempDeg ${classFunction(wind.main?.temp)
+                                                }`}
+                                            >
                                                 {(wind.main?.temp - 273.15).toFixed(1)}&#176;C
                                             </td>
 
@@ -168,7 +192,7 @@ const SearchResutsGeog = (props) => {
                         <td className="title">
                             Description
                         </td>
-                    
+
                         <td className="title">
                             Wind
                         </td>
@@ -183,20 +207,26 @@ const SearchResutsGeog = (props) => {
                         <tr>
                             <td className="date" rowSpan={2}>
                                 {obj.dt_txt?.replace('15:00:00', '').replace('18:00:00', '').replace('21:00:00', '')
-                                .replace('00:00:00', '').replace('03:00:00', '').replace('06:00:00', '').replace('09:00:00', '')
-                                .replace('12:00:00', '').replace('2024-', '')}
+                                    .replace('00:00:00', '').replace('03:00:00', '').replace('06:00:00', '').replace('09:00:00', '')
+                                    .replace('12:00:00', '').replace('2024-', '')}
                                 <br></br>
-                                <DateDays time={obj.dt}/>
+                                <DateDays time={obj.dt} />
                                 <br></br>
                                 <DateHour time={obj.dt} />
-                                </td>
-                            <td rowSpan={2} className="temp">
+                            </td>
+                            {/* <td rowSpan={2} className="temp">
+                                {(obj.main?.temp - 273.15).toFixed(1)}&#176;C
+                            </td> */}
+                            <td rowSpan={2}
+                                className={`temp ${classFunction(obj.main?.temp)
+
+                                    }`}>
                                 {(obj.main?.temp - 273.15).toFixed(1)}&#176;C
                             </td>
                             <td className="cloud">
                                 <CloudPicture clouds={obj.clouds?.all} />
                             </td>
-                          
+
                             <td className="windPlace">
                                 <img className="arrow"
                                     style={{
