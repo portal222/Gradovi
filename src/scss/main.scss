@@ -4,30 +4,38 @@
 $color1: #ece8e8;
 
 body {
-    font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 18px;
 }
+
 .hotTemp1 {
     color: #aa030e;
 }
+
 .hotTemp2 {
     color: #d2044c;
 }
+
 .hotTemp3 {
-    color:#fd7147 ;
+    color: #fd7147;
 }
+
 .hotTemp4 {
-    color: #ebc400 ;
+    color: #ebc400;
 }
+
 .hotTemp5 {
     color: #02be3b;
-} 
-.hotTemp6 {
-    color: #25ccb6 ;
 }
+
+.hotTemp6 {
+    color: #25ccb6;
+}
+
 .hotTemp7 {
     color: #0D98BA;
 }
+
 .hotTemp8 {
     color: rgb(0, 128, 255);
 }
@@ -60,11 +68,13 @@ body {
 
     .linker {
         padding: 10px;
+
         .home {
             background-color: $color3;
             color: dodgerblue;
             font-weight: bold;
             text-decoration: none;
+
             &:hover {
                 color: #fdc714;
                 text-shadow: 2px 2px 7px black;
@@ -80,6 +90,7 @@ body {
     height: 510px;
     background-color: white;
     padding-top: 100px;
+
     .img {
         margin: auto;
         background-size: cover;
@@ -95,6 +106,7 @@ body {
     display: flex;
     height: 50px;
     justify-content: space-around;
+
     .search {
         width: 50px;
     }
@@ -107,10 +119,12 @@ body {
     min-width: 650px;
     background-color: $color1;
     margin: auto;
+
     .geogImg {
         min-width: 250px;
         max-width: 250px;
         padding-left: 10px;
+
         .imageDet {
             width: 200px;
             margin: auto;
@@ -148,7 +162,6 @@ body {
         padding-left: 2px;
 
         .imageFl {
-            // padding-top: 25px;
             width: 330px;
             margin: auto;
             cursor: pointer;
@@ -167,6 +180,10 @@ body {
             &:hover {
                 box-shadow: 4px 4px 15px black;
             }
+        }
+
+        .nytImg {
+            width: 620px;
         }
     }
 
@@ -192,9 +209,11 @@ body {
         font-weight: bold;
         font-size: 36px;
         text-align: center;
+
         .image {
             width: 450px;
         }
+
         .coat {
             width: 570px;
             padding-top: 10px;
@@ -359,6 +378,39 @@ body {
             }
         }
     }
+
+    .nytName {
+        font-size: 25px;
+        padding: 20px;
+        font-weight: bold;
+        background-color: #013441;
+        color: #c4c6b7;
+        text-align: center;
+    }
+
+    .nytTitle {
+        font-size: 25px;
+        font-weight: 800;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .nytAbs {
+        padding: 10px 15px;
+        font-size: 24px;
+    }
+
+    .nytPar {
+        padding: 5px 15px;
+        font-size: 22px;
+    }
+
+    .nytDate {
+        display: flex;
+        padding: 10px 15px;
+        font-size: 14px;
+        justify-content: space-between;
+    }
 }
 
 .nameOff {
@@ -448,6 +500,7 @@ body {
         height: 150px;
         width: 300px;
         padding-left: 50px;
+
         .search {
             width: 230px;
             font-size: 14px;
@@ -463,9 +516,11 @@ body {
         max-width: 358px;
         min-width: 358px;
         margin: auto;
+
         .geogImg {
             min-width: 140px;
             max-width: 140px;
+
             .imageDet {
                 width: 135px;
 
@@ -480,6 +535,7 @@ body {
             max-width: 320px;
             min-width: 320px;
         }
+
         .naslov {
             text-align: center;
         }
@@ -488,10 +544,12 @@ body {
             font-size: 24px;
             text-align: center;
             padding-top: 15px;
+
             .image {
                 width: 200px;
                 padding-top: 10px;
             }
+
             .coat {
                 width: 320px;
             }
@@ -524,7 +582,7 @@ body {
 
         .flag {
             padding-top: 10px;
-            padding-left: 20px;
+            padding-left: 2px;
 
             .imageFl {
                 width: 190px;
@@ -535,9 +593,14 @@ body {
 
             .imageFlsearch {
                 width: 200px;
+
                 &:hover {
                     box-shadow: 2px 2px 12px black;
                 }
+            }
+
+            .nytImg {
+                width: 340px;
             }
         }
 
@@ -570,6 +633,7 @@ body {
 
         .mapIcon {
             font-size: 13px;
+
             &:hover {
                 text-shadow: 1px 1px 5px #fdc714;
             }
@@ -679,11 +743,38 @@ body {
                 }
             }
         }
+
+        .nytName {
+            font-size: 20px;
+            padding: 10px;
+        }
+
+        .nytTitle {
+            font-size: 20px;
+            font-weight: 700;
+            padding: 8px;
+        }
+
+        .nytAbs {
+            padding: 7px 10px;
+            font-size: 18px;
+        }
+
+        .nytPar {
+            padding: 5px 10px;
+            font-size: 16px;
+        }
+
+        .nytDate {
+            padding: 7px 10px;
+            font-size: 10px;
+        }
     }
 
     .paper {
         min-width: 250px;
         max-width: 250px;
+
         .base {
             max-width: 200px;
         }

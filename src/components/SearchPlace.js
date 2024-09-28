@@ -9,7 +9,7 @@ const SearchPlace = () => {
         <div className="place">
             <SearchBox placeholder={'Search Countries'} linkTo={'/search'} className="search" />
             <SearchBoxCity placeholder={'Search Cities'} linkTo={'/searchCity'} className="search" />
-            <SearchBoxFlag placeholder={'Search Flags'} linkTo={'/geografija/searchFlag'} className="search" />
+            <SearchBoxFlag placeholder={'Flags & NYT'} linkTo={'/geografija/searchFlag'} className="search" />
         </div>
     )
 }

@@ -4,17 +4,23 @@ import CloudPicture from "./CloudPicture";
 import windA from "../../public/assets/img/wind-arrow.svg";
 import DateHour from "./DateHour";
 import DateDays from "./DateDays";
+import NyTimes from "./NyTimes";
+
 
 const SearchResutsGeog = (props) => {
     const [error, setError] = useState(null);
     const [wind, setWind] = useState([]);
     const [popul, setPopul] = useState([]);
     const [forecast, setForecast] = useState([]);
+    const [nytCity, setNytCity] = useState([]);
+    const [cityName, setCityName] = useState([]);
+
 
     const lat = props.lat
     const lon = props.lon
+    const nameCity = props.city
 
-
+    console.log("props imena grada", nameCity)
 
 
     const googleMap = 'https://maps.google.com/maps?q=' +
@@ -37,18 +43,32 @@ const SearchResutsGeog = (props) => {
         console.log(" podaci weather sa fetchom ", data);
         setWind(data);
     }
+
     const getForecast = async (lat, lon) => {
         const urlWeat = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=68ba2a247cda7d9e6110196a5ba81f27';
         const response = await fetch(urlWeat);
         const data = await response.json();
-        console.log(" podaci forecast sa fetchom ", data);
+
         setPopul(data);
         setForecast(data.list);
+        setCityName(data.city.name)
     }
 
+    useEffect(() => {
+        getTimes();
+    }, [])
+
+    const getTimes = async () => {
+        const url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${nameCity}&api-key=GmsdDOX2JjxHcopan54o6M2dgET0H2hp`
+
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(" podaci NYT grada sa fetchom ", data.response.docs);
+        setNytCity(data.response.docs);
+    }
 
     const classFunction = (temp) => {
-        if (temp > 303 ) {
+        if (temp > 303) {
             return 'hotTemp1';
         } else if (temp > 298 && temp < 303) {
             return 'hotTemp2';
@@ -214,9 +234,6 @@ const SearchResutsGeog = (props) => {
                                 <br></br>
                                 <DateHour time={obj.dt} />
                             </td>
-                            {/* <td rowSpan={2} className="temp">
-                                {(obj.main?.temp - 273.15).toFixed(1)}&#176;C
-                            </td> */}
                             <td rowSpan={2}
                                 className={`temp ${classFunction(obj.main?.temp)
 
@@ -226,7 +243,6 @@ const SearchResutsGeog = (props) => {
                             <td className="cloud">
                                 <CloudPicture clouds={obj.clouds?.all} />
                             </td>
-
                             <td className="windPlace">
                                 <img className="arrow"
                                     style={{
@@ -243,14 +259,11 @@ const SearchResutsGeog = (props) => {
                         <tr>
                             <td className="desc">{obj.weather?.[0]?.description}</td>
                             <td className="desc"> {obj.wind?.speed}m/s</td>
-
-
                         </tr>
                     </tbody>
-
                 ))}
-
             </table>
+            <NyTimes news={nytCity}/>
         </>
     );
 };

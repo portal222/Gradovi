@@ -5,19 +5,25 @@ import SearchPlace from "./SearchPlace";
 import BackToTop from "./BackToTop";
 import Loader from "./Loader";
 import { useNavigate } from "react-router-dom";
+import NyTimes from "./NyTimes";
 
 const SearchResutsFlag = () => {
-    
+
     const [error, setError] = useState(null);
     const [countries, setCountries] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [results, setResults] = useState([]);
+    const [nytCity, setNytCity] = useState([]);
+
     const globalCtx = useContext(GlobalContext);
     const searchStringValue = globalCtx.searchStringValue;
     const navigate = useNavigate();
 
+    console.log("searchStringvalue", searchStringValue)
+
     useEffect(() => {
         getCountries(searchStringValue);
+        getTimes(searchStringValue);
     }, [searchStringValue]);
 
     const getCountries = async (searchStringValue) => {
@@ -46,6 +52,16 @@ const SearchResutsFlag = () => {
         navigate(LinkTo);
     }
 
+
+    const getTimes = async (searchStringValue) => {
+        const url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchStringValue}&api-key=GmsdDOX2JjxHcopan54o6M2dgET0H2hp`
+
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(" podaci NYT iz zastava ", data.response.docs);
+        setNytCity(data.response.docs);
+    }
+
     if (isLoading) {
         return <Loader />
     } else if (results == 0) {
@@ -57,10 +73,12 @@ const SearchResutsFlag = () => {
                             <th><SearchPlace /></th>
                         </tr>
                         <tr>
-                            <th>Nothing found</th>
+                            <th>Nothing found for flag</th>
                         </tr>
                     </thead>
-                </table></>
+                </table>
+                <NyTimes news={nytCity} />
+            </>
         )
     }
 
@@ -107,6 +125,7 @@ const SearchResutsFlag = () => {
                     </tbody>
                 ))}
             </table>
+            <NyTimes news={nytCity} />
             <div>{<BackToTop />}</div>
         </>
     );

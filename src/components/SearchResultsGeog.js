@@ -79,8 +79,8 @@ const SearchResutsGeog = () => {
                         <th colSpan={2}>Number of countries: {results}</th>
                     </tr>
                 </thead>
-                {countries.map((dataObj) => (
-                    <tbody key={dataObj.area} >
+                {countries.map((dataObj, id) => (
+                    <tbody key={id} >
                         <tr >
                             <td
                             ><img className="imageTwo" src={dataObj.coatOfArms.png}

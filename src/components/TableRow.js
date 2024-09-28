@@ -10,6 +10,8 @@ const TableRow = (props) => {
 
     const [open, setOpen] = useState(false);
 
+    console.log("ime grada preko propsa", props.cityName)
+
     return (
         <table>
             <tbody>
@@ -30,7 +32,7 @@ const TableRow = (props) => {
                         <Collapse in={open} timeout='auto' unmountOnExit>
                             <Box sx={{ margin: 0 }}>
                                 <CityGeogDetails
-                                    lat={props.lat} lon={props.lon}
+                                    lat={props.lat} lon={props.lon} city={props.cityName}
                                 />
                             </Box>
                         </Collapse>

@@ -82,7 +82,7 @@ const SearchResultsCity = () => {
                         </tr>
                         <tr>
                             <td colSpan={2}>
-                                <TableRow lat={dataObj.coord.lat} lon={dataObj.coord.lon} />
+                                <TableRow lat={dataObj.coord.lat} lon={dataObj.coord.lon} cityName={dataObj.name}/>
                             </td>
                         </tr>
                         <tr>

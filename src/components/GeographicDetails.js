@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import MapTwoToneIcon from '@mui/icons-material/MapTwoTone';
 import { useNavigate, useParams } from "react-router-dom";
+import NyTimes from "./NyTimes";
+import BackToTop from "./BackToTop"
 
 const SearchResutsGeog = (props) => {
     const [error, setError] = useState(null);
     const [countries, setCountries] = useState([]);
     const [zemlje, setZemlje] = useState([]);
+    const [times, setTimes] = useState([]);
 
     const navigate = useNavigate();
 
@@ -16,12 +19,12 @@ const SearchResutsGeog = (props) => {
     useEffect(() => {
         getCountries();
         getZemlje();
+        getTimes();
     }, []);
 
     const getCountries = async () => {
 
         const url = `https://restcountries.com/v3.1/name/${drId}`;
-
         try {
             const response = await axios.get(url);
             const data = response.data;
@@ -34,7 +37,6 @@ const SearchResutsGeog = (props) => {
 
     const getZemlje = async () => {
         const url = `https://api.api-ninjas.com/v1/country?name=${drId}`;
-
         try {
             const response = await axios.get(url,
                 {
@@ -46,11 +48,27 @@ const SearchResutsGeog = (props) => {
             const data = response.data;
             console.log("detalji druge zemlje", data);
             setZemlje(data);
-
         } catch (err) {
             setError(err);
         }
     };
+
+    const getTimes = async () => {
+
+        const url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${drId}&api-key=GmsdDOX2JjxHcopan54o6M2dgET0H2hp`
+        try {
+            const response = await axios.get(url);
+
+            const data = response.data
+            const nytimes = data.response.docs
+            setTimes(data.response.docs)
+            console.log("detalji NY times", data);
+            console.log("dokumenti NYT", nytimes);
+
+        } catch (err) {
+            setError(err);
+        }
+    }
 
     const handleClick = (cityId) => {
         console.log("iz drzava grad", cityId);
@@ -121,6 +139,14 @@ const SearchResutsGeog = (props) => {
                                                     || dataObj.languages.spa || dataObj.languages.deu || dataObj.languages.fra
                                                     || dataObj.languages.eng}</td>
                                             </tr>
+                                            <tr>
+                                            <td className="title">Googlemaps</td>
+                                                <td colSpan={3}>
+                                               <a href={dataObj.maps.googleMaps} target="_blank">                                                           
+                                                 <MapTwoToneIcon className="googleMap" />
+                                               </a>
+                                                </td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -129,9 +155,9 @@ const SearchResutsGeog = (props) => {
                     </tbody>
                 </table>
             ))}
-            {zemlje.map((dataZem) => (
+            {zemlje.map((dataZem, id) => (
                 <table className="mainDiv">
-                    <tbody key={dataZem.name}>
+                    <tbody key={id}>
                         <tr>
                             <td >
                                 <div className="windMain">
@@ -192,7 +218,6 @@ const SearchResutsGeog = (props) => {
                                                 <td className="title2">Urban Population Growth</td>
                                                 <td className="temp">{dataZem.urban_population_growth} </td>
                                             </tr>
-
                                             <tr>
                                                 <td className="title2">Fertility</td>
                                                 <td className="temp">{dataZem.fertility}</td>
@@ -214,9 +239,8 @@ const SearchResutsGeog = (props) => {
                                 <div className="windMain">
                                     <table className="windHold">
                                         <tbody>
-
-                                            {countries.map((dataArea) => (
-                                                <tr>
+                                            {countries.map((dataArea, id) => (
+                                                <tr key={id}>
                                                     <td className="title">Area</td>
                                                     <td className="wind">{dataArea.area} km2</td>
                                                 </tr>
@@ -255,7 +279,6 @@ const SearchResutsGeog = (props) => {
                                             </tr>
                                         </tbody>
                                     </table>
-
                                 </div>
                             </td>
                         </tr>
@@ -263,13 +286,11 @@ const SearchResutsGeog = (props) => {
                             <td>
                                 <div className="windMain">
                                     <table className="windHold">
-                                        {countries.map((dataArea) => (
-                                            <tbody>
+                                        {countries.map((dataArea, id) => (
+                                            <tbody key={id}>
                                                 <tr>
                                                     <td className="title">Timezones</td>
                                                     <td className="wind">
-
-
                                                         {dataArea.timezones[0]}
                                                     </td>
                                                 </tr>
@@ -281,7 +302,6 @@ const SearchResutsGeog = (props) => {
                                                     <td className="title">Car signs</td>
                                                     <td className="wind">{dataArea.car.signs}</td>
                                                 </tr>
-
                                                 <tr>
                                                     <td className="title">Car side</td>
                                                     <td className="wind">{dataArea.car.side}</td>
@@ -350,6 +370,8 @@ const SearchResutsGeog = (props) => {
                     </tbody>
                 </table>
             ))}
+            <NyTimes news={times} />
+            <div>{<BackToTop />}</div>
         </>
     );
 };
