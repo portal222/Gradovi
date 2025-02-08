@@ -4,12 +4,16 @@ import MapTwoToneIcon from '@mui/icons-material/MapTwoTone';
 import { useNavigate, useParams } from "react-router-dom";
 import NyTimes from "./NyTimes";
 import BackToTop from "./BackToTop"
+import Loader from "./Loader";
+
 
 const SearchResutsGeog = (props) => {
     const [error, setError] = useState(null);
     const [countries, setCountries] = useState([]);
     const [zemlje, setZemlje] = useState([]);
     const [times, setTimes] = useState([]);
+        const [isLoading, setIsLoading] = useState(true);
+    
 
     const navigate = useNavigate();
 
@@ -29,7 +33,9 @@ const SearchResutsGeog = (props) => {
             const response = await axios.get(url);
             const data = response.data;
             console.log("Detalji", data);
+            setIsLoading(false);
             setCountries(data);
+
         } catch (err) {
             setError(err);
         }
@@ -76,6 +82,10 @@ const SearchResutsGeog = (props) => {
         navigate(LinkTo);
     }
 
+    if (isLoading) {
+        return <Loader />
+    }
+
     return (
         <>
             {countries.map((dataObj) => (
@@ -104,7 +114,7 @@ const SearchResutsGeog = (props) => {
                                                 <td className="title">Capital</td>
                                                 <td
                                                     className="nameOffCity"
-                                                    onClick={() => handleClick(dataObj.capital)}>
+                                                    onClick={() => handleClick(dataObj.capital)}> 
                                                     {dataObj.capital}</td>
                                             </tr>
                                             <tr>

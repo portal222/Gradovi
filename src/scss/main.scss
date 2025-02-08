@@ -2,6 +2,8 @@
 @import "../scss/_weather.scss";
 
 $color1: #ece8e8;
+$color8: #89CFF0;
+$color9: #00308F;
 
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -59,12 +61,23 @@ body {
 
 .navContainer {
     background-color: $color3;
-    display: flex;
-    flex-direction: row;
+  padding-bottom: 50px;
+    
     margin: auto;
     max-width: 650px;
     min-width: 650px;
-    justify-content: space-around;
+    
+    .fixed {
+        display: flex;
+        height: 40px;
+        padding: 5px;
+        background-color: $color3;
+        width: 640px;
+        justify-content: space-around;
+        position: fixed;
+        z-index: 3;
+
+    }
 
     .linker {
         padding: 10px;
@@ -411,6 +424,46 @@ body {
         font-size: 14px;
         justify-content: space-between;
     }
+
+    .quake {
+        display: flex;
+        text-align: center;
+        padding: 0px 10px;
+
+        .magnitude {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // text-align: center;
+            border-radius: 5px;
+            width: 40px;
+            height: 40px;
+            color: $color9;
+            background-color: $color8;
+
+        }
+
+        .titleQ {
+            font-size: 23px;
+            padding: 5px 10px;
+           min-width: 320px;
+        }
+        .time {
+            text-align: left;
+            padding-top: 25px;
+            padding-bottom: 10px;
+            font-size: 16px;
+        }
+    }
+    .choose {
+        padding: 15px;
+        font-size: 22px;
+    }
+    .fieldset {
+        display: flex;
+        justify-content: space-around;
+
+    }
 }
 
 .nameOff {
@@ -458,6 +511,9 @@ body {
     color: #5e5f5e;
     text-align: center;
 }
+.interspace {
+    height: 700px;
+}
 
 @media screen and (max-width: 500px) {
     body {
@@ -475,7 +531,19 @@ body {
     .navContainer {
         max-width: 358px;
         min-width: 358px;
+  padding-bottom: 50px;
+
         margin: auto;
+
+        .fixed {
+         
+            height: 40px;
+            padding: 5px;
+            background-color: $color3;
+            width: 348px;
+          
+    
+        }
 
         .linker:hover {
             text-shadow: 1px 1px 4px black;
@@ -547,10 +615,10 @@ body {
 
             .image {
                 width: 200px;
-                padding-top: 10px;
             }
-
+            
             .coat {
+                padding-top: 10px;
                 width: 320px;
             }
         }
@@ -769,7 +837,17 @@ body {
             padding: 7px 10px;
             font-size: 10px;
         }
+
+        .quake {
+            display: block;
+    
+            .titleQ {
+                font-size: 20px;
+                
+            }
+        }
     }
+  
 
     .paper {
         min-width: 250px;

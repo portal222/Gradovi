@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import sunny from "../../public/assets/img/Sunny.svg";
-import MostlySunny from "../../public/assets/img/Mostly_sunny.svg"
-import PartlySunny from "../../public/assets/img/Partly_sunny.svg";
-import PartlyCloudy from "../../public/assets/img/Partly_cloudy.svg";
-import MostlyCloudy from "../../public/assets/img/Mostly_cloudy.svg";
-import Cloudy from "../../public/assets/img/Cloudy.svg";
+import sunny from "../../public/assets/img/Sun.svg";
+import MostlySunny from "../../public/assets/img/Clouds_1.svg"
+import PartlySunny from "../../public/assets/img/Clouds_2.svg";
+import PartlySunny2 from "../../public/assets/img/Clouds_3.svg";
+import PartlyCloudy from "../../public/assets/img/Clouds_4.svg";
+import PartlyCloudy2 from "../../public/assets/img/Clouds_5.svg";
+import MostlyCloudy from "../../public/assets/img/Clouds_6.svg";
+import MostlyCloudy2 from "../../public/assets/img/Clouds_7.svg";
+import Cloudy from "../../public/assets/img/Clouds_8.svg";
 
 const CloudPicture = (props) => {
 
@@ -13,31 +16,36 @@ const CloudPicture = (props) => {
     if (picture < 11) {
         return (
             <>
-
                 <img src={sunny}
                     alt="no picture" className="imgHold"
                 />
             </>
         )
-    } else if (picture > 10 && picture < 31) {
+    } else if (picture > 10 && picture < 21) {
         return (
             <>
                 <img src={MostlySunny}
                     alt="no picture" className="imgHold"
                 />
-            
-                </>
+            </>
         )
-    } else if (picture > 30 && picture < 51) {
+    } else if (picture > 20 && picture < 31) {
         return (
             <>
-
                 <img src={PartlySunny}
                     alt="no picture" className="imgHold"
                 />
-                            </>
+            </>
         )
-    } else if (picture > 50 && picture < 71) {
+    } else if (picture > 30 && picture < 41) {
+        return (
+            <>
+                <img src={PartlySunny2}
+                    alt="no picture" className="imgHold"
+                />
+            </>
+        )
+    } else if (picture > 40 && picture < 51) {
         return (
             <>
                 <img src={PartlyCloudy}
@@ -45,13 +53,28 @@ const CloudPicture = (props) => {
                 />
             </>
         )
-    } else if (picture > 70 && picture < 91) {
+    } else if (picture > 50 && picture < 64) {
+        return (
+            <>
+                <img src={PartlyCloudy2}
+                    alt="no picture" className="imgHold"
+                />
+            </>
+        )
+    } else if (picture > 63 && picture < 77) {
         return (
             <>
                 <img src={MostlyCloudy}
                     alt="no picture" className="imgHold"
                 />
-           
+            </>
+        )
+    } else if (picture > 76 && picture < 91) {
+        return (
+            <>
+                <img src={MostlyCloudy2}
+                    alt="no picture" className="imgHold"
+                />
             </>
         )
     } else if (picture > 90 && picture < 101) {
@@ -60,7 +83,6 @@ const CloudPicture = (props) => {
                 <img src={Cloudy}
                     alt="no picture" className="imgHold"
                 />
-              
             </>
         )
     }
@@ -71,6 +93,5 @@ const CloudPicture = (props) => {
             </div>
         </>
     )
-
 }
 export default CloudPicture;

@@ -5,6 +5,7 @@ import windA from "../../public/assets/img/wind-arrow.svg";
 import DateHour from "./DateHour";
 import DateDays from "./DateDays";
 import NyTimes from "./NyTimes";
+import RainPicture from "./RainPicture";
 
 
 const SearchResutsGeog = (props) => {
@@ -52,6 +53,7 @@ const SearchResutsGeog = (props) => {
         setPopul(data);
         setForecast(data.list);
         setCityName(data.city.name)
+        console.log("forecast podaci", data.list);
     }
 
     useEffect(() => {
@@ -198,7 +200,7 @@ const SearchResutsGeog = (props) => {
             <table className="forecast">
                 <thead>
                     <tr>
-                        <td colSpan={5} className="titleMain">
+                        <td colSpan={6} className="titleMain">
                             Weather Forecast
                         </td>
                     </tr>
@@ -209,7 +211,7 @@ const SearchResutsGeog = (props) => {
                         <td className="title">
                             Temp.
                         </td>
-                        <td className="title">
+                        <td className="title" colSpan={2}>
                             Description
                         </td>
 
@@ -240,8 +242,13 @@ const SearchResutsGeog = (props) => {
                                     }`}>
                                 {(obj.main?.temp - 273.15).toFixed(1)}&#176;C
                             </td>
-                            <td className="cloud">
+                            <td rowSpan={2} className="description">
+                                {obj.weather?.[0]?.description}
+
+                            </td>
+                            <td className="cloud" rowSpan={2}>
                                 <CloudPicture clouds={obj.clouds?.all} />
+                                <RainPicture rain={obj.weather?.[0].description} />
                             </td>
                             <td className="windPlace">
                                 <img className="arrow"
@@ -257,13 +264,12 @@ const SearchResutsGeog = (props) => {
                             </td>
                         </tr>
                         <tr>
-                            <td className="desc">{obj.weather?.[0]?.description}</td>
                             <td className="desc"> {obj.wind?.speed}m/s</td>
                         </tr>
                     </tbody>
                 ))}
             </table>
-            <NyTimes news={nytCity}/>
+            <NyTimes news={nytCity} />
         </>
     );
 };

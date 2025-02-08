@@ -19,7 +19,7 @@ const ResCountCca = (props) => {
     }, [])
 
     const getCountry = async () => {
-      
+
         const urlCount = `https://restcountries.com/v3.1/alpha/${props.code}`
 
         try {
@@ -28,7 +28,7 @@ const ResCountCca = (props) => {
             const dataCount = responseCount.data
 
             console.log("DAJ podatke iz resCountCca", dataCount);
-         
+
 
 
             setCount(dataCount);
@@ -53,8 +53,11 @@ const ResCountCca = (props) => {
 
                 {count.map((cca) => (
                     <div key={cca.name.common}
-                    className="nameCount"
-                        onClick={() => handleCca(cca.name.common)}>
+                        className="nameCount"
+                        onClick={() => {
+                            handleCca(cca.name.common);
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}>
                         {cca.name.common}
                     </div>
                 ))}

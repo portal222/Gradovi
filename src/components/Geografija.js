@@ -27,7 +27,6 @@ const Geografija = () => {
             console.log("podaci zemalja", data);
             console.log("gradovi", data.region)
             setIsLoading(false);
-
             setData(data);
 
         } catch (err) {
@@ -36,10 +35,10 @@ const Geografija = () => {
     };
 
     const handleClick = (drId) => {
-        console.log("klik na drz",drId);
+        console.log("klik na drz", drId);
         const LinkTo = `detalji/${drId}`;
         navigate(LinkTo);
-    } 
+    }
 
     if (isLoading) {
         return <Loader />
@@ -58,17 +57,23 @@ const Geografija = () => {
                 {data.map((dataObj) => (
                     <tbody key={dataObj.name.common} >
                         <tr>
-                             <td 
-                          className="geogImg"
-                            onClick={() => handleClick(dataObj.name.common)}>
+                            <td
+                                className="geogImg"
+                                onClick={() => {
+                                    handleClick(dataObj.name.common);
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}>
                                 <img src={dataObj.flags.png}
-                                alt="flag"
-                                className="imageDet"  />
-                                </td>
-                            <td  className="nameGeog"
-                            onClick={() => handleClick(dataObj.name.common)}>
+                                    alt="flag"
+                                    className="imageDet" />
+                            </td>
+                            <td className="nameGeog"
+                                onClick={() => {
+                                    handleClick(dataObj.name.common);
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}>
                                 {dataObj.name.common}
-                            </td>   
+                            </td>
                         </tr>
                     </tbody>
                 ))}

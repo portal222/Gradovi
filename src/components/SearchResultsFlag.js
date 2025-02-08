@@ -100,7 +100,11 @@ const SearchResutsFlag = () => {
                     <tbody key={dataObj.name.common} >
                         <tr >
                             <td colSpan={2}
-                                onClick={() => handleClick(dataObj.name.common)} className="flag">
+                                onClick={() => {
+                                    handleClick(dataObj.name.common);
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}
+                                 className="flag">
                                 <img src={dataObj.flags.png} alt="flag"
                                     className="imageFlsearch" /></td>
                         </tr>
@@ -112,7 +116,10 @@ const SearchResutsFlag = () => {
                         <tr>
                             <td className="region" >Name:</td>
                             <td className="nameCommClick"
-                                onClick={() => handleClick(dataObj.name.common)}>
+                                onClick={() => {
+                                    handleClick(dataObj.name.common);
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                    }}>
                                 {dataObj.name.common}</td>
                         </tr>
                         <tr >

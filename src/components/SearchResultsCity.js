@@ -93,7 +93,8 @@ const SearchResultsCity = () => {
                     </tbody>
                 ))}
             </table>
-            <div>{<BackToTop />}</div>
+            <div className="interspace"></div>
+            <div><BackToTop /></div>
         </>
     );
 };

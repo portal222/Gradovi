@@ -5,14 +5,15 @@ import SearchPlace from "./SearchPlace";
 import MapTwoToneIcon from '@mui/icons-material/MapTwoTone';
 import { useNavigate, useParams } from "react-router-dom";
 import SearchBox from "./SearchBox";
-// import Loader from "./Loader";
+import Loader from "./Loader";
+
 
 
 const GeographicDetIso2 = (props) => {
     const [error, setError] = useState(null);
     const [countries, setCountries] = useState([]);
     const [zemlje, setZemlje] = useState([]);
-    // const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
 
 
     const navigate = useNavigate();
@@ -27,12 +28,12 @@ const GeographicDetIso2 = (props) => {
 
 
     useEffect(() => {
-        
+
         getZemlje();
 
     }, []);
 
-   
+
 
     const getZemlje = async () => {
         // const url = `https://api.api-ninjas.com/v1/country?iso2=${isoId}`;
@@ -52,13 +53,11 @@ const GeographicDetIso2 = (props) => {
             console.log("detalji jpreko CCa2 koda ", data);
 
 
+            setIsLoading(false);
             setZemlje(data);
 
         } catch (err) {
             setError(err);
-            // setIsLoading(false);
-
-
         }
 
     };
@@ -70,12 +69,14 @@ const GeographicDetIso2 = (props) => {
     }
 
 
-
+    if (isLoading) {
+        return <Loader />
+    }
 
     return (
         <>
-           
-             {zemlje.map((dataZem) => (
+
+            {zemlje.map((dataZem) => (
                 <table className="mainDiv">
 
 
@@ -102,36 +103,16 @@ const GeographicDetIso2 = (props) => {
                                             </td>
                                         </tr>
 
-                                           
+
                                         </tbody>
                                     </table>
 
                                 </div>
                             </td>
                         </tr>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     </tbody>
                 </table>
             ))}
-
         </>
     );
 };

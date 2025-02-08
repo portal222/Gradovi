@@ -85,7 +85,10 @@ const SearchResutsGeog = () => {
                             <td
                             ><img className="imageTwo" src={dataObj.coatOfArms.png}
                                 alt=" coat" /></td>
-                            <td onClick={() => handleClick(dataObj.name.common)}
+                            <td onClick={() => {
+                                handleClick(dataObj.name.common);
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }}
                                 className="flag" >
                                 <img src={dataObj.flags.png} alt="flag"
                                     className="imageFl" /></td>
@@ -93,14 +96,20 @@ const SearchResutsGeog = () => {
                         <tr>
                             <td className="region">Name:</td>
                             <td
-                                onClick={() => handleClick(dataObj.name.common)}
+                                onClick={() => {
+                                    handleClick(dataObj.name.common);
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}
                                 className="nameGeog">
                                 {dataObj.name.common}</td>
                         </tr>
                         <tr>
                             <td className="region">Capital:</td>
                             <td
-                                onClick={() => handleClickCity(dataObj.capital[0])}
+                                onClick={() => {
+                                    handleClickCity(dataObj.capital[0]);
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}
                                 className="nameOffCountry">{dataObj.capital[0]}</td>
                         </tr>
                         <tr>

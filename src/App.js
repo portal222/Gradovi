@@ -1,23 +1,12 @@
-import React, {useState} from "react";
+import React from "react";
 import Navigation from "./components/Navigation";
-import GlobalContext from "./components/GlobalContext";
+import { GlobalProvider } from './components/GlobalContext';
 
-
-
-const App = () => {
-    const [searchString, setSearchString] = useState('Enter search criterium!');
-   return (
-    <GlobalContext.Provider
-    value={{
-        setSearchStringFn: setSearchString,
-        searchStringValue: searchString,
-    }}
-    >
-        <Navigation />
-    </GlobalContext.Provider>
-        );
-
-}
+const App = () => (
+    <GlobalProvider>
+      <Navigation />
+    </GlobalProvider>
+    );
 export default App;
 
 
