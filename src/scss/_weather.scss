@@ -196,21 +196,49 @@ $color7: #c8e6c9;
                 font-weight: bold;
                 color: black;
                 padding: 5px;
+                width: 60px;
+            }
+
+            .weatdesc {
+                font-size: 15px;
+                font-weight: bold;
+                color: black;
+                padding: 5px;
+                width: 95px;
             }
 
             .temp2 {
-                text-align: center;
+                position: relative;
+
                 font-size: 15px;
                 font-weight: bold;
                 color: black;
                 max-height: 50px;
 
                 .imgHold {
-                    margin-top: 10px;
-                    background-color: $color5;
+                    margin: 0;
+                    position: absolute;
                     border-radius: 8px;
-                    width: 50px;
-                    padding: 10px;
+                    width: 75px;
+                    height: 75px;
+                    padding: 0px 15px 15px 40px;
+                    z-index: 2;
+
+                }
+
+                .imgRain {
+                    margin-top: 5px;
+                    position: absolute;
+                    // margin-right: 50px;
+                    // background-color: $color5;
+
+                    border-radius: 8px;
+                    width: 75px;
+                    height: 75px;
+                    padding: 0px 15px 15px 40px;
+
+                    z-index: 1;
+
                 }
 
                 p {
@@ -528,6 +556,7 @@ $color7: #c8e6c9;
 
                     padding: 1px 2px 1px 6px;
                     font-size: 10px;
+                    width: 20px;
                 }
 
                 .title2 {
@@ -545,6 +574,17 @@ $color7: #c8e6c9;
 
                 .temp {
                     font-size: 10px;
+                    width: 30px;
+                    font-weight: normal;
+             
+                }
+
+
+                .weatdesc {
+                    font-size: 10px;
+                    padding: 3px;
+                    width: 30px;
+                    font-weight: normal;
                 }
 
                 .temp2 {
@@ -556,8 +596,16 @@ $color7: #c8e6c9;
 
 
                         border-radius: 3px;
-                        width: 35px;
-                        padding: 5px;
+                        width: 40px;
+                        height: 40px;
+                        padding: 0;
+                    }
+
+                    .imgRain {
+                        margin-top: 3px;
+                        width: 40px;
+                        height: 40px;
+                        padding: 0;
 
                     }
 
@@ -592,8 +640,9 @@ $color7: #c8e6c9;
                 }
 
                 .wind {
-                    font-size: 12px;
+                    font-size: 10px;
                     padding: 3px;
+                    font-weight: normal;
                 }
 
                 .wind2 {

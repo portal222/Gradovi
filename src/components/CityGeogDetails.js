@@ -119,6 +119,8 @@ const SearchResutsGeog = (props) => {
                                             <td rowSpan={3}
                                                 className="temp2">
                                                 <CloudPicture clouds={wind.clouds?.all} />
+                                                <RainPicture rain={wind.weather?.[0].description} />
+
                                             </td>
                                         </tr>
                                         <tr>
@@ -131,7 +133,7 @@ const SearchResutsGeog = (props) => {
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td className="temp">
+                                            <td className="weatdesc">
                                                 {wind.weather?.[0]?.description}
                                             </td>
 
