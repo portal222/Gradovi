@@ -2,15 +2,15 @@ import React from "react";
 
 const NyTimes = (props) => {
 
-   if (props.news.length === 0) {
-    return (
-        <div className="tabelaZemlje">
-            <div className="nytTitle">
-                nothing found in NYT
+    if (props.news.length === 0) {
+        return (
+            <div className="tabelaZemlje">
+                <div className="nytTitle">
+                    nothing found in NYT
+                </div>
             </div>
-        </div>
-    )
-   }
+        )
+    }
 
     return (
         <div className="tabelaZemlje">
@@ -22,20 +22,20 @@ const NyTimes = (props) => {
                         <div className="nytAbs">{details.abstract} </div>
                         <div className="nytPar">{details.lead_paragraph} </div>
                         <div className="flag">
-                            <img className="nytImg" src={`https://www.nytimes.com/${details.multimedia[0]?.url}`} alt="no picture" />
+                            <img className="nytImg" src={details.multimedia.default.url} alt="no picture" />
                         </div>
                         <div className="nytDate">
                             <div>{details.byline.original}</div>
                             <div>{details.pub_date} </div>
                             <a href={details.web_url} target="_blank">NYT</a>
-                             </div>
-                             <hr></hr>
+                        </div>
+                        <hr></hr>
                     </div>
                 ))}
 
             </div>
         </div>
-        
+
     )
 
 }
