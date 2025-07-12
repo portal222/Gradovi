@@ -2,8 +2,11 @@
 @import "../scss/_weather.scss";
 
 $color1: #ece8e8;
+$color10: #d0caca;
 $color8: #89CFF0;
 $color9: #00308F;
+$colHov: #f77103;
+$colTit: dodgerblue;
 
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -61,12 +64,12 @@ body {
 
 .navContainer {
     background-color: $color3;
-  padding-bottom: 50px;
-    
+    padding-bottom: 50px;
+
     margin: auto;
     max-width: 650px;
     min-width: 650px;
-    
+
     .fixed {
         display: flex;
         height: 40px;
@@ -77,6 +80,10 @@ body {
         position: fixed;
         z-index: 3;
 
+        Button {
+            font-size: 16px;
+        }
+
     }
 
     .linker {
@@ -84,12 +91,12 @@ body {
 
         .home {
             background-color: $color3;
-            color: dodgerblue;
+            color: $colTit;
             font-weight: bold;
             text-decoration: none;
 
             &:hover {
-                color: #fdc714;
+                color: $colHov;
                 text-shadow: 2px 2px 7px black;
             }
         }
@@ -133,6 +140,87 @@ body {
     background-color: $color1;
     margin: auto;
 
+    .populTitl {
+        font-size: 28px;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .buttonC {
+        width: 100px;
+
+        background-color: $color3;
+
+        margin: 15px 20px 10px 20px;
+
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $color7;
+        }
+    }
+
+    .start {
+        display: none;
+    }
+
+    .end {
+        display: flex;
+        flex-direction: column;
+
+        position: relative;
+
+        margin-left: 20px;
+
+        width: 200px;
+        padding: 0px 10px 20px 10px;
+        background-color: $color3;
+        z-index: 1;
+
+        .iks {
+            display: block;
+            text-align: right;
+            cursor: pointer;
+        }
+
+        .title {
+            cursor: pointer;
+            color: $colTit;
+
+            &:hover {
+                color: $colHov;
+            }
+        }
+    }
+
+
+
+    .popTr {
+        .popul {
+            font-size: 22px;
+            padding: 5px 30px;
+            text-align: left;
+            max-width: 250px;
+        }
+
+        .populVal {
+            padding: 5px 20px 5px 5px;
+            color: #013441;
+            font-size: 24px;
+            text-align: left;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+    }
+
+    .popTr:nth-child(even) {
+        background-color: $color10;
+    }
+
+
     .geogImg {
         min-width: 250px;
         max-width: 250px;
@@ -151,7 +239,7 @@ body {
     }
 
     .results {
-        padding-bottom: 15px;
+        padding: 15px;
         border-bottom: solid 3px #7a9c99;
     }
 
@@ -171,11 +259,10 @@ body {
 
     .flag {
         text-align: center;
-        padding-top: 15px;
-        padding-left: 2px;
+        padding: 10px 20px;
 
         .imageFl {
-            width: 330px;
+            width: 260px;
             margin: auto;
             cursor: pointer;
 
@@ -260,14 +347,13 @@ body {
         font-size: 25px;
         min-width: 310px;
         font-weight: bold;
-        color: dodgerblue;
+        color: $colTit;
         vertical-align: middle;
         cursor: pointer;
 
         &:hover {
-            color: #fdc714;
+            color: $colHov;
 
-            text-shadow: 1px 1px 4px black;
         }
     }
 
@@ -291,17 +377,17 @@ body {
     .nameGeog {
         max-width: 700px;
         vertical-align: middle;
-        padding: 5px 10px;
+        padding: 45px 10px 30px 10px;
         font-size: 30px;
         font-weight: bold;
         text-align: center;
         cursor: pointer;
-        color: dodgerblue;
+        color: $colTit;
 
         &:hover {
             font-weight: bold;
-            color: #fdc714;
-            text-shadow: 2px 2px 7px black;
+            color: $colHov;
+
         }
     }
 
@@ -311,13 +397,13 @@ body {
         font-size: 22px;
         font-weight: bold;
         text-align: left;
-        color: dodgerblue;
+        color: $colTit;
         cursor: pointer;
 
         &:hover {
             font-weight: bold;
-            color: #fdc714;
-            text-shadow: 2px 2px 7px black;
+            color: $colHov;
+
         }
     }
 
@@ -382,12 +468,12 @@ body {
             font-weight: bold;
             cursor: pointer;
             width: 300px;
-            color: dodgerblue;
+            color: $colTit;
             vertical-align: middle;
 
             &:hover {
-                color: #fdc714;
-                text-shadow: 2px 2px 7px black;
+                color: $colHov;
+
             }
         }
     }
@@ -446,8 +532,9 @@ body {
         .titleQ {
             font-size: 23px;
             padding: 5px 10px;
-           min-width: 320px;
+            min-width: 320px;
         }
+
         .time {
             text-align: left;
             padding-top: 25px;
@@ -455,10 +542,12 @@ body {
             font-size: 16px;
         }
     }
+
     .choose {
         padding: 15px;
         font-size: 22px;
     }
+
     .fieldset {
         display: flex;
         justify-content: space-around;
@@ -495,14 +584,18 @@ body {
 }
 
 .paper {
+   
     margin-top: 5px;
-    min-width: 185px;
-    max-width: 185px;
+    height: 35px;
+    min-width: 240px;
+    max-width: 240px;
 
     .base {
-        max-width: 140px;
+        max-width: 180px;
         padding-left: 10px;
+        font-size: 20px;
     }
+ 
 }
 
 .footer {
@@ -511,9 +604,48 @@ body {
     color: #5e5f5e;
     text-align: center;
 }
+
 .interspace {
     height: 700px;
 }
+
+.cityNum {
+    margin: auto;
+    display: flex;
+    width: 650px;
+    overflow-x: auto;
+  
+    background-color: $color1;
+
+    .numb {
+        padding: 8px 10px;
+        text-align: center;
+        font-size: 20px;
+        color: $colTit;
+        cursor: pointer;
+
+        &:hover {
+            color: $colHov;
+        }
+
+        &:active {
+            color: $color8;
+        }
+    }
+
+    .numbAct {
+        text-align: center;
+        padding: 8px 10px;
+        font-size: 20px;
+        background-color: $color2;
+        border-radius: 5px;
+        color: $color9;
+    }
+}
+.cityNum::-webkit-scrollbar {
+  height: 4px;
+}
+
 
 @media screen and (max-width: 500px) {
     body {
@@ -531,18 +663,22 @@ body {
     .navContainer {
         max-width: 358px;
         min-width: 358px;
-  padding-bottom: 50px;
+        padding-bottom: 50px;
 
         margin: auto;
 
         .fixed {
-         
+
             height: 40px;
             padding: 5px;
             background-color: $color3;
             width: 348px;
-          
-    
+
+            Button {
+                font-size: 10px;
+            }
+
+
         }
 
         .linker:hover {
@@ -565,7 +701,7 @@ body {
 
     .place {
         display: block;
-        height: 150px;
+        height: 100px;
         width: 300px;
         padding-left: 50px;
 
@@ -584,6 +720,56 @@ body {
         max-width: 358px;
         min-width: 358px;
         margin: auto;
+
+        .populTitl {
+            font-size: 22px;
+
+        }
+
+        .buttonC {
+            width: 90px;
+
+        }
+
+        .end {
+            display: flex;
+            flex-direction: column;
+
+            position: relative;
+            // margin-top: 45px;
+            margin-left: 20px;
+            // height: 500px;
+            width: 110px;
+            padding: 0px 10px 20px 10px;
+            background-color: $color3;
+            z-index: 2;
+
+
+            .title {
+                cursor: pointer;
+                color: colTit;
+
+                &:hover {
+                    color: $colHov;
+                }
+            }
+        }
+
+        .popTr {
+            .popul {
+                font-size: 16px;
+                padding: 3px 20px;
+                text-align: left;
+                max-width: 250px;
+            }
+
+            .populVal {
+                padding: 5px 20px 5px 5px;
+
+                font-size: 16px;
+
+            }
+        }
 
         .geogImg {
             min-width: 140px;
@@ -616,7 +802,7 @@ body {
             .image {
                 width: 200px;
             }
-            
+
             .coat {
                 padding-top: 10px;
                 width: 320px;
@@ -636,7 +822,8 @@ body {
 
         .nameGeog {
             font-size: 22px;
-            padding: 3px 8px;
+            padding: 30px 8px 15px 19px;
+
         }
 
         .nameCount {
@@ -653,7 +840,7 @@ body {
             padding-left: 2px;
 
             .imageFl {
-                width: 190px;
+                width: 170px;
                 // padding-top: 8px;
                 margin-top: 8px;
 
@@ -767,6 +954,12 @@ body {
 
         }
 
+        .choose {
+            padding: 15px;
+            font-size: 17px;
+            text-align: justify;
+        }
+
         .countryMain {
             background-image: linear-gradient($color6, $color7);
             border-image: linear-gradient($color7, $color6);
@@ -804,11 +997,7 @@ body {
                 font-size: 16px;
                 width: 180px;
 
-                &:hover {
 
-                    color: #fdc714;
-                    text-shadow: 2px 2px 5px black;
-                }
             }
         }
 
@@ -840,21 +1029,23 @@ body {
 
         .quake {
             display: block;
-    
+
             .titleQ {
                 font-size: 20px;
-                
+
             }
         }
     }
-  
+
 
     .paper {
         min-width: 250px;
         max-width: 250px;
+        height: 30px;
 
         .base {
-            max-width: 200px;
+            max-width: 180px;
+            font-size: 18px;
         }
     }
 
@@ -862,4 +1053,12 @@ body {
         margin-top: 400px;
         font-size: 9px;
     }
+
+    .cityNum {
+
+        width: 355px;
+
+
+    }
+
 }

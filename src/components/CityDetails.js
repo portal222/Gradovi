@@ -27,8 +27,6 @@ const CityDetails = () => {
                     city.name.toLowerCase().includes(cityId.toLowerCase())
                 )
             });
-            console.log("spisak gradova", datas);
-            console.log("Pretraga gradova", filterData);
             setIsLoading(false);
 
             setCountries(filterData);
@@ -53,7 +51,9 @@ const CityDetails = () => {
                             <th>Nothing found</th>
                         </tr>
                     </thead>
-                </table></>
+                </table>
+         
+            </>
         )
     }
 
@@ -70,7 +70,7 @@ const CityDetails = () => {
                 <tbody>
                     <tr>
                         <td>
-                        <CityGeogDetails  lat={countries[0]?.coord?.lat} lon={countries[0]?.coord?.lon} city={cityId}/>
+                            <CityGeogDetails lat={countries[0]?.coord?.lat} lon={countries[0]?.coord?.lon} city={cityId} />
                         </td>
                     </tr>
                 </tbody>

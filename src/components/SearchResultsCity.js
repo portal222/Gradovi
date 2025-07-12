@@ -11,7 +11,10 @@ const SearchResultsCity = () => {
     const [error, setError] = useState(null);
     const [countries, setCountries] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [page, setPage] = useState(1);
     const [results, setResults] = useState([]);
+
+    const limit = 10;
 
     const globalCtx = useContext(GlobalContext);
     const searchStringValue = globalCtx.searchStringValue;
@@ -27,10 +30,8 @@ const SearchResultsCity = () => {
                     city.name.toLowerCase().includes(searchStringValue.toLowerCase())
                 )
             });
-            console.log("spisak gradova", datas);
-            console.log("Pretraga gradova", filterData);
-            setIsLoading(false);
 
+            setIsLoading(false);
             setCountries(filterData);
             setResults(filterData.length);
         } catch (err) {
@@ -38,6 +39,9 @@ const SearchResultsCity = () => {
             setIsLoading(false);
         }
     };
+
+    const totalPages = Math.ceil(results / limit);
+
 
     if (isLoading) {
         return <Loader />
@@ -53,7 +57,9 @@ const SearchResultsCity = () => {
                             <th>Nothing found</th>
                         </tr>
                     </thead>
-                </table></>
+                </table>
+
+            </>
         )
     }
 
@@ -66,11 +72,12 @@ const SearchResultsCity = () => {
                             <SearchPlace />
                         </th>
                     </tr>
-                    <tr className="results">
-                        <th colSpan={2}>Number of cities {results}</th>
+                    <tr>
+                        <th className="results" colSpan={2}>
+                           {results} results for {searchStringValue}</th>
                     </tr>
                 </thead>
-                {countries.map((dataObj) => (
+                {countries.slice((page - 1) * limit, page * limit).map((dataObj) => (
                     <tbody key={dataObj.id} >
                         <tr>
                             <td className="nameCity">
@@ -82,7 +89,7 @@ const SearchResultsCity = () => {
                         </tr>
                         <tr>
                             <td colSpan={2}>
-                                <TableRow lat={dataObj.coord.lat} lon={dataObj.coord.lon} cityName={dataObj.name}/>
+                                <TableRow lat={dataObj.coord.lat} lon={dataObj.coord.lon} cityName={dataObj.name} />
                             </td>
                         </tr>
                         <tr>
@@ -93,7 +100,20 @@ const SearchResultsCity = () => {
                     </tbody>
                 ))}
             </table>
-            <div className="interspace"></div>
+            <div className="cityNum">
+                {Array.from({ length: totalPages }, (_, i) => (
+                    <div className={page === i + 1 ? 'numbAct' : 'numb'}
+                        key={i + 1}
+                        onClick={() => {
+                            setPage(i + 1);
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                        disabled={i + 1 === page}
+                    >
+                        {i + 1}
+                    </div>
+                ))}
+            </div>
             <div><BackToTop /></div>
         </>
     );

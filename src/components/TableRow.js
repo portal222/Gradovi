@@ -10,8 +10,6 @@ const TableRow = (props) => {
 
     const [open, setOpen] = useState(false);
 
-    console.log("ime grada preko propsa", props.cityName)
-
     return (
         <table>
             <tbody>
@@ -28,7 +26,6 @@ const TableRow = (props) => {
                 </tr>
                 <tr>
                     <td>
-
                         <Collapse in={open} timeout='auto' unmountOnExit>
                             <Box sx={{ margin: 0 }}>
                                 <CityGeogDetails

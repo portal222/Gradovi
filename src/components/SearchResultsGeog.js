@@ -22,25 +22,43 @@ const SearchResutsGeog = () => {
     }, [searchStringValue]);
 
     const getCountries = async (searchStringValue) => {
-        const url = "https://restcountries.com/v3.1/all";
-
+        const url = `https://restcountries.com/v3.1/name/${searchStringValue}`
         try {
             const response = await axios.get(url);
             const data = response.data;
-            const filterData = data.filter((country) => {
-                return (
-                    country.name.common.toLowerCase().includes(searchStringValue.toLowerCase())
-                );
-            });
-            console.log("Pretraga", filterData);
+            setCountries(data);
+            setResults(data.length);
             setIsLoading(false);
-            setCountries(filterData);
-            setResults(filterData.length);
+
+            console.log("novi detalji drzava", data)
         } catch (err) {
             setError(err);
-            setIsLoading(false);
+
         }
-    };
+
+
+    }
+    // const getCountries = async (searchStringValue) => {
+    //     const url = "https://restcountries.com/v3.1/all";
+
+
+    //     try {
+    //         const response = await axios.get(url);
+    //         const data = response.data;
+    //         const filterData = data.filter((country) => {
+    //             return (
+    //                 country.name.common.toLowerCase().includes(searchStringValue.toLowerCase())
+    //             );
+    //         });
+    //         console.log("Pretraga", filterData);
+    //         setIsLoading(false);
+    //         setCountries(filterData);
+    //         setResults(filterData.length);
+    //     } catch (err) {
+    //         setError(err);
+    //         // setIsLoading(false);
+    //     }
+    // };
 
     const handleClick = (drId) => {
         console.log("klik na drz", drId);
@@ -55,21 +73,22 @@ const SearchResutsGeog = () => {
 
     if (isLoading) {
         return <Loader />
-    } else if (results == 0) {
-        return (
-            <>
-                <table className="tabelaZemlje">
-                    <thead>
-                        <tr>
-                            <th><SearchPlace /></th>
-                        </tr>
-                        <tr>
-                            <th>Nothing found</th>
-                        </tr>
-                    </thead>
-                </table></>
-        )
-    }
+    } else
+        if (results == 0) {
+            return (
+                <>
+                    <table className="tabelaZemlje">
+                        <thead>
+                            <tr>
+                                <th><SearchPlace /></th>
+                            </tr>
+                            <tr>
+                                <th>Nothing found</th>
+                            </tr>
+                        </thead>
+                    </table></>
+            )
+        }
 
     return (
         <>

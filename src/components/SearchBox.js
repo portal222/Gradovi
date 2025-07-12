@@ -39,7 +39,6 @@ const SearchBox = (props) => {
         }}
         >
             <InputBase className="base"
-            autoFocus
             placeholder={props.placeholder}
             inputRef={searchString}
             onKeyDown={handleKeyDown}
@@ -47,7 +46,7 @@ const SearchBox = (props) => {
             <IconButton 
             type='button'
             onClick={handleClickSearch}
-            sx={{ p: '10px'}}
+            sx={{ p: '3px'}}
             aria-label='search'
             >
                 <TravelExploreIcon />

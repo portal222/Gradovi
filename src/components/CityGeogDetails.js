@@ -4,7 +4,6 @@ import CloudPicture from "./CloudPicture";
 import windA from "../../public/assets/img/wind-arrow.svg";
 import DateHour from "./DateHour";
 import DateDays from "./DateDays";
-import NyTimes from "./NyTimes";
 import RainPicture from "./RainPicture";
 
 
@@ -21,7 +20,7 @@ const SearchResutsGeog = (props) => {
     const lon = props.lon
     const nameCity = props.city
 
-    console.log("props imena grada", nameCity)
+
 
 
     const googleMap = 'https://maps.google.com/maps?q=' +
@@ -41,7 +40,7 @@ const SearchResutsGeog = (props) => {
         const urlWeat = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=68ba2a247cda7d9e6110196a5ba81f27';
         const response = await fetch(urlWeat);
         const data = await response.json();
-        console.log(" podaci weather sa fetchom ", data);
+     
         setWind(data);
     }
 
@@ -53,7 +52,7 @@ const SearchResutsGeog = (props) => {
         setPopul(data);
         setForecast(data.list);
         setCityName(data.city.name)
-        console.log("forecast podaci", data.list);
+    
     }
 
     useEffect(() => {
@@ -65,7 +64,7 @@ const SearchResutsGeog = (props) => {
 
         const response = await fetch(url);
         const data = await response.json();
-        console.log(" podaci NYT grada sa fetchom ", data.response.docs);
+    
         setNytCity(data.response.docs);
     }
 
@@ -271,7 +270,6 @@ const SearchResutsGeog = (props) => {
                     </tbody>
                 ))}
             </table>
-            <NyTimes news={nytCity} />
         </>
     );
 };
