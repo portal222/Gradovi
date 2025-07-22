@@ -11,6 +11,7 @@ import Footers from "./Footers";
 import GeographicDetIso2 from "./GeographicDetIso2";
 import Quake from "./earthQuake/Quake";
 import Population from "./Population";
+import globus from "../../public/assets/img/globus.png"
 
 export default function Navigation() {
   return (
@@ -63,7 +64,9 @@ export default function Navigation() {
       <div className="home">
         <div className="img"></div>
       </div>
-         <div className="interspace"></div>
+         <div className="home">
+          <img src={globus} alt="" className="globus"/>
+         </div>
 
       <Footers />
     </HashRouter>

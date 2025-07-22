@@ -107,9 +107,10 @@ body {
     margin-top: 0;
     margin: auto;
     width: 650px;
-    height: 510px;
+    height: 500px;
     background-color: white;
-    padding-top: 100px;
+    padding-top: 40px;
+    text-align: center;
 
     .img {
         margin: auto;
@@ -117,6 +118,10 @@ body {
         background-image: url("https://upload.wikimedia.org/wikipedia/commons/b/b4/2002_six-color_world_political_map.png");
         width: 650px;
         height: 328px;
+    }
+
+    .globus {
+        width: 500px;
     }
 }
 
@@ -584,7 +589,7 @@ body {
 }
 
 .paper {
-   
+
     margin-top: 5px;
     height: 35px;
     min-width: 240px;
@@ -595,7 +600,7 @@ body {
         padding-left: 10px;
         font-size: 20px;
     }
- 
+
 }
 
 .footer {
@@ -614,7 +619,7 @@ body {
     display: flex;
     width: 650px;
     overflow-x: auto;
-  
+
     background-color: $color1;
 
     .numb {
@@ -642,8 +647,9 @@ body {
         color: $color9;
     }
 }
+
 .cityNum::-webkit-scrollbar {
-  height: 4px;
+    height: 4px;
 }
 
 
@@ -696,6 +702,10 @@ body {
         .img {
             height: 175px;
             width: 358px;
+        }
+
+        .globus {
+            width: 330px;
         }
     }
 
