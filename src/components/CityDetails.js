@@ -48,7 +48,7 @@ const CityDetails = () => {
                             <th><SearchPlace /></th>
                         </tr>
                         <tr>
-                            <th>Nothing found</th>
+                            <th>{cityId} not found</th>
                         </tr>
                     </thead>
                 </table>

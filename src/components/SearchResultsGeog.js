@@ -9,28 +9,28 @@ import { useNavigate } from "react-router-dom";
 const SearchResutsGeog = () => {
     const [error, setError] = useState(null);
     const [countries, setCountries] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    // const [isLoading, setIsLoading] = useState(true);
     const [results, setResults] = useState([]);
 
     const navigate = useNavigate();
 
     const globalCtx = useContext(GlobalContext);
-    const searchStringValue = globalCtx.searchStringValue;
+    const drId = globalCtx.searchStringValue;
 
     useEffect(() => {
-        getCountries(searchStringValue);
-    }, [searchStringValue]);
+        getCountries();
+    }, []);
 
-    const getCountries = async (searchStringValue) => {
-        const url = `https://restcountries.com/v3.1/name/${searchStringValue}`
+    const getCountries = async () => {
+        const url = `https://ridlejoke-proxy.kvaka32.workers.dev/rest?q=${drId}`
         try {
             const response = await axios.get(url);
-            const data = response.data;
-            setCountries(data);
-            setResults(data.length);
-            setIsLoading(false);
+            const data = response.data.data;
+            setCountries(data.objects);
+            setResults(data.objects.length);
+         
 
-            console.log("novi detalji drzava", data)
+            console.log("novi detalji drzava po imenu", data)
         } catch (err) {
             setError(err);
 
@@ -38,42 +38,20 @@ const SearchResutsGeog = () => {
 
 
     }
-    // const getCountries = async (searchStringValue) => {
-    //     const url = "https://restcountries.com/v3.1/all";
-
-
-    //     try {
-    //         const response = await axios.get(url);
-    //         const data = response.data;
-    //         const filterData = data.filter((country) => {
-    //             return (
-    //                 country.name.common.toLowerCase().includes(searchStringValue.toLowerCase())
-    //             );
-    //         });
-    //         console.log("Pretraga", filterData);
-    //         setIsLoading(false);
-    //         setCountries(filterData);
-    //         setResults(filterData.length);
-    //     } catch (err) {
-    //         setError(err);
-    //         // setIsLoading(false);
-    //     }
-    // };
+  
 
     const handleClick = (drId) => {
         console.log("klik na drz", drId);
-        const LinkTo = `detalji/${drId}`;
+        const LinkTo = `/detalji/${drId}`;
         navigate(LinkTo);
     }
     const handleClickCity = (cityId) => {
         console.log("klik na glavni grad", cityId);
-        const LinkTo = `cities/${cityId}`;
+        const LinkTo = `/cities/${cityId}`;
         navigate(LinkTo);
     }
 
-    if (isLoading) {
-        return <Loader />
-    } else
+ 
         if (results == 0) {
             return (
                 <>
@@ -83,7 +61,7 @@ const SearchResutsGeog = () => {
                                 <th><SearchPlace /></th>
                             </tr>
                             <tr>
-                                <th>Nothing found</th>
+                                <th>Nothing found for {drId}</th>
                             </tr>
                         </thead>
                     </table></>
@@ -95,50 +73,49 @@ const SearchResutsGeog = () => {
             <table className="tabelaZemlje">
                 <thead >
                     <tr className="results">
-                        <th colSpan={2}>Number of countries: {results}</th>
+                        <th colSpan={2}>  {results} results for {drId}</th>
                     </tr>
                 </thead>
-                {countries.map((dataObj, id) => (
-                    <tbody key={id} >
+                {countries.map((dataObj) => (
+                    <tbody key={dataObj.population} >
                         <tr >
-                            <td
-                            ><img className="imageTwo" src={dataObj.coatOfArms.png}
-                                alt=" coat" /></td>
-                            <td onClick={() => {
-                                handleClick(dataObj.name.common);
+                         
+                            <td colSpan={2}
+                            onClick={() => {
+                                handleClick(dataObj?.names?.common);
                                 window.scrollTo({ top: 0, behavior: 'smooth' });
                             }}
                                 className="flag" >
-                                <img src={dataObj.flags.png} alt="flag"
+                                <img src={dataObj?.flag?.url_png} alt="flag"
                                     className="imageFl" /></td>
                         </tr>
                         <tr>
                             <td className="region">Name:</td>
                             <td
                                 onClick={() => {
-                                    handleClick(dataObj.name.common);
+                                    handleClick(dataObj?.names?.common);
                                     window.scrollTo({ top: 0, behavior: 'smooth' });
                                 }}
                                 className="nameGeog">
-                                {dataObj.name.common}</td>
+                                {dataObj?.names?.common}</td>
                         </tr>
                         <tr>
                             <td className="region">Capital:</td>
                             <td
                                 onClick={() => {
-                                    handleClickCity(dataObj.capital[0]);
+                                    handleClickCity(dataObj?.capitals?.[0]?.name);
                                     window.scrollTo({ top: 0, behavior: 'smooth' });
                                 }}
-                                className="nameOffCountry">{dataObj.capital[0]}</td>
+                                className="nameOffCountry">{dataObj?.capitals?.[0]?.name}</td>
                         </tr>
                         <tr>
                             <td className="region">Region:</td>
-                            <td className="lang">{dataObj.region}</td>
+                            <td className="lang">{dataObj?.region}</td>
                         </tr>
 
                         <tr >
                             <td className="region">Population:</td>
-                            <td className="population">{dataObj.population}</td>
+                            <td className="population">{dataObj?.population}</td>
                         </tr>
                         <tr>
                             <td colSpan={2}>

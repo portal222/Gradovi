@@ -1,5 +1,6 @@
 
 import React from "react";
+import GeographicIso2Result from "./GeographicIso2Result";
 
 
 
@@ -69,6 +70,14 @@ export default class SunriseSunset extends React.Component {
                                 Population</td>
                             <td className="temp">
                                 {this.props.population}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="title">
+                                Country</td>
+                            <td className="tempIso2">
+                                <GeographicIso2Result alpha={this.props.coName} />
+                                
                             </td>
                         </tr>
                     </tbody>

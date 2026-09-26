@@ -4,16 +4,15 @@ import MapTwoToneIcon from '@mui/icons-material/MapTwoTone';
 import { useNavigate, useParams } from "react-router-dom";
 import NyTimes from "./NyTimes";
 import BackToTop from "./BackToTop"
-import Loader from "./Loader";
+import GeographicIsoResult from "./GeographicIsoResult";
+import GeographicCityResult from "./GeographicCityResult";
 
-
-const SearchResutsGeog = (props) => {
+const SearchResutsGeog = () => {
     const [error, setError] = useState(null);
     const [countries, setCountries] = useState([]);
-    const [zemlje, setZemlje] = useState([]);
+    const [dataZem, setDataZem] = useState([]);
     const [times, setTimes] = useState([]);
-        const [isLoading, setIsLoading] = useState(true);
-    
+    const [colors, setColors] = useState([]);
 
     const navigate = useNavigate();
 
@@ -21,55 +20,51 @@ const SearchResutsGeog = (props) => {
     const drId = params.drId;
 
     useEffect(() => {
-        getCountries();
-        getZemlje();
-        getTimes();
-    }, []);
+        getCountries(drId);
+        getZemlje(drId);
+        getTimes(drId);
+    }, [drId]);
 
-    const getCountries = async () => {
+    const getCountries = async (drId) => {
 
-        const url = `https://restcountries.com/v3.1/name/${drId}`;
+        const url = `https://ridlejoke-proxy.kvaka32.workers.dev/rest?q=${drId}`;
         try {
             const response = await axios.get(url);
-            const data = response.data;
-            console.log("Detalji", data);
-            setIsLoading(false);
+            const data = response.data.data.objects[0];
+
             setCountries(data);
+            setColors(data.flag.colors.palette);
 
         } catch (err) {
             setError(err);
         }
     };
 
-    const getZemlje = async () => {
-        const url = `https://api.api-ninjas.com/v1/country?name=${drId}`;
+    const getZemlje = async (drId) => {
+        const url = `https://ridlejoke-proxy.kvaka32.workers.dev/country?name=${drId}`;
         try {
             const response = await axios.get(url,
                 {
                     headers: {
-                        'X-Api-Key': 'D+dYjCxDSm5fEkIqyoCIeA==c2GvujXTiAbMIH05'
+                        "Content-Type": "application/json",
                     }
                 }
             );
-            const data = response.data;
-            console.log("detalji druge zemlje", data);
-            setZemlje(data);
+            const data = response.data[0];
+            setDataZem(data);
         } catch (err) {
             setError(err);
         }
     };
 
-    const getTimes = async () => {
+    const getTimes = async (drId) => {
 
         const url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${drId}&api-key=GmsdDOX2JjxHcopan54o6M2dgET0H2hp`
         try {
             const response = await axios.get(url);
-
             const data = response.data
             const nytimes = data.response.docs
             setTimes(data.response.docs)
-            console.log("detalji NY times", data);
-            console.log("dokumenti NYT", nytimes);
 
         } catch (err) {
             setError(err);
@@ -77,309 +72,335 @@ const SearchResutsGeog = (props) => {
     }
 
     const handleClick = (cityId) => {
-        console.log("iz drzava grad", cityId);
-        const LinkTo = `capital/${cityId}`;
-        navigate(LinkTo);
-    }
 
-    if (isLoading) {
-        return <Loader />
+        const LinkTo = `/cities/${cityId}`;
+        navigate(LinkTo);
     }
 
     return (
         <>
-            {countries.map((dataObj) => (
-                <table key={dataObj.area}
-                className="tabelaZemlje">
-                    <tbody key={dataObj.population} >
-                        <tr className="name">
-                            <td ><img className="coat" src={dataObj.coatOfArms.png}
-                                alt=" coat" />
-                            </td>
-                        </tr>
-                        <tr className="name">
-                            <td
-                            ><img className="coat" src={dataObj.flags.png}
-                                alt="flag" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className="countryMain">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td colSpan={2}
-                                                    className="nameComm">{dataObj.name.common}</td>
-                                                <td className="title">Capital</td>
-                                                <td
-                                                    className="nameOffCity"
-                                                    onClick={() => handleClick(dataObj.capital)}> 
-                                                    {dataObj.capital}</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title">Official </td>
-                                                <td className="lang2">{dataObj.name.official}</td>
-                                                <td className="title">Serbian</td>
-                                                <td className="lang2"> {dataObj.translations.srp.official}</td>
+            <table className="tabelaZemlje">
+                <tbody className="countryMain" >
+                    <tr className="name">
+                        <td colSpan={2}><img className="coat" src={countries?.flag?.url_png}
+                            alt="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className="lang4">
+                            <p></p>{countries?.flag?.description}<p />
+                        </td>
+                        <td className="colGrid">
+                            {colors.slice(0, 4).map((col) => (
+                                <> <div key={col.proportion}>
 
-                                            </tr>
-                                            <tr>
-                                                <td className="title">Region</td>
-                                                <td className="lang">{dataObj.region}</td>
+                                    <p style={{ backgroundColor: `${col.hex}` }}
+                                        className="color"
 
-                                                <td className="title">Subregion</td>
-                                                <td className="lang">{dataObj.subregion}</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title">Demonyms</td>
-                                                <td className="lang">{dataObj.demonyms.eng.m}</td>
-
-                                                <td className="title">Languages</td>
-                                                <td className="lang">{dataObj.languages.jpn || dataObj.languages.que || dataObj.languages.grn || dataObj.languages.pau
-                                                    || dataObj.languages.nep || dataObj.languages.urd || dataObj.languages.heb || dataObj.languages.ber || dataObj.languages.hin
-                                                    || dataObj.languages.ara || dataObj.languages.pus || dataObj.languages.tuk || dataObj.languages.est || dataObj.languages.dan
-                                                    || dataObj.languages.vie || dataObj.languages.de || dataObj.languages.kaz || dataObj.languages.lav || dataObj.languages.swa
-                                                    || dataObj.languages.rus || dataObj.languages.ita || dataObj.languages.sqi || dataObj.languages.srp || dataObj.languages.zho
-                                                    || dataObj.languages.nld || dataObj.languages.hrv || dataObj.languages.mkd || dataObj.languages.bos || dataObj.languages.pol
-                                                    || dataObj.languages.por || dataObj.languages.slv || dataObj.languages.ron || dataObj.languages.lit || dataObj.languages.cat
-                                                    || dataObj.languages.bul || dataObj.languages.ell || dataObj.languages.kal || dataObj.languages.ces || dataObj.languages.slk
-                                                    || dataObj.languages.mon || dataObj.languages.cnr || dataObj.languages.hun || dataObj.languages.kor || dataObj.languages.mya
-                                                    || dataObj.languages.nor || dataObj.languages.fin || dataObj.languages.swe || dataObj.languages.ind
-                                                    || dataObj.languages.spa || dataObj.languages.deu || dataObj.languages.fra
-                                                    || dataObj.languages.eng}</td>
-                                            </tr>
-                                            <tr>
-                                            <td className="title">Googlemaps</td>
-                                                <td colSpan={3}>
-                                               <a href={dataObj.maps.googleMaps} target="_blank">                                                           
-                                                 <MapTwoToneIcon className="googleMap" />
-                                               </a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                        onClick={() => {
+                                            navigator.clipboard.writeText(col.hex)
+                                        }}>
+                                    </p>
+                                    <p>
+                                        {(col.proportion * 100).toFixed(1)} %
+                                    </p>
                                 </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            ))}
-            {zemlje.map((dataZem, id) => (
-                <table className="mainDiv">
-                    <tbody key={id}>
-                        <tr>
-                            <td >
-                                <div className="windMain">
-                                    <table className="windHold">
-                                        <tbody><tr>
-                                            <td
-                                                className="title">
-                                                Currency
-                                            </td>
-                                            <td colSpan={2}
-                                                className="wind">
-                                                {dataZem.currency.name + " - " + dataZem.currency.code}
-                                            </td>
-                                        </tr>
-                                            <tr>
-                                                <td className="title">GDP</td>
-                                                <td className="wind">{dataZem.gdp} M$</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title"> GDP growth</td>
-                                                <td className="wind">{dataZem.gdp_growth} %</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title"> GDP per capita</td>
-                                                <td className="wind">{dataZem.gdp_per_capita} $</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title">Exports</td>
-                                                <td className="wind">{dataZem.exports} M$</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title">Imports</td>
-                                                <td className="wind">{dataZem.imports} M$</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <table className="tempHold">
-                                        <tbody>
-                                            <tr>
-                                                <td className="title2">
-                                                    Population
-                                                </td>
-                                                <td className="popNumb">{dataZem.population * 1000} </td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title2">Urban Population</td>
-                                                <td className="temp">{dataZem.urban_population} %</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title2">Population Density</td>
-                                                <td className="temp">{dataZem.pop_density} %</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title2">Population Growth</td>
-                                                <td className="temp">{dataZem.pop_growth} </td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title2">Urban Population Growth</td>
-                                                <td className="temp">{dataZem.urban_population_growth} </td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title2">Fertility</td>
-                                                <td className="temp">{dataZem.fertility}</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title2">Homicide Rate</td>
-                                                <td className="temp">{dataZem.homicide_rate}</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title2">Life Expectancy Male - Female</td>
-                                                <td className="temp">{dataZem.life_expectancy_male + " - " + dataZem.life_expectancy_female} year</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div></td>
-                        </tr>
-                        <tr>
-                            <td >
-                                <div className="windMain">
-                                    <table className="windHold">
-                                        <tbody>
-                                            {countries.map((dataArea, id) => (
-                                                <tr key={id}>
-                                                    <td className="title">Area</td>
-                                                    <td className="wind">{dataArea.area} km2</td>
-                                                </tr>
-                                            ))}
-                                            <tr>
-                                                <td className="title">Forested Area</td>
-                                                <td className="wind">{dataZem.forested_area} %</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title">CO2 Emissions</td>
-                                                <td className="wind">{dataZem.co2_emissions} </td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title">Threatened species</td>
-                                                <td className="wind">{dataZem.threatened_species} </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <table className="tempHold">
-                                        <tbody>
-                                            <tr>
-                                                <td className="title2">Employment Services</td>
-                                                <td className="temp">{dataZem.employment_services} %</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title2">Employment Industry</td>
-                                                <td className="temp">{dataZem.employment_industry} %</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title2">Employment Agriculture</td>
-                                                <td className="temp">{dataZem.employment_agriculture} %</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title2">Unemployment</td>
-                                                <td className="temp">{dataZem.unemployment} %</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className="windMain">
-                                    <table className="windHold">
-                                        {countries.map((dataArea, id) => (
-                                            <tbody key={id}>
-                                                <tr>
-                                                    <td className="title">Timezones</td>
-                                                    <td className="wind">
-                                                        {dataArea.timezones[0]}
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td className="title">Code</td>
-                                                    <td className="wind">{dataArea.cca2}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td className="title">Car signs</td>
-                                                    <td className="wind">{dataArea.car.signs}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td className="title">Car side</td>
-                                                    <td className="wind">{dataArea.car.side}</td>
-                                                </tr>
-                                                <tr >
-                                                    <td className="title">Googlemaps</td>
-                                                    <td >
-                                                        <a href={dataArea.maps.googleMaps} target='_blank' >
-                                                            <MapTwoToneIcon className="googleMap" />
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
+                                </>
+                            ))}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colSpan={2}>
+                            <div className="borGrid">
+                                {countries?.borders && (
+                                    <>
+                                        <p>Borders:</p>
+                                        {countries?.borders.map((bor) => (
+                                            <div>
+                                                <p key={bor} >
+                                                    {bor}
+                                                </p>
+                                                <GeographicIsoResult alpha={bor} stateName={drId} />
+                                            </div>
                                         ))}
-                                    </table>
-                                    <table className="tempHold">
-                                        <tbody>
-                                            <tr>
-                                                <td className="title2">Internet Users</td>
-                                                <td className="temp">{dataZem.internet_users} %</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title2">primary school male</td>
-                                                <td className="temp">{dataZem.primary_school_enrollment_male
-                                                } %</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title2">primary school female</td>
-                                                <td className="temp">{dataZem.primary_school_enrollment_female
-                                                } %</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title2">secondary school male</td>
-                                                <td className="temp">{dataZem.secondary_school_enrollment_male
-                                                } %</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title2">secondary school female</td>
-                                                <td className="temp">{dataZem.secondary_school_enrollment_female
-                                                } %</td>
-                                            </tr>
+                                    </>
+                                )}
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div className="tabelaZemlje">
+                <table className="countryMain">
+                    <tbody>
+                        <tr>
+                            <td colSpan={2}
+                                className="nameComm">{countries?.names?.common}</td>
+                            <td className="title">Capital</td>
+                            {countries?.capitals?.[0]?.name && (
+                                <td
+                                    className="nameOffCity"
+                                    onClick={() => handleClick(countries?.capitals?.[0]?.name)}>
+                                    {countries.capitals?.[0]?.name}
+                                </td>
+                            )}
+                        </tr>
+                        <tr>
+                            <td className="title">common </td>
+                            <td className="lang2">{countries?.names?.common}</td>
+                            <td className="title">official</td>
+                            <td className="lang2"> {countries?.names?.official}</td>
 
-                                            <tr>
-                                                <td className="title2">post secondary male</td>
-                                                <td className="temp">{dataZem.post_secondary_enrollment_male
-                                                } %</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title2">post secondary female</td>
-                                                <td className="temp">{dataZem.post_secondary_enrollment_female
-                                                } %</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title2">Tourists</td>
-                                                <td className="temp">{dataZem.tourists * 1000}</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="title2">Refugees</td>
-                                                <td className="temp">{dataZem.refugees * 1000}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                        </tr>
+                        <tr>
+                            <td className="title">Region</td>
+                            <td className="lang">{countries?.region}</td>
+
+                            <td className="title">Subregion</td>
+                            <td className="lang">{countries?.subregion}</td>
+                        </tr>
+                        <tr>
+                            <td className="title">Demonyms</td>
+                            <td className="lang">{countries?.demonyms?.eng.m}</td>
+
+                            <td className="title">Languages</td>
+                            <td className="lang">{countries?.languages?.[0].name}</td>
+                        </tr>
+                        <tr>
+                            <td className="title" colSpan={2}>Government type</td>
+                            <td className="lang" colSpan={2}>{countries?.government_type} </td>
+
+
+                        </tr>
+                        <tr>
+                            <td className="title">Area</td>
+                            <td className="lang">{countries?.area?.kilometers} km²</td>
+
+                            <td className="title">Population</td>
+                            <td className="lang">{countries?.population}</td>
+                        </tr>
+                        <tr>
+                            <td className="title">Cars</td>
+                            <td className="lang">{countries?.cars?.signs?.[0] + ' ' + countries?.cars?.driving_side} </td>
+
+                            <td className="title">Time zone</td>
+                            <td className="lang">{countries?.timezones?.[0]}</td>
+                        </tr>
+                        <tr>
+                            <td className="title">GoogleMaps</td>
+                            <td>
+                                <a href={countries?.links?.google_maps} target="_blank">
+                                    <MapTwoToneIcon />
+                                </a>
+                            </td>
+
+                            <td className="title">OpenStreetMap</td>
+                            <td >
+                                <a href={countries?.links?.open_street_maps} target="_blank">
+                                    <MapTwoToneIcon />
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colSpan={4}>
+
+
+
+                                <GeographicCityResult stateName={drId} />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colSpan={4} className="lang3">
+                                {countries?.descriptions?.short}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colSpan={4} className="lang3">
+                                {countries?.descriptions?.long}
                             </td>
                         </tr>
                     </tbody>
                 </table>
-            ))}
+            </div>
+            <table className="mainDiv">
+                <tbody>
+                    <tr>
+                        <td >
+                            <div className="windMain">
+                                <table className="windHold">
+                                    <tbody><tr>
+                                        <td
+                                            className="title">
+                                            Currency
+                                        </td>
+                                        <td colSpan={2}
+                                            className="wind">
+                                            {dataZem?.currency?.name + " - " + dataZem?.currency?.code}
+                                        </td>
+                                    </tr>
+                                        <tr>
+                                            <td className="title">GDP</td>
+                                            <td className="wind">{dataZem?.gdp} M$</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title"> GDP growth</td>
+                                            <td className="wind">{dataZem?.gdp_growth} %</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title"> GDP per capita</td>
+                                            <td className="wind">{dataZem?.gdp_per_capita} $</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title">Exports</td>
+                                            <td className="wind">{dataZem?.exports} M$</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title">Imports</td>
+                                            <td className="wind">{dataZem?.imports} M$</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table className="tempHold">
+                                    <tbody>
+                                        <tr>
+                                            <td className="title2">
+                                                Population
+                                            </td>
+                                            <td className="popNumb">{dataZem?.population * 1000} </td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title2">Urban Population</td>
+                                            <td className="temp">{dataZem?.urban_population} %</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title2">Population Density</td>
+                                            <td className="temp">{dataZem?.pop_density} %</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title2">Population Growth</td>
+                                            <td className="temp">{dataZem?.pop_growth} </td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title2">Urban Population Growth</td>
+                                            <td className="temp">{dataZem?.urban_population_growth} </td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title2">Fertility</td>
+                                            <td className="temp">{dataZem?.fertility}</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title2">Homicide Rate</td>
+                                            <td className="temp">{dataZem?.homicide_rate}</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title2">Life Expectancy Male - Female</td>
+                                            <td className="temp">{dataZem?.life_expectancy_male + " - " + dataZem?.life_expectancy_female} year</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div></td>
+                    </tr>
+                    <tr>
+                        <td >
+                            <div className="windMain">
+                                <table className="windHold">
+                                    <tbody>
+
+                                        <tr>
+                                            <td className="title">Forested Area</td>
+                                            <td className="wind">{dataZem?.forested_area} %</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title">CO2 Emissions</td>
+                                            <td className="wind">{dataZem?.co2_emissions} </td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title">Threatened species</td>
+                                            <td className="wind">{dataZem?.threatened_species} </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table className="tempHold">
+                                    <tbody>
+                                        <tr>
+                                            <td className="title2">Employment Services</td>
+                                            <td className="temp">{dataZem?.employment_services} %</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title2">Employment Industry</td>
+                                            <td className="temp">{dataZem?.employment_industry} %</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title2">Employment Agriculture</td>
+                                            <td className="temp">{dataZem?.employment_agriculture} %</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title2">Unemployment</td>
+                                            <td className="temp">{dataZem?.unemployment} %</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div className="windMain">
+                                <table className="tempHold">
+                                    <tbody>
+                                        <tr>
+                                            <td className="title2">Internet Users</td>
+                                            <td className="temp">{dataZem?.internet_users} %</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title2">primary school male</td>
+                                            <td className="temp">{dataZem?.primary_school_enrollment_male
+                                            } %</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title2">primary school female</td>
+                                            <td className="temp">{dataZem?.primary_school_enrollment_female
+                                            } %</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title2">secondary school male</td>
+                                            <td className="temp">{dataZem?.secondary_school_enrollment_male
+                                            } %</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title2">secondary school female</td>
+                                            <td className="temp">{dataZem?.secondary_school_enrollment_female
+                                            } %</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title2">post secondary male</td>
+                                            <td className="temp">{dataZem?.post_secondary_enrollment_male
+                                            } %</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title2">post secondary female</td>
+                                            <td className="temp">{dataZem?.post_secondary_enrollment_female
+                                            } %</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title2">Tourists</td>
+                                            <td className="temp">{dataZem?.tourists * 1000}</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title2">Refugees</td>
+                                            <td className="temp">{dataZem?.refugees * 1000}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div className="tabelaZemlje">
+                <img src={dataZem?.flag_square_url} alt="" />
+            </div>
+
             <NyTimes news={times} />
             <div>{<BackToTop />}</div>
         </>

@@ -24,6 +24,7 @@ const NyTimes = (props) => {
                         <div className="flag">
                             <img className="nytImg" src={details.multimedia.default.url} alt="no picture" />
                         </div>
+                         <div className="nytCap">{details.multimedia.caption} </div>
                         <div className="nytDate">
                             <div>{details.byline.original}</div>
                             <div>{details.pub_date} </div>

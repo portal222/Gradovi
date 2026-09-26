@@ -31,7 +31,7 @@ const CityList = (props) => {
                     onClick={changeStyle}>
                     <div className="iks">✖</div>
 
-                    {props.cities.slice(0, 33).map((city, id) => (
+                    {props?.cities?.slice(0, 33).map((city, id) => (
                         <div className="title"
                             onClick={() => {
                                 cityClick(city);

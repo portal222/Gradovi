@@ -4,18 +4,13 @@ import { useNavigate } from "react-router-dom";
 import BackToTop from "./BackToTop";
 import SearchPlace from "./SearchPlace";
 import axios from "axios";
-import CountryFlag from "./CountryFlag";
-import CityList from "./CityList";
-
-// import Loader from "./Loader";
+import Loader from "./Loader";
 
 const Geografija = () => {
 
     const [countries, setCountries] = useState([]);
-    // const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [style, setStyle] = useState("start")
-
 
     const navigate = useNavigate();
 
@@ -24,36 +19,24 @@ const Geografija = () => {
     }, [])
 
     const getCountry = async () => {
-        // const url = "https://restcountries.com/v3.1/all";
-        // const url = "https://nominatim.openstreetmap.org/search.php?city=bern&format=jsonv2";
-        const url = "https://countriesnow.space/api/v0.1/countries";
-        const urlP = "https://countriesnow.space/api/v0.1/countries/population";
+
+        const url = "https://countriesnow.space/api/v0.1/countries/info?returns=currency,flag,capital,cities";
 
         try {
             const response = await axios.get(url);
-            const responseP = await axios.get(urlP);
             const data = response.data.data;
-            const dataP = responseP;
-            console.log("podaci zemalja", data);
-            console.log("podaci POPulacija zemalja", dataP);
-         
+
+            setIsLoading(false);
             setCountries(data);
 
         } catch (err) {
             setError(err);
+            setIsLoading(false);
         }
     };
 
-    const changeStyle = () => {
-        console.log("klik na promenu");
-        if (style !== "start") setStyle("start");
-        else setStyle("end");
-    }
-
-
     const handleClick = (drId) => {
-        console.log("klik na drz", drId);
-        const LinkTo = `detalji/${drId}`;
+        const LinkTo = `/detalji/${drId}`;
         navigate(LinkTo);
     }
 
@@ -62,10 +45,9 @@ const Geografija = () => {
         navigate(LinkTo);
     }
 
-    // if (isLoading) {
-    //     return <Loader />
-    // }
-
+    if (isLoading) {
+        return <Loader />
+    }
     return (
         <>
             <table className="tabelaZemlje">
@@ -76,66 +58,42 @@ const Geografija = () => {
                         </th>
                     </tr>
                 </thead>
-
-
                 <tbody>
                     <tr>
                         <td colSpan={2} className="populTitl">
                             Countries of the world
                         </td>
                     </tr>
-                    {countries.map((dataObj, id) => (
-                        <tr key={id}>
+                    {countries.map((dataObj) => (
+                        <tr key={dataObj.name}>
+                            <td className="flag"
+                                onClick={() => {
+                                    handleClick(dataObj.name);
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}>
+                                <img src={dataObj?.flag} alt="" style={{ width: "180px" }} />
+                            </td>
                             <td>
                                 <p className="nameGeog"
                                     onClick={() => {
-                                        handleClick(dataObj.country, dataObj.cities);
+                                        handleClick(dataObj?.name);
                                         window.scrollTo({ top: 0, behavior: 'smooth' });
                                     }}
                                 >
 
-                                    {dataObj.country}
+                                    {dataObj?.name}
                                 </p>
-                                <CityList cities={dataObj.cities} />
-
-                            </td>
-                            <td className="flag"
-                                onClick={() => {
-                                    handleClick(dataObj.country);
-                                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                                }}>
-                                <CountryFlag country={dataObj.country} />
+                                <p className="capitalGeog"
+                                    onClick={() => {
+                                        cityClick(dataObj?.capital);
+                                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                                    }}>
+                                    {dataObj?.capital}
+                                </p>
                             </td>
                         </tr>
-
                     ))}
-
-
                 </tbody>
-
-                {/* {data.map((dataObj) => (
-                    <tbody key={dataObj.name.common} >
-                        <tr>
-                            <td
-                                className="geogImg"
-                                onClick={() => {
-                                    handleClick(dataObj.name.common);
-                                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                                }}>
-                                <img src={dataObj.flags.png}
-                                    alt="flag"
-                                    className="imageDet" />
-                            </td>
-                            <td className="nameGeog"
-                                onClick={() => {
-                                    handleClick(dataObj.name.common);
-                                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                                }}>
-                                {dataObj.name.common}
-                            </td>
-                        </tr>
-                    </tbody>
-                ))} */}
             </table>
             <div style={{ height: "300px" }}></div>
             <div>{<BackToTop />}</div>

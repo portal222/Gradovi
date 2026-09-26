@@ -16,10 +16,7 @@ const Quake = () => {
     const [timeEnd, setTimeEnd] = useState([]);
     const [timeStart, setTimeStart] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const hasFetcheData = useRef(false);  //useRef sluzi za pracenje zahteva
-
-
-
+    const hasFetcheData = useRef(false);  
 
     useEffect(() => {
         getTime();
@@ -29,7 +26,6 @@ const Quake = () => {
 
         const tоday = new Date;
         let dayInMonth = tоday.getDate();
-        // var yestrday = tоday.getDate() - 1;
         let month = tоday.getMonth() + 1;
         const year = tоday.getFullYear();
 
@@ -55,10 +51,8 @@ const Quake = () => {
         setTimeStart(year + "-" + month + "-" + dayYesterday);
     }
 
-
     const datumKraj = timeEnd
     const datumPocetak = timeStart
-
 
     useEffect(() => {
         if (!hasFetcheData.current) {
@@ -70,17 +64,15 @@ const Quake = () => {
 
     useEffect(() => {
         if (equake.length > 0) {
-            //konvertuj datume u UNIX vremenske zigove
             const startTime = new Date(datumPocetak).getTime();
             const endTime = new Date(datumKraj).getTime();
-            // Филтрирај податке према твом временском оквиру само ако је filteredEquake празан
+       
+
             if (filteredEquake.length === 0) {
                 const filteredData = equake.filter(feature => {
-                    const quakeTime = feature.properties.time; // UNIX vreme je u milisekundama
+                    const quakeTime = feature.properties.time; 
                     return quakeTime >= startTime && quakeTime <= endTime;
                 });
-
-                console.log("филтрирани подаци о земљотресима", filteredData);
                 setFilteredEquake(filteredData);
             }
         }
@@ -89,16 +81,14 @@ const Quake = () => {
     const getQuake = async (datumPocetak, datumKraj) => {
 
         const url = `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${datumPocetak}&endtime=${datumKraj}&minmagnitude=4`;
-
-
-
         try {
-
             const response = await axios.get(url);
             const data = response.data;
-            console.log("zemljotres podaci", data);
+        
             setIsLoading(false);
             setEquake(data.features);
+
+            console.log("quake detalj", response);
         } catch (err) {
             setError(err);
         }

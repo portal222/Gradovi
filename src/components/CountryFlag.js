@@ -13,14 +13,14 @@ const CountryFlag = (props) => {
 
 
 
-    const country = props.country
+    const drId = props.country
 
     useEffect(() => {
-        getCountries(country);
-    }, [country]);
+        getCountries(drId);
+    }, [drId]);
 
-    const getCountries = async (country) => {
-        const url = `https://restcountries.com/v3.1/name/${country}`
+    const getCountries = async (drId) => {
+        const url = `https://ridlejoke-proxy.kvaka32.workers.dev/rest?q=${drId}`
         try {
             const response = await axios.get(url);
             const data = response.data;

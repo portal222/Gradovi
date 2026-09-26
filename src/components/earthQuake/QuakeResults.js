@@ -34,7 +34,8 @@ const QuakeResults = () => {
             const data = response.data;
             setEquake(data.features);
 
-            console.log("rezultati biranja datuma", data)
+            console.log("zemljotresi", response);
+
         } catch (err) {
             setError(err);
         }
@@ -44,8 +45,7 @@ const QuakeResults = () => {
         const date = new Date(e.target.value);
         const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
         setStartDate(formattedDate);
-        console.log("start date:", formattedDate);
-
+     
         if (formattedDate && endDate) {
             getQuake(formattedDate, endDate);
         }
@@ -55,7 +55,7 @@ const QuakeResults = () => {
         const date = new Date(e.target.value);
         const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
         setEndDate(formattedDate);
-        console.log("end date:", formattedDate);
+       
 
         if (startDate && formattedDate) {
             getQuake(startDate, formattedDate);
@@ -66,6 +66,7 @@ const QuakeResults = () => {
     const paginatedPosts = PaginationQuake(equake, pageSize);
     const currentPosts = paginatedPosts[currentPage - 1];
 
+    console.log("zemljoresi curen post", currentPosts);
          window.scrollTo({ top: 0, behavior: 'smooth' });
 
     return (

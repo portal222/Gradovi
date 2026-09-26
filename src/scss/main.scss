@@ -1,10 +1,16 @@
-@import '../scss/_cssreset.scss';
-@import "../scss/_weather.scss";
+@use '../scss/_cssreset.scss';
+@use "../scss/_weather.scss";
 
 $color1: #ece8e8;
-$color10: #d0caca;
+$color2: #a7abb0;
+$color3: #C4D8E2;
+$color4: rgb(246, 252, 255);
+$color5: #FFFAF0;
+$color6: #e0f2f1;
+$color7: #c8e6c9;
 $color8: #89CFF0;
 $color9: #00308F;
+$color10: #d0caca;
 $colHov: #f77103;
 $colTit: dodgerblue;
 
@@ -152,7 +158,7 @@ body {
     }
 
     .buttonC {
-        width: 100px;
+        width: 150px;
 
         background-color: $color3;
 
@@ -174,35 +180,39 @@ body {
     }
 
     .end {
-        display: flex;
-        flex-direction: column;
-
-        position: relative;
-
-        margin-left: 20px;
-
-        width: 200px;
-        padding: 0px 10px 20px 10px;
+        width: 640px;
         background-color: $color3;
-        z-index: 1;
 
         .iks {
             display: block;
             text-align: right;
             cursor: pointer;
+            color: #5e5f5e;
+            font-size: 14px;
+            padding-right: 5px;
+            padding-top: 3px;
         }
 
-        .title {
-            cursor: pointer;
-            color: $colTit;
+        .cityGrid {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            gap: 5px;
+            position: relative;
+            margin-left: 20px;
+            padding: 0px 10px 20px 10px;
+            z-index: 1;
 
-            &:hover {
-                color: $colHov;
+            .title {
+                cursor: pointer;
+                color: $colTit;
+                width: 140px;
+
+                &:hover {
+                    color: $colHov;
+                }
             }
         }
     }
-
-
 
     .popTr {
         .popul {
@@ -225,7 +235,6 @@ body {
         background-color: $color10;
     }
 
-
     .geogImg {
         min-width: 250px;
         max-width: 250px;
@@ -244,7 +253,8 @@ body {
     }
 
     .results {
-        padding: 15px;
+        padding: 20px;
+        font-size: 20px;
         border-bottom: solid 3px #7a9c99;
     }
 
@@ -264,7 +274,8 @@ body {
 
     .flag {
         text-align: center;
-        padding: 10px 20px;
+        padding: 5px 20px;
+        cursor: pointer;
 
         .imageFl {
             width: 260px;
@@ -382,12 +393,29 @@ body {
     .nameGeog {
         max-width: 700px;
         vertical-align: middle;
-        padding: 45px 10px 30px 10px;
+        padding: 25px 10px 10px 10px;
         font-size: 30px;
         font-weight: bold;
-        text-align: center;
+        text-align: left;
         cursor: pointer;
         color: $colTit;
+
+        &:hover {
+            font-weight: bold;
+            color: $colHov;
+
+        }
+    }
+
+    .capitalGeog {
+        max-width: 700px;
+        vertical-align: middle;
+        padding: 25px 10px 10px 10px;
+        font-size: 26px;
+        font-weight: bold;
+        text-align: left;
+        cursor: pointer;
+        color: $color2;
 
         &:hover {
             font-weight: bold;
@@ -459,6 +487,66 @@ body {
             color: black;
         }
 
+        .lang3 {
+            font-size: 22px;
+
+            text-align: justify;
+            vertical-align: top;
+            padding: 15px;
+            color: black;
+        }
+
+        .lang4 {
+            font-size: 20px;
+
+            text-align: justify;
+            vertical-align: top;
+            padding: 15px 40px;
+            color: black;
+        }
+
+        .colGrid {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 5px;
+            padding: 5px;
+            padding-right: 40px;
+
+            p {
+                width: 90px;
+                height: 20px;
+                font-size: 16px;
+            }
+        }
+
+        .borGrid {
+            display: grid;
+            grid-template-columns: auto auto auto auto auto auto;
+            gap: 10px;
+            padding: 10px 25px;
+
+
+            p {
+                font-size: 14px;
+                padding: 5px 10px;
+                text-align: center;
+            }
+
+            .coName {
+                font-size: 16px;
+                cursor: pointer;
+                color: #00308F;
+
+                &:hover {
+                    color: #006B3C;
+                }
+
+                .coFlag {
+                    width: 40px;
+                }
+            }
+        }
+
         .nameComm {
             font-size: 26px;
             font-weight: bold;
@@ -507,6 +595,11 @@ body {
     .nytPar {
         padding: 5px 15px;
         font-size: 22px;
+    }
+
+    .nytCap {
+        padding: 3px 15px;
+        font-size: 18px;
     }
 
     .nytDate {
@@ -737,32 +830,37 @@ body {
         }
 
         .buttonC {
-            width: 90px;
+            width: 120px;
 
         }
 
         .end {
             display: flex;
             flex-direction: column;
-
-            position: relative;
-            // margin-top: 45px;
-            margin-left: 20px;
-            // height: 500px;
-            width: 110px;
+            position: relative; 
+            margin-left: 5px;
+            width: 320px;
             padding: 0px 10px 20px 10px;
             background-color: $color3;
             z-index: 2;
 
+ .cityGrid {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 5px;
+            position: relative;
+            margin-left: 10px;
+            padding: 0px 10px 10px 10px;
+            z-index: 1;
 
             .title {
                 cursor: pointer;
-                color: colTit;
+            
+                width: 110px;
 
-                &:hover {
-                    color: $colHov;
-                }
+             
             }
+        }
         }
 
         .popTr {
@@ -833,6 +931,14 @@ body {
         .nameGeog {
             font-size: 22px;
             padding: 30px 8px 15px 19px;
+
+        }
+
+        .capitalGeog {
+
+
+            padding: 30px 8px 15px 19px;
+            font-size: 18px;
 
         }
 
@@ -997,6 +1103,53 @@ body {
             .lang2 {
                 font-size: 14px;
             }
+
+            .lang3 {
+                font-size: 16px;
+            }
+
+            .lang4 {
+                font-size: 16px;
+                padding: 15px 30px;
+            }
+
+            .colGrid {
+                display: grid;
+                grid-template-columns: auto auto;
+                gap: 5px;
+                padding: 5px;
+                padding-right: 20px;
+
+                p {
+                    width: 50px;
+                    height: 10px;
+                    font-size: 12px;
+                }
+            }
+
+            .borGrid {
+                display: grid;
+                grid-template-columns: auto auto auto auto;
+                gap: 4px;
+                padding: 5px 10px;
+
+
+                p {
+                    font-size: 12px;
+                    padding: 5px 4px;
+                    text-align: center;
+                }
+
+                .coName {
+                    font-size: 12px;
+
+                    .coFlag {
+                        width: 25px;
+                    }
+
+                }
+            }
+
 
             .nameComm {
                 font-size: 20px;

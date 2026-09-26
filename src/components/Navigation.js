@@ -12,6 +12,7 @@ import GeographicDetIso2 from "./GeographicDetIso2";
 import Quake from "./earthQuake/Quake";
 import Population from "./Population";
 import globus from "../../public/assets/img/globus.png"
+import GeographicIsoResult from "./GeographicIsoResult";
 
 export default function Navigation() {
   return (
@@ -20,20 +21,20 @@ export default function Navigation() {
         <div className="fixed">
           <Link to='/'>
             <Button variant="contained" sx={{ ml: 1 }}
-             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
 
               COUNTRIES
             </Button>
           </Link>
           <Link to='/quake'>
             <Button variant="contained" sx={{ ml: 1 }}
-             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               earthquake
             </Button>
           </Link>
           <Link to='/population'>
             <Button variant="contained" sx={{ ml: 1 }}
-             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               population
             </Button>
           </Link>
@@ -60,13 +61,22 @@ export default function Navigation() {
         <Route path="/detalji/:drId/capital/:cityId" element={<CityDetails />} />
         <Route path="/geografija/searchFlag/flags/:drId/capital/:cityId" element={<CityDetails />} />
         <Route path="/cities/:cityId" element={<CityDetails />} />
+        <Route path="/resultIso/:alpha" element={<GeographicIsoResult />} />
+        <Route path="/search/detalji/:drId/isoresult/:drId" element={<GeographicDetails />} />
+       
+        <Route path="/detalji/:drId/isoresult/:drId" element={<GeographicDetails />} />
+    
+        <Route path="/detalji/:drId/cities/:cityId" element={<CityDetails />} />
+        <Route path="/search/detalji/:drId/cities/:cityId" element={<CityDetails />} />
+        <Route path="search/detalji/:drId/isoresult/:drId/cities/:cityId" element={<CityDetails />} />
+        <Route path="/detalji/:drId/isoresult/:drId/cities/:cityId" element={<CityDetails />} />
       </Routes>
       <div className="home">
         <div className="img"></div>
       </div>
-         <div className="home">
-          <img src={globus} alt="" className="globus"/>
-         </div>
+      <div className="home">
+        <img src={globus} alt="" className="globus" />
+      </div>
 
       <Footers />
     </HashRouter>

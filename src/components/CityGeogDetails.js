@@ -15,21 +15,15 @@ const SearchResutsGeog = (props) => {
     const [nytCity, setNytCity] = useState([]);
     const [cityName, setCityName] = useState([]);
 
-
     const lat = props.lat
     const lon = props.lon
     const nameCity = props.city
-
-
-
 
     const googleMap = 'https://maps.google.com/maps?q=' +
         lat +
         ',' +
         lon +
         '&h1=en&z=12&output=embed'
-
-    console.log("koordinate", lat)
 
     useEffect(() => {
         getWeather(lat, lon);
@@ -52,7 +46,6 @@ const SearchResutsGeog = (props) => {
         setPopul(data);
         setForecast(data.list);
         setCityName(data.city.name)
-    
     }
 
     useEffect(() => {
@@ -65,7 +58,7 @@ const SearchResutsGeog = (props) => {
         const response = await fetch(url);
         const data = await response.json();
     
-        setNytCity(data.response.docs);
+        setNytCity(data?.response?.docs);
     }
 
     const classFunction = (temp) => {
@@ -192,7 +185,7 @@ const SearchResutsGeog = (props) => {
                         <td >
                             <div className="windMain">
                                 <SunriseSunset dates={wind.sys} population={popul.city?.population}
-                                    cityName={popul.city?.name} />
+                                    cityName={popul.city?.name} coName={popul.city?.country}/>
                             </div>
                         </td>
                     </tr>
