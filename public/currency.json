@@ -1,0 +1,22 @@
+[
+    {
+        "country": "Serbia",
+        "cod": "RSD"
+    },
+    {
+        "country": "Russia",
+        "cod": "RUB"
+    },
+    {
+        "country": "Europe",
+        "cod": "EUR"
+    },
+    {
+        "country": "USA",
+        "cod": "USD"
+    },
+    {
+        "country": "UK",
+        "cod": "GBP"
+    }
+]
