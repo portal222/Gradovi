@@ -29,8 +29,6 @@ const SearchResutsGeog = () => {
             setCountries(data.objects);
             setResults(data.objects.length);
          
-
-            console.log("novi detalji drzava po imenu", data)
         } catch (err) {
             setError(err);
 

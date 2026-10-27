@@ -24,7 +24,6 @@ const Population = () => {
             const responseP = await axios.get(urlP);
             const dataP = responseP.data;
 
-            console.log("podaci POPulacija zemalja", dataP);
             setCountries(dataP.data);
 
         } catch (err) {
@@ -41,14 +40,13 @@ const Population = () => {
                             Population by region 1961 - 2018
                         </td>
                     </tr>
-                    {countries.slice(0, 46).map((country, id) => (
+                    {countries.slice(0, 46).map(country => (
                         <>
-                            <tr key={id} className="popTr">
+                            <tr key={country.code} className="popTr">
                                 <td className="popul">
                                     {country.country}
                                 </td>
                                 <td className="populVal">
-                                    {/* {country.populationCounts?.[57].value} */}
                                     <PopulationViewer populationCounts={country.populationCounts} />
                                 </td>
                             </tr>

@@ -34,7 +34,6 @@ const QuakeResults = () => {
             const data = response.data;
             setEquake(data.features);
 
-            console.log("zemljotresi", response);
 
         } catch (err) {
             setError(err);
@@ -66,7 +65,6 @@ const QuakeResults = () => {
     const paginatedPosts = PaginationQuake(equake, pageSize);
     const currentPosts = paginatedPosts[currentPage - 1];
 
-    console.log("zemljoresi curen post", currentPosts);
          window.scrollTo({ top: 0, behavior: 'smooth' });
 
     return (
@@ -97,9 +95,9 @@ const QuakeResults = () => {
 
 
                 {currentPosts &&
-                    currentPosts.map((q, id) => (
+                    currentPosts.map(q => (
                         <>
-                            <div className="quake" key={id}>
+                            <div className="quake" key={q.id}>
                                 <div>
                                     <p className="magnitude">{q.properties.mag}</p>
                                     <p className="titleQ">{q.properties.place}</p>

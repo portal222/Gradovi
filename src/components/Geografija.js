@@ -20,7 +20,8 @@ const Geografija = () => {
 
     const getCountry = async () => {
 
-        const url = "https://countriesnow.space/api/v0.1/countries/info?returns=currency,flag,capital,cities";
+  
+        const url = `https://ridlejoke-proxy.kvaka32.workers.dev/snow`;
 
         try {
             const response = await axios.get(url);

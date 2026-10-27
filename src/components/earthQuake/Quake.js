@@ -88,7 +88,6 @@ const Quake = () => {
             setIsLoading(false);
             setEquake(data.features);
 
-            console.log("quake detalj", response);
         } catch (err) {
             setError(err);
         }
@@ -100,17 +99,14 @@ const Quake = () => {
         return <Loader />
     }
 
-
     return (
         <>
-                               
-
             <QuakeResults />
             <div className="tabelaZemlje" >
                 <div className="choose">There have been {filteredEquake.length} earthquakes in the last 24 hours.</div>
-                {filteredEquake.map((q, id) => (
+                {filteredEquake.map(q => (
                     <>
-                        <div className="quake" key={id}>
+                        <div className="quake" key={q.id}>
                             <div>
                                 <p className="magnitude">{q.properties.mag}</p>
                                 <p className="titleQ">{q.properties.place}</p>
